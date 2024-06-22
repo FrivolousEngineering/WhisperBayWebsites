@@ -1,5 +1,14 @@
+from enum import Enum
+
 from pydantic import BaseModel
 from typing import Optional, List
+
+
+class QuestionType(str, Enum):
+    boolean: str = "boolean"
+    freeform: str = "freeform"
+    pickone: str = "pickone"
+    pickmultiple: str = "pickmultiple"
 
 class GuestbookMessageBase(BaseModel):
     author_name: str
@@ -45,10 +54,9 @@ class Answer(AnswerBase):
 
 class QuestionBase(BaseModel):
     text: str
-    type: str
+    type: QuestionType
 
     required: bool
-    type: str
 
 
 class QuestionCreate(QuestionBase):
