@@ -22,6 +22,17 @@ def get_messages(target_guestbook: str, db: Session = Depends(get_db)):
     messages = crud.get_guestbook_message_for_board(db, board = target_guestbook)
     return messages
 
+
 @app.post("/messages/", response_model=schemas.GuestbookMessage)
 def create_message(message: schemas.GuestbookMessageCreate, db: Session = Depends(get_db)):
     return crud.create_guestbook_message(db=db, message=message)
+
+
+@app.get("/questions/", response_model=list[schemas.Question])
+def get_questions(db: Session = Depends(get_db)):
+    return crud.get_questions(db)
+
+
+@app.post("/questions/", response_model=schemas.Question)
+def create_question(question: schemas.QuestionCreate, db: Session = Depends(get_db)):
+    return crud.create_question(db=db, question=question)
