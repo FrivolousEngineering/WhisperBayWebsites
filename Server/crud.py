@@ -37,3 +37,20 @@ def create_question(db: Session, question: schemas.QuestionCreate):
     db.commit()
     db.refresh(db_question)
     return db_question
+
+
+def create_question_option(db: Session, question_option: schemas.QuestionOptionCreate, question_id: int):
+    db_question_option = models.QuestionOption(**question_option.dict(), question_id=question_id)
+    # TODO: Ensure that the order of the option is unique
+    db.add(db_question_option)
+    db.commit()
+    db.refresh(db_question_option)
+    return db_question_option
+
+
+def create_answer(db: Session, answer: schemas.AnswerCreate, question_id: int):
+    db_answer = models.Answer(**answer.dict(), question_id=question_id)
+    db.add(db_answer)
+    db.commit()
+    db.refresh(db_answer)
+    return db_answer
