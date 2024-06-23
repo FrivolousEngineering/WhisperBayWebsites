@@ -61,12 +61,13 @@
             form.append($("<input>", {
                 type: "text",
                 name: "text",
-                value: question.text
+                value: question.text,
+                disabled: question.required
             }));
             form.append($("<br>"))
             // Change the type of the question
             form.append($("<label>").text("Question Type: "));
-            var select = $("<select>", {name:"type"});
+            var select = $("<select>", {name:"type", disabled: question.required});
 
             select.append($("<option>", {value:"pickone", selected: question.type === "pickone"}).text("Pick one"));
             select.append($("<option>", {value:"freeform", selected: question.type === "freeform"}).text("Text"));
@@ -80,7 +81,7 @@
                 tr.append($("<th>").text("options"));
                 var th = $("<th>");
                 $.each(question.options, function (j, option) {
-                    th.append($("<input/>", {type:"text", name: "option_" + option.order, value: option.value}));
+                    th.append($("<input/>", {type:"text", name: "option_" + option.order, value: option.value, disabled: question.required}));
                     th.append($("<br>"));
                 });
                 tr.append(th);
@@ -90,9 +91,11 @@
                 form.append($("<br>"));
             }
 
-            form.append($("<input>", {type: "submit", value: "save"}))
-            form.appendTo("#questionsContainer");
+            if(!question.required) {
+                form.append($("<input>", {type: "submit", value: "save"}))
+            }
 
+            form.appendTo("#questionsContainer");
 
             // Form to delete the question
             if(!question.required) {
