@@ -1,0 +1,55 @@
+<html>
+
+<script src="jquery-3.7.1.min.js"></script>
+<title> YOUR HAPPYNESS 2000 RESULTS</title>
+YOUR AMAZING TEST RESULT!?!!!
+
+<body>
+<div id="result"></div>
+</body>
+
+<script>
+    function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
+        }
+        return false;
+    }
+
+    // I'm ripping the answer from param and removing it from it again.
+    // There is no reason for this but that I feel that it looks ugly if i keep it in there.
+    var answer = getUrlParameter("answer");
+
+    if(answer) {
+        // Delete the answer param from the params!
+        let params = new URLSearchParams(location.search)
+        params.delete('answer')
+        if (params.size) {
+            // If there are multiple params, only strip the answer
+            history.replaceState(null, '', '?' + params + location.hash)
+        } else {
+            // Just purge the whole param thing (otherwise it keeps a ? behind the url)
+            history.replaceState(null, '', window.location.pathname)
+        }
+        $("#result").html(answer);
+    } else {
+        // Answer was not set! User attempting to check a forbidden (TM) page!
+        // Could also have been caused by a refresh.
+        document.title = "FORBIDDEN"
+        $("#result").html("THIS PAGE IS FORBIDDEN. THIS HAS BEEN LOGGED AND WILL BE CHECKED BY THE ADMIN");
+        setTimeout(function() {
+          window.location.href = "http://localhost:8000/static/questionSurvey.html";
+        }, 10000);
+    }
+
+</script>
+</html>

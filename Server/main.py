@@ -126,4 +126,5 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
     da = jsonable_encoder(da)
 
     print(da)
+    return {"answer": "There is a bright future for you! You are so amazing!"}
     pass

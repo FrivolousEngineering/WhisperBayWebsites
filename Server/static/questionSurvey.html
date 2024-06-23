@@ -2,7 +2,7 @@
 <head>
     <script src="jquery-3.7.1.min.js"></script>
 </head>
-
+<!-- There are no secrets here. There is nothing in-character here -->
 <body>
 
 
@@ -29,7 +29,24 @@
                     console.log("SENDING");
                 },
                 success: function (data) {
-                    $("#message").html("");
+                    $("#message").text("Calculating:");
+                    // Disable the calculate button
+                    $("#calculate-button").prop("disabled", true)
+
+                    // Lock all the input fields
+                    $('.form-field').each(function () {
+                        $(this).prop("disabled", true);
+                    });
+                    // Show a stupid animation message...
+                    setTimeout(function addDot() {
+                      $("#message").text($("#message").text() + ".");
+                      setTimeout(addDot, 1000);
+                    }, 1000);
+
+                    setTimeout(function() {
+                      window.location.href = "http://localhost:8000/static/result.html?answer=" + data.answer;
+                    }, 10000);
+
                 },
                 error: function (xhr, description, error) {
                     $("#message").html(xhr.responseText);
@@ -86,7 +103,7 @@
             form.append($("<hr>"));
         });
 
-        form.append($("<input>", {type: "submit", value: "Calculate!"}))
+        form.append($("<input>", {type: "submit", value: "Calculate!", id: "calculate-button"}))
 
         form.appendTo("#questionsContainer");
     }
