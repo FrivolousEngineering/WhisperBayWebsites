@@ -92,8 +92,21 @@
 
             form.append($("<input>", {type: "submit", value: "save"}))
             form.appendTo("#questionsContainer");
+
+
+            // Form to delete the question
+            if(!question.required) {
+                var deleteQuestionForm = $("<form/>", {
+                    action: "http://localhost:8000/questions/" + question.id,
+                    method: "delete"
+                });
+                deleteQuestionForm.append($("<input>", {type: "submit", value: "Delete Question"}))
+                deleteQuestionForm.appendTo("#questionsContainer");
+            }
             $("<hr>").appendTo("#questionsContainer");
         });
+
+        // Button to add a new question that is at the bottom of the form!
         var newQuestionForm = $("<form/>", {
             action: "http://localhost:8000/questions/empty/",
             method: "post"

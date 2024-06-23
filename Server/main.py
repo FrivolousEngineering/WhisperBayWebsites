@@ -87,3 +87,11 @@ async def update_question(question_id: int, request: Request, db: Session = Depe
 def create_question(db: Session = Depends(get_db)):
     question = schemas.QuestionCreate(text="", type="freeform", required=False)
     return crud.create_question(db=db, question=question)
+
+
+@app.delete("/questions/{question_id}/")
+async def delete_question(question_id: int, db: Session = Depends(get_db)):
+    if crud.get_question(db, question_id) is None:
+        raise HTTPException(status_code=404, detail="Question not found")
+
+    crud.delete_question(db, question_id)

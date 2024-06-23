@@ -67,3 +67,9 @@ def create_answer(db: Session, answer: schemas.AnswerCreate, question_id: int):
     db.commit()
     db.refresh(db_answer)
     return db_answer
+
+
+def delete_question(db: Session, question_id: int):
+    db_question = get_question(db, question_id)
+    db.delete(db_question)
+    db.commit()
