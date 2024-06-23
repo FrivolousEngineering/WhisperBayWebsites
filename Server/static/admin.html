@@ -25,6 +25,7 @@
             beforeSend: function()
             {
                 $("#message").html("sending...");
+                console.log("SENDING");
             },
             success: function(data)
             {
@@ -78,7 +79,26 @@
             if (question.type === "pickone") {
                 var table = $("<table/>");
                 var tr = $("<tr/>");
-                tr.append($("<th>").text("options"));
+                var optionsHeader = $("<th>").text("options");
+                if(!question.required){
+                    // Allow for new questions to be added!
+                    var addOptionButton = $("<button/>").text("Add Option");
+
+                    addOptionButton.click(function(e){
+                        e.preventDefault();
+                        $.ajax({
+                            url: "http://localhost:8000/questions/" + question.id + "/options/empty/",
+                            type: "POST",
+                            success: function(result) {
+                                getAllQuestions(); // Refresh all the data (yeah, inefficient AF, sue me)
+                            },
+                        });
+                    });
+
+                    optionsHeader.append(addOptionButton);
+                }
+
+                tr.append(optionsHeader);
                 var th = $("<th>");
                 $.each(question.options, function (j, option) {
                     th.append($("<input/>", {type:"text", name: "option_" + option.order, value: option.value, disabled: question.required}));

@@ -10,10 +10,12 @@ class QuestionType(str, Enum):
     pickone: str = "pickone"
     pickmultiple: str = "pickmultiple"
 
+
 class GuestbookMessageBase(BaseModel):
     author_name: str
     message: str
     target_board: str
+
 
 class GuestbookMessageCreate(GuestbookMessageBase):
     pass
@@ -39,6 +41,7 @@ class QuestionOptionCreate(QuestionOptionBase):
 class QuestionOption(QuestionOptionBase):
     id: int
     pass
+
 
 class AnswerBase(BaseModel):
     pass

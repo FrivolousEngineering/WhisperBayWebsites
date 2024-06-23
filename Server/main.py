@@ -84,9 +84,24 @@ async def update_question(question_id: int, request: Request, db: Session = Depe
 
 
 @app.post("/questions/empty/", response_model=schemas.Question)
-def create_question(db: Session = Depends(get_db)):
+def create_empty_question(db: Session = Depends(get_db)):
     question = schemas.QuestionCreate(text="", type="freeform", required=False)
     return crud.create_question(db=db, question=question)
+
+
+@app.post("/questions/{question_id}/options/empty/") #, response_model=schemas.Question)
+def create_empty_option(question_id: int, db: Session = Depends(get_db)):
+    question = crud.get_question(db, question_id)
+    if question is None:
+        raise HTTPException(status_code=404, detail="Question not found")
+
+    if question.type == "freeform" or question.type == "boolean":
+        raise HTTPException(status_code=400, detail="Can't add options to freeform or boolean questions!")
+
+
+    #option = schemas.OptionCreate(question_id=question_id)
+
+    #return crud.create_question(db=db, question=question)
 
 
 @app.delete("/questions/{question_id}/")
@@ -95,3 +110,5 @@ async def delete_question(question_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Question not found")
 
     crud.delete_question(db, question_id)
+
+
