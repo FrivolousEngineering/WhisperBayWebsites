@@ -23,7 +23,7 @@ def get_questions(db: Session):
 
 
 def get_question(db: Session, question_id: int):
-    return db.query(models.Question).filter(models.Question.id == question_id)
+    return db.query(models.Question).filter(models.Question.id == question_id).first()
 
 
 def create_question(db: Session, question: schemas.QuestionCreate):
@@ -46,6 +46,11 @@ def create_question_option(db: Session, question_option: schemas.QuestionOptionC
     db.commit()
     db.refresh(db_question_option)
     return db_question_option
+
+def update_question_text(db:Session, question_id: int, new_text: str):
+    db_question = get_question(db, question_id)
+    db_question.text = new_text
+    db.commit()
 
 
 def create_answer(db: Session, answer: schemas.AnswerCreate, question_id: int):

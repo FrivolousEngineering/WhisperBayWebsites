@@ -1,13 +1,32 @@
 from fastapi import Depends, FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
+from starlette.requests import Request
+from starlette.staticfiles import StaticFiles
+from fastapi.encoders import jsonable_encoder
 
 from . import crud, models, schemas
 from .database import SessionLocal, engine
 
+origins = [
+    "http://localhost:3000",
+    "localhost:3000"
+]
 
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
+app.mount("/static", StaticFiles(directory="Server/static"), name="static")
+
 
 # Dependency
 def get_db():
@@ -50,3 +69,14 @@ def create_answer(answer: schemas.AnswerCreate, question_id: int, db: Session = 
     if crud.get_question(db, question_id) is None:
         raise HTTPException(status_code=404, detail="Question not found")
     return crud.create_answer(db, question_id=question_id, answer=answer)
+
+
+@app.put("/questions/{question_id}/")
+async def update_question(question_id: int, request: Request, db: Session = Depends(get_db)):
+    if crud.get_question(db, question_id) is None:
+        raise HTTPException(status_code=404, detail="Question not found")
+
+    da = await request.form()
+    da = jsonable_encoder(da)
+    crud.update_question_text(db, question_id, da["text"])
+    print(da)
