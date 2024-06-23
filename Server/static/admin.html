@@ -7,10 +7,6 @@
 
 </div>
 
-<form id="questions" action="http://localhost:8000/questions/">
-
-</form>
-
 <script>
 
     $(document).on("submit", "form", function(event)
@@ -32,7 +28,7 @@
             success: function(data)
             {
                 $("#message").html("");
-                updateAll()
+                getAllQuestions(); // Refresh all the data (yeah, inefficient AF, sue me)
             },
             error: function (xhr, description, error)
             {
@@ -50,7 +46,7 @@
 
     function updateTable(response) {
         // Clear the old data (if any!)
-        // $('#records_table tbody').empty();
+        $('#questionsContainer').empty();
 
         // Go over all the questions
         $.each(response, function (i, question) {
