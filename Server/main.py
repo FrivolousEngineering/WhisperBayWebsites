@@ -79,4 +79,5 @@ async def update_question(question_id: int, request: Request, db: Session = Depe
     da = await request.form()
     da = jsonable_encoder(da)
     crud.update_question_text(db, question_id, da["text"])
+    crud.update_question_type(db, question_id, da["type"])
     print(da)

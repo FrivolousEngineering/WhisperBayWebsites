@@ -52,6 +52,10 @@ def update_question_text(db:Session, question_id: int, new_text: str):
     db_question.text = new_text
     db.commit()
 
+def update_question_type(db:Session, question_id: int, new_type: str):
+    db_question = get_question(db, question_id)
+    db_question.type = new_type
+    db.commit()
 
 def create_answer(db: Session, answer: schemas.AnswerCreate, question_id: int):
     db_answer = models.Answer(**answer.dict(), question_id=question_id)

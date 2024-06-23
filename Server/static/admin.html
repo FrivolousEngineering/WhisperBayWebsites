@@ -54,19 +54,31 @@
                 action: "http://localhost:8000/questions/" + question.id,
                 method: "put"
             });
-            form.append($("<label>", {for: question.id}).text("Question text: "));
+
+            // Change the text of the question
+            form.append($("<label>", {}).text("Question text: "));
             form.append($("<input>", {
                 type: "text",
                 name: "text",
                 value: question.text
             }));
+            form.append($("<br>"))
+            // Change the type of the question
+            form.append($("<label>").text("Question Type: "));
+            var select = $("<select>", {name:"type"});
+            console.log(question.type)
+            select.append($("<option>", {value:"pickone", selected: question.type === "pickone"}).text("Pick one"));
+            select.append($("<option>", {value:"freeform", selected: question.type === "freeform"}).text("Text"));
+            select.append($("<option>", {value:"boolean", selected: question.type === "boolean"}).text("Boolean"));
+            form.append(select);
+
+            // Allow the multiple choice options to be changed
             if (question.type === "pickone") {
                 var table = $("<table/>");
                 var tr = $("<tr/>");
                 tr.append($("<th>").text("options"));
                 var th = $("<th>");
                 $.each(question.options, function (j, option) {
-                    console.log(option.value);
                     th.append($("<input/>", {type:"text", name: "option_" + option.order, value: option.value}));
                     th.append($("<br>"));
                 });
@@ -74,8 +86,10 @@
                 table.append(tr);
                 form.append(table);
             }
+
             form.append($("<input>", {type: "submit", value: "save"}))
-            form.appendTo("#questionsContainer")
+            form.appendTo("#questionsContainer");
+            $("<hr>").appendTo("#questionsContainer");
         });
     }
 
