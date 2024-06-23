@@ -5,6 +5,12 @@
 <!-- There are no secrets here. There is nothing in-character here -->
 <body>
 
+<style>
+    * {
+      font-size: 16px;
+      font-family: Monospace;
+    }
+</style>
 
 <div id="questionsContainer">
 
@@ -13,6 +19,10 @@
 <div id="message"></div>
 </body>
 <script>
+
+    function encodeWhiteSpaces(str) {
+       return str.split('').map(function(c) { return c === ' ' ? '&nbsp;' : c }).join('');
+    }
     $(document).on("submit", "form", function (event) {
         event.preventDefault();
         var url = $(this).attr("action");
@@ -37,14 +47,44 @@
                     $('.form-field').each(function () {
                         $(this).prop("disabled", true);
                     });
+
+                    var frame = 0;
+
+
                     // Show a stupid animation message...
-                    setTimeout(function addDot() {
-                      $("#message").text($("#message").text() + ".");
-                      setTimeout(addDot, 1000);
-                    }, 1000);
+                    setTimeout(function animate() {
+                        var text = "Calculating: <br>"
+                        if(frame === 0){
+                            text += "╔════╤╤╤╤════╗<br>" +
+                                    "║    │││ \\   ║<br>" +
+                                    "║    │││  O  ║<br>" +
+                                    "║    OOO     ║<br>"
+                        } else if (frame === 1) {
+                            text += "╔════╤╤╤╤════╗<br>" +
+                                    "║    ││││    ║<br>" +
+                                    "║    ││││    ║<br>" +
+                                    "║    OOOO    ║"
+                        } else if (frame === 2) {
+                            text += "╔════╤╤╤╤════╗<br>" +
+                                    "║   / │││    ║<br>" +
+                                    "║  O  │││    ║<br>" +
+                                    "║     OOO    ║"
+                        } else if (frame === 3){
+                            text += "╔════╤╤╤╤════╗<br>" +
+                                    "║    ││││    ║<br>" +
+                                    "║    ││││    ║<br>" +
+                                    "║    OOOO    ║"
+                        }
+                        frame += 1
+                        if(frame===4) {
+                            frame = 0
+                        }
+                        $("#message").html(encodeWhiteSpaces(text));
+                        setTimeout(animate, 1000);
+                    }, 0);
 
                     setTimeout(function() {
-                      window.location.href = "http://localhost:8000/static/result.html?answer=" + data.answer;
+                        window.location.href = "http://localhost:8000/static/result.html?answer=" + data.answer;
                     }, 10000);
 
                 },
