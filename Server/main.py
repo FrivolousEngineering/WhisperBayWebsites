@@ -98,10 +98,8 @@ def create_empty_option(question_id: int, db: Session = Depends(get_db)):
     if question.type == "freeform" or question.type == "boolean":
         raise HTTPException(status_code=400, detail="Can't add options to freeform or boolean questions!")
 
+    crud.create_question_option(db, question_id=question_id, question_option= schemas.QuestionOptionCreate(order = 0, value = ""))
 
-    #option = schemas.OptionCreate(question_id=question_id)
-
-    #return crud.create_question(db=db, question=question)
 
 
 @app.delete("/questions/{question_id}/")
