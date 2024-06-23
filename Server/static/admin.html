@@ -94,14 +94,14 @@
                             },
                         });
                     });
-
+                    optionsHeader.append($("<br>"));
                     optionsHeader.append(addOptionButton);
                 }
 
                 tr.append(optionsHeader);
                 var th = $("<th>");
                 $.each(question.options, function (j, option) {
-                    th.append($("<input/>", {type:"text", name: "option_" + option.order, value: option.value, disabled: question.required}));
+                    th.append($("<input/>", {type:"text", name: "option_" + option.id, value: option.value, disabled: question.required}));
                     th.append($("<br>"));
                 });
                 tr.append(th);

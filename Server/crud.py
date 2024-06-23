@@ -22,6 +22,8 @@ def create_guestbook_message(db: Session, message: schemas.GuestbookMessageCreat
 def get_questions(db: Session):
     return db.query(models.Question).order_by(models.Question.order)
 
+def get_question_option(db: Session, option_id: int):
+    return db.query(models.QuestionOption).filter(models.QuestionOption.id == option_id).first()
 
 def get_question(db: Session, question_id: int):
     return db.query(models.Question).filter(models.Question.id == question_id).first()
@@ -72,4 +74,9 @@ def create_answer(db: Session, answer: schemas.AnswerCreate, question_id: int):
 def delete_question(db: Session, question_id: int):
     db_question = get_question(db, question_id)
     db.delete(db_question)
+    db.commit()
+
+def update_option_text(db:Session, option_id: int, new_text: str):
+    db_question_option = get_question_option(db, option_id)
+    db_question_option.value = new_text
     db.commit()

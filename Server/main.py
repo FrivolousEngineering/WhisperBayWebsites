@@ -80,6 +80,12 @@ async def update_question(question_id: int, request: Request, db: Session = Depe
     da = jsonable_encoder(da)
     crud.update_question_text(db, question_id, da["text"])
     crud.update_question_type(db, question_id, da["type"])
+
+    for option_key in (k for k in da if k.startswith("option")):
+        option_id = int(option_key.replace("option_", ""))
+        crud.update_option_text(db, option_id, da[option_key])
+        print(option_key)
+
     print(da)
 
 
