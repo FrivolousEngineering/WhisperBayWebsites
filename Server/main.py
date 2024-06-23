@@ -128,3 +128,9 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
     print(da)
     return {"answer": "There is a bright future for you! You are so amazing!"}
     pass
+
+
+@app.post("/reset/")
+async def reset_database( db: Session = Depends(get_db)):
+    crud.reset_database(db)
+    crud.seed_database(db)

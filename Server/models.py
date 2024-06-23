@@ -27,7 +27,7 @@ class Question(Base):
 class QuestionOption(Base):
     __tablename__ = "question_options"
     id = Column(Integer, primary_key=True)
-    order = Column(Integer)
+    order = Column(Integer, default=0)
     value = Column(String)
     question_id = Column(Integer, ForeignKey("questions.id"))
 

@@ -29,7 +29,7 @@ class GuestbookMessage(GuestbookMessageBase):
 
 
 class QuestionOptionBase(BaseModel):
-    order: int
+
     value: str
     pass
 
@@ -39,6 +39,7 @@ class QuestionOptionCreate(QuestionOptionBase):
 
 
 class QuestionOption(QuestionOptionBase):
+    order: int
     id: int
     pass
 
