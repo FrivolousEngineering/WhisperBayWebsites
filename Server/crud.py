@@ -76,6 +76,11 @@ def delete_question(db: Session, question_id: int):
     db.delete(db_question)
     db.commit()
 
+def delete_option(db: Session, option_id: int):
+    db_question_option = get_question_option(db, option_id)
+    db.delete(db_question_option)
+    db.commit()
+
 def update_option_text(db:Session, option_id: int, new_text: str):
     db_question_option = get_question_option(db, option_id)
     db_question_option.value = new_text

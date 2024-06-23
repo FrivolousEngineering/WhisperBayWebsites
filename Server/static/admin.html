@@ -100,10 +100,26 @@
 
                 tr.append(optionsHeader);
                 var th = $("<th>");
+
                 $.each(question.options, function (j, option) {
+                    // Actually add the textfields to change the options!
                     th.append($("<input/>", {type:"text", name: "option_" + option.id, value: option.value, disabled: question.required}));
+                    // Add a button that deletes the option
+                    var deleteOptionButton = $("<button/>", {disabled: question.required}).text("X");
+                    deleteOptionButton.click(function(e){
+                        e.preventDefault();
+                        $.ajax({
+                            url: "http://localhost:8000/options/" + option.id + "/",
+                            type: "DELETE",
+                            success: function(result) {
+                                getAllQuestions(); // Refresh all the data (yeah, inefficient AF, sue me)
+                            },
+                        });
+                    });
+                    th.append(deleteOptionButton);
                     th.append($("<br>"));
                 });
+
                 tr.append(th);
                 table.append(tr);
                 form.append(table);

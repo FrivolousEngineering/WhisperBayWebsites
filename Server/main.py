@@ -116,3 +116,6 @@ async def delete_question(question_id: int, db: Session = Depends(get_db)):
     crud.delete_question(db, question_id)
 
 
+@app.delete("/options/{option_id}/")
+async def delete_question(option_id: int, db: Session = Depends(get_db)):
+    crud.delete_option(db, option_id)
