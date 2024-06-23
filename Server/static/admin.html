@@ -66,7 +66,7 @@
             // Change the type of the question
             form.append($("<label>").text("Question Type: "));
             var select = $("<select>", {name:"type"});
-            console.log(question.type)
+
             select.append($("<option>", {value:"pickone", selected: question.type === "pickone"}).text("Pick one"));
             select.append($("<option>", {value:"freeform", selected: question.type === "freeform"}).text("Text"));
             select.append($("<option>", {value:"boolean", selected: question.type === "boolean"}).text("Boolean"));
@@ -85,6 +85,8 @@
                 tr.append(th);
                 table.append(tr);
                 form.append(table);
+            } else {
+                form.append($("<br>"));
             }
 
             form.append($("<input>", {type: "submit", value: "save"}))

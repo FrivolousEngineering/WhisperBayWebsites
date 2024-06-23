@@ -5,6 +5,7 @@ from sqlalchemy.sql.expression import func
 
 from . import models, schemas
 
+
 def get_guestbook_message_for_board(db: Session, board: str):
     return db.query(models.GuestbookMessage).filter(models.GuestbookMessage.target_board == board)
 
@@ -47,15 +48,18 @@ def create_question_option(db: Session, question_option: schemas.QuestionOptionC
     db.refresh(db_question_option)
     return db_question_option
 
+
 def update_question_text(db:Session, question_id: int, new_text: str):
     db_question = get_question(db, question_id)
     db_question.text = new_text
     db.commit()
 
+
 def update_question_type(db:Session, question_id: int, new_type: str):
     db_question = get_question(db, question_id)
     db_question.type = new_type
     db.commit()
+
 
 def create_answer(db: Session, answer: schemas.AnswerCreate, question_id: int):
     db_answer = models.Answer(**answer.dict(), question_id=question_id)
