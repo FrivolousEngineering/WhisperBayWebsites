@@ -107,7 +107,6 @@ def create_empty_option(question_id: int, db: Session = Depends(get_db)):
     crud.create_question_option(db, question_id=question_id, question_option= schemas.QuestionOptionCreate(order = 0, value = ""))
 
 
-
 @app.delete("/questions/{question_id}/")
 async def delete_question(question_id: int, db: Session = Depends(get_db)):
     if crud.get_question(db, question_id) is None:
@@ -119,3 +118,12 @@ async def delete_question(question_id: int, db: Session = Depends(get_db)):
 @app.delete("/options/{option_id}/")
 async def delete_question(option_id: int, db: Session = Depends(get_db)):
     crud.delete_option(db, option_id)
+
+
+@app.post("/evaluateAnswers/")
+async def post_answers(request: Request, db: Session = Depends(get_db)):
+    da = await request.form()
+    da = jsonable_encoder(da)
+
+    print(da)
+    pass

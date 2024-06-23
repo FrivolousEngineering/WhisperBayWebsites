@@ -1,0 +1,99 @@
+<html>
+<head>
+    <script src="jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+
+<div id="questionsContainer">
+
+</div>
+
+<div id="message"></div>
+</body>
+<script>
+    $(document).on("submit", "form", function (event) {
+        event.preventDefault();
+        var url = $(this).attr("action");
+        if(validateForm()) {
+            $.ajax({
+                url: url,
+                type: $(this).attr("method"),
+                dataType: "JSON",
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                beforeSend: function () {
+                    $("#message").html("sending...");
+                    console.log("SENDING");
+                },
+                success: function (data) {
+                    $("#message").html("");
+                },
+                error: function (xhr, description, error) {
+                    $("#message").html(xhr.responseText);
+                    $([document.documentElement, document.body]).animate({scrollTop: $("#message").offset().top}, 500);
+                }
+            });
+        } else {
+            $("#message").html("Please fill in all fields!");
+        }
+    });
+
+    function validateForm() {
+        var valid = true;
+        $('.form-field').each(function () { // Loop over every thing with the "form-field" class
+            if ($(this).val() === "" ) {
+                valid = false;
+                return false;
+            }
+        });
+        return valid
+    }
+
+    function getAllQuestions() {
+        $.get("http://localhost:8000/questions/", function (data) {
+            loadQuestions(data);
+        });
+    }
+    getAllQuestions();
+    function loadQuestions(response) {
+        var form = $("<form/>", {
+            method: "post",
+            action: "http://localhost:8000/evaluateAnswers/"
+        });
+        // Load all the questions and render the fields
+        $.each(response, function (i, question) {
+            form.append($("<label>", {}).text(question.text));
+            form.append($("</br>"));
+
+            if(question.type === "freeform"){
+                form.append($("<input>", {placeholder: "Type your answer here!", name: "question_" + question.id + "_answer", class: "form-field"}));
+                form.append($("</br>"));
+
+            } else if (question.type === "pickone") {
+                var select = $("<select>", {name: "question_" + question.id + "_answer", class: "form-field"});
+                select.append($("<option>", {value: ""}).text("Please select a value"));
+                $.each(question.options, function (j, option) {
+                    select.append($("<option>", {value: option.value}).text(option.value));
+                });
+                form.append(select);
+            } else if (question.type === "boolean") {
+                // TODO!
+            }
+            // Horizontal line to make distinction between fields
+            form.append($("<hr>"));
+        });
+
+        form.append($("<input>", {type: "submit", value: "Calculate!"}))
+
+        form.appendTo("#questionsContainer");
+    }
+
+</script>
+
+
+</html>
+
+
