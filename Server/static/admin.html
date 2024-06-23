@@ -7,6 +7,7 @@
 
 </div>
 
+<div id="message"></div>
 <script>
 
     $(document).on("submit", "form", function(event)
@@ -93,6 +94,12 @@
             form.appendTo("#questionsContainer");
             $("<hr>").appendTo("#questionsContainer");
         });
+        var newQuestionForm = $("<form/>", {
+            action: "http://localhost:8000/questions/empty/",
+            method: "post"
+        });
+        newQuestionForm.append($("<input>", {type: "submit", value: "addQuestion"}))
+        newQuestionForm.appendTo("#questionsContainer");
     }
 
     getAllQuestions();

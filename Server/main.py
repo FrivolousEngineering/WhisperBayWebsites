@@ -81,3 +81,9 @@ async def update_question(question_id: int, request: Request, db: Session = Depe
     crud.update_question_text(db, question_id, da["text"])
     crud.update_question_type(db, question_id, da["type"])
     print(da)
+
+
+@app.post("/questions/empty/", response_model=schemas.Question)
+def create_question(db: Session = Depends(get_db)):
+    question = schemas.QuestionCreate(text="", type="freeform", required=False)
+    return crud.create_question(db=db, question=question)
