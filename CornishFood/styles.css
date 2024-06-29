@@ -1,0 +1,76 @@
+body {
+    background-color: #ffe4b5;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color: #000080;
+    margin: 0;
+    padding: 0;
+    background-image: url("images/cookingupstormbg.jpg");
+}
+
+.header {
+    background-color: #699693;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 5px solid #152822;
+}
+
+.header img {
+    max-width: 100%;
+    height: auto;
+}
+
+.nav {
+    background-color: #000080;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 5px solid #152822;
+}
+
+.nav a {
+    color: yellow;
+    text-decoration: none;
+    padding: 0 15px;
+}
+
+.nav a:hover {
+    background-color: #ff4500;
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #8b0000;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.food-img {
+    width: 200px;
+    height: auto;
+    border: 5px solid #000080;
+    margin: 10px 0;
+}
+
+.footer {
+    background-color: #699693;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-top: 5px solid #152822;
+}
+
+.footer a {
+    color: yellow;
+    text-decoration: none;
+}
+
+li::marker {
+  content: '* ';
+  font-size: 1.2em;
+}
+
