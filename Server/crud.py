@@ -103,6 +103,7 @@ def reset_database(db: Session):
     db.query(models.Answer).delete()
     db.query(models.Question).delete()
     db.query(models.QuestionOption).delete()
+    db.query(models.GuestbookMessage).delete()
     db.commit()
 
 
@@ -174,5 +175,64 @@ def seed_database(db: Session):
 
 
     # Recipes messages
-    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="test", message="This is a", target_board = "recipes"), custom_time="1990-03-1 12:31")
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="John Smith",
+                                                                            message="Absolutely loved the recipe for Cornish pasties! Reminds me of my grandmother's cooking. Keep up the great work!",
+                                                                            target_board="recipes"),
+                                         custom_time="1991-01-12 14:30")
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Mary Parker",
+                                                                            message="Thank you for the wonderful saffron cake recipe. I tried it yesterday, and my family couldn't get enough. Can't wait to try more!",
+                                                                            target_board="recipes"),
+                                         custom_time="1991-01-18 09:45")
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="David Lee",
+                                                                            message="Fantastic collection of recipes! The recipes were a hit at our last family gathering. Do you have any recipes for traditional Cornish fish dishes?",
+                                                                            target_board="recipes"),
+                                         custom_time="1991-02-02 17:10")
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Sue Wilson",
+                                                                            message="This site is a treasure trove of Cornish culinary delights. The cake recipe is spot on. Cheers!",
+                                                                            target_board="recipes"),
+                                         custom_time="1991-02-14 12:20")
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Tom Roberts",
+                                                                            message="Thanks for sharing these recipes. The Cornish pasties took me back to my childhood. Looking forward to more authentic Cornish recipes.",
+                                                                            target_board="recipes"),
+                                         custom_time="1991-03-01 08:35")
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Helen White",
+                                                                            message="Just tried the figgy 'obbin recipe - delicious! This site is now my go-to for all things Cornish. Keep adding more recipes!",
+                                                                            target_board="recipes"),
+                                         custom_time="1991-03-12 10:50")
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Paul Brown",
+                                                                            message="I had some issues reading your website? Would it be possible to make things a bit more readable? Selecting the text helped enough, but it would be nice if we could do without. Loved the recipes though!",
+                                                                            target_board="recipes"),
+                                         custom_time="1991-03-29 15:25")
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Annette Green",
+                                                                            message="Wonderful site with authentic Cornish recipes. The clotted cream recipe was divine. Any tips on making it extra thick?",
+                                                                            target_board="recipes"),
+                                         custom_time="1991-04-08 11:00")
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Rob Harris",
+                                                                            message="Thank you for the Cornish pasty recipe. It brought back so many memories. Do you have any vegan alternatives?",
+                                                                            target_board="recipes"),
+                                         custom_time="1991-04-20 13:40")
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Liz Miller",
+                                                                            message="UGH! What is up with the creepy fish pie?! Do people in the UK really eat that?! It looks freaking disgusting!",
+                                                                            target_board="recipes"),
+                                         custom_time="1991-05-05 16:55")
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Geoff Walker",
+                                                                            message="Just ignore the hatefull comment from Liz. I've been searching for a good recipe for Cornish Stargazy Pie, and yours was perfect. Thank you for preserving our heritage!",
+                                                                            target_board="recipes"),
+                                         custom_time="1991-05-18 07:15")
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Emily Clark",
+                                                                            message="Your Cornish cream guide was fantastic. My friends loved it. Please post more traditional dessert recipes!",
+                                                                            target_board="recipes"),
+                                         custom_time="1991-06-03 14:50")
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Nigel Hall",
+                                                                            message="Finally, a site dedicated to Cornish food! The recipes are authentic and easy to follow. Great job!",
+                                                                            target_board="recipes"),
+                                         custom_time="1991-06-18 09:05")
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Margaret Adams",
+                                                                            message="Tried the Cornish under roast recipe. It was a hit at our Sunday dinner. Your website is a wonderful resource.",
+                                                                            target_board="recipes"),
+                                         custom_time="1991-07-01 10:30")
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Chris Davis",
+                                                                            message="Love the attention to detail in your recipes. The Cornish pasties were just like my mum used to make. Thank you!",
+                                                                            target_board="recipes"),
+                                         custom_time="1991-07-20 17:20")
 
