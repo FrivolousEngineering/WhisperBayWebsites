@@ -10,6 +10,7 @@ class GuestbookMessage(Base):
     author_name = Column(String, index=True)
     message = Column(String)
     target_board = Column(String, index=True)
+    time = Column(String)
 
 
 class Question(Base):

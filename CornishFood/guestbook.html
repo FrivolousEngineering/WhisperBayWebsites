@@ -46,7 +46,8 @@
         $('#messages').empty();
         // Go over all the questions
         $.each(response, function (i, message) {
-            var element = $("<p>", {}).text(message.message)
+            var username = $("<strong>", {}).text(message.author_name)
+            var element = $("<p>", {}).append(username).append(" - ").append(message.time).append($("<br>")).append(message.message)
             element.appendTo("#messages");
             $("<hr>", {"width": 500}).appendTo("#messages");
         });

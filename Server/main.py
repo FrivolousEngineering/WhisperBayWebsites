@@ -45,7 +45,7 @@ def get_messages(target_guestbook: str, db: Session = Depends(get_db)):
 def create_message(message: schemas.GuestbookMessageCreate, db: Session = Depends(get_db)):
     return crud.create_guestbook_message(db=db, message=message)
 
-@app.post("/messages/form", response_model=schemas.GuestbookMessage)
+@app.post("/messages/form/", response_model=schemas.GuestbookMessage)
 async def create_message_form(target_guestbook: str, request: Request, db: Session = Depends(get_db)):
     da = await request.form()
     da = jsonable_encoder(da)

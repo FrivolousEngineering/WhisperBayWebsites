@@ -23,6 +23,7 @@ class GuestbookMessageCreate(GuestbookMessageBase):
 
 class GuestbookMessage(GuestbookMessageBase):
     id: int
+    time: str
 
     class Config:
         orm_mode = True

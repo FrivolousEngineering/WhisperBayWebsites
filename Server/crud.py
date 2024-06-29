@@ -3,7 +3,7 @@ import html
 from sqlalchemy.orm import Session
 from sqlalchemy.sql.expression import func
 from sqlalchemy.ext.declarative import declarative_base
-
+from datetime import datetime
 from . import models, schemas
 
 
@@ -12,7 +12,14 @@ def get_guestbook_message_for_board(db: Session, board: str):
 
 
 def create_guestbook_message(db: Session, message: schemas.GuestbookMessageCreate):
-    db_message = models.GuestbookMessage(**message.dict())
+    time = datetime.now()
+    time = time.replace(year=1991)
+
+    return create_guestbook_message_custom_time(db=db, message=message, custom_time=time.strftime("%Y-%m-%d %H:%M"))
+
+
+def create_guestbook_message_custom_time(db: Session, message: schemas, custom_time: str):
+    db_message = models.GuestbookMessage(**message.dict(), time=custom_time)
     db_message.message = html.escape(db_message.message)
     db.add(db_message)
     db.commit()
@@ -23,8 +30,10 @@ def create_guestbook_message(db: Session, message: schemas.GuestbookMessageCreat
 def get_questions(db: Session):
     return db.query(models.Question).order_by(models.Question.order)
 
+
 def get_question_option(db: Session, option_id: int):
     return db.query(models.QuestionOption).filter(models.QuestionOption.id == option_id).first()
+
 
 def get_question(db: Session, question_id: int):
     return db.query(models.Question).filter(models.Question.id == question_id).first()
@@ -156,9 +165,14 @@ def seed_database(db: Session):
     create_question_option(db, schemas.QuestionOptionCreate(value="Slightly Agree"), 10)
     create_question_option(db, schemas.QuestionOptionCreate(value="Strongly Agree"), 10)
 
-    create_question(db, schemas.QuestionCreate(text=" A certain train is 125 m long. It passes a man, running at 5 km/hr in the same direction in which the train is going. It takes the train 10 seconds to cross the man completely. Then the speed of the train is: ",
+    create_question(db, schemas.QuestionCreate(text="A certain train is 125 m long. It passes a man, running at 5 km/hr in the same direction in which the train is going. It takes the train 10 seconds to cross the man completely. Then the speed of the train is: ",
                                                type="pickone", required=False))
     create_question_option(db, schemas.QuestionOptionCreate(value="60 km/h"), 11)
     create_question_option(db, schemas.QuestionOptionCreate(value="66 km/h"), 11)
     create_question_option(db, schemas.QuestionOptionCreate(value="50 km/h"), 11)
     create_question_option(db, schemas.QuestionOptionCreate(value="55 km/h"), 11)
+
+
+    # Recipes messages
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="test", message="This is a", target_board = "recipes"), custom_time="1990-03-1 12:31")
+
