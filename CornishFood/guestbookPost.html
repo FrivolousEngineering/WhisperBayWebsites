@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cornish Food Delights</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="../Server/static/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to Cornish Food Delights!</h1>
+        <img src="images/cornwall-banner.gif" alt="Cornish Food Banner">
+    </div>
+    <div class="nav">
+    	<a href="index.html">Home</a> | 
+        <a href="Pastry.html">Cornish Pasties</a> |
+        <a href="SafronCake.html">Saffron Cake</a> |
+        <a href="ClottedCream.html">Clotted Cream</a> |
+        <a href="StargazyPie.html">Stargazy Pie</a> |
+    </div>
+    <div class="content">
+        <h2 id="pasties">Guestbook!</h2>
+        <p>Thank you for taking the time to write a message on my guestbook! It means everything to me to hear what people think of my recipes. </p>
+        <hr width = 500>
+
+        <form action = "http://localhost:8000/messages/form/?target_guestbook=recipes" method = "post" id ="guestbookform">
+            <label for="name"><strong>Your name</strong></label> <br>
+            <input id="name" class="name" type = "text" name = "name" > <br>
+            <label for="message"><strong>Your message</strong></label> <br>
+            <textarea id="message" rows="1" class="auto_height" onInput="auto_height(this)" name = "message"></textarea> <br> <br>
+            <input type="submit" value="POST">
+        </form>
+
+        <div id="notification"></div>
+        
+    </div>
+    <div class="footer">
+        <p>&copy; 1991 Cornish Food Delights. All rights reserved. <br><img src="images/mademac.gif"> <img src="images/fwgbanner.gif"></p>
+    </div>
+</body>
+
+<script>
+    function auto_height(elem) {
+        elem.style.height = '1px';
+        elem.style.height = `${elem.scrollHeight+10}px`;
+    }
+
+    $(document).on("submit", "form", function(event)
+    {
+        event.preventDefault();
+
+        var url=$(this).attr("action");
+        $.ajax({
+            url: url,
+            type: $(this).attr("method"),
+            dataType: "JSON",
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            beforeSend: function()
+            {
+                $("#notification").html("sending...");
+                console.log("SENDING");
+
+                // Disable all inputs
+                $("#guestbookform :input").prop("disabled", true);
+
+            },
+            success: function(data)
+            {
+                setTimeout(function() {
+                    $("#notification").html("<h2><strong>Your message has been received!</strong></h2>");
+                    $("#guestbookform :input").prop("disabled", false);
+                    $("#name").val("")
+                    $("#message").val("")
+                }, 5000); // Simulate slowness
+            },
+            error: function (xhr, description, error)
+            {
+                $("#notification").html(xhr.responseText);
+                $("#guestbookform :input").prop("disabled", false);
+            }
+        });
+    });
+</script>
+</html>

@@ -74,3 +74,16 @@ li::marker {
   font-size: 1.2em;
 }
 
+.auto_height { /* CSS */
+  width: 500px;
+}
+
+textarea {
+  width: 500px;
+  resize: none;
+  height: 29px;
+}
+
+.name{
+width: 500px;
+}
