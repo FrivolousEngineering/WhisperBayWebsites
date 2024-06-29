@@ -1,0 +1,92 @@
+body {
+    background-color: #fafad2;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #4682b4;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 5px solid #000080;
+}
+
+.header img {
+    max-width: 100%;
+    height: auto;
+}
+
+.nav {
+    background-color: #000080;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-top: 5px solid #4682b4;
+    border-bottom: 5px solid #4682b4;
+}
+
+.nav a {
+    color: yellow;
+    text-decoration: none;
+    padding: 0 15px;
+}
+
+.nav a:hover {
+    background-color: #4682b4;
+}
+
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #000080;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.announcement {
+    background-color: #ffebcd;
+    border: 2px solid #000080;
+    padding: 10px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+
+ul {
+    text-align: left;
+    display: inline-block;
+    margin: 20px auto;
+    background-color: #ffebcd;
+    border: 2px solid #000080;
+    padding: 10px 10px 10px 30px;
+}
+
+.investor-cta {
+    background-color: #ffebcd;
+    border: 2px solid #000080;
+    padding: 10px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.footer {
+    background-color: #4682b4;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-top: 5px solid #000080;
+}
+
+.footer a {
+    color: yellow;
+    text-decoration: none;
+}
+
+.investnow{
+  margin-top:-20px;
+}
