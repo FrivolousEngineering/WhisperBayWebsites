@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     background-image: url("images/cookingupstormbg.jpg");
+    font-size: 1.2em;
 }
 
 .header {
@@ -69,10 +70,6 @@ h2 {
     text-decoration: none;
 }
 
-li::marker {
-  content: '* ';
-  font-size: 1.2em;
-}
 
 .auto_height { /* CSS */
   width: 500px;
