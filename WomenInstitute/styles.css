@@ -9,17 +9,18 @@ body {
 .container {
     width: 80%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px;
     
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.5);
 }
 
 section
 {
-background-color: rgba(255,255,255,0.4);
-border: 10px solid #ADD8E6;
-border-style: groove;
-padding: 10px
+  background-color: rgba(255,255,255,0.4);
+  border: 10px solid #ADD8E6;
+  border-style: groove;
+  padding: 10px;
+   border-radius: 5px;
 }
 strong
 {
