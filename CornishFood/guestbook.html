@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cornish Food Delights</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="../Server/static/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to Cornish Food Delights!</h1>
+        <img src="images/cornwall-banner.gif" alt="Cornish Food Banner">
+    </div>
+    <div class="nav">
+    	<a href="index.html">Home</a> | 
+        <a href="Pastry.html">Cornish Pasties</a> |
+        <a href="SafronCake.html">Saffron Cake</a> |
+        <a href="ClottedCream.html">Clotted Cream</a> |
+        <a href="StargazyPie.html">Stargazy Pie</a> |
+    </div>
+    <div class="content">
+        <h2 id="pasties">Guestbook!</h2>
+        <p>Welcome to the guestbook! Here you can find messages that people have left</p>
+        <hr width = 500>
+        <div id ="messages">
+
+        </div>
+        
+    </div>
+    <div class="footer">
+        <p>&copy; 1991 Cornish Food Delights. All rights reserved. <br><img src="images/mademac.gif"> <img src="images/fwgbanner.gif"></p>
+    </div>
+</body>
+
+<script>
+    function getAllMessages() {
+        $.get("http://localhost:8000/messages/?target_guestbook=recipes", function (data) {
+            updateMessages(data);
+        });
+    }
+
+    function updateMessages(response) {
+        // Clear the old data (if any!)
+        $('#messages').empty();
+        // Go over all the questions
+        $.each(response, function (i, message) {
+            var element = $("<p>", {}).text(message.message)
+            element.appendTo("#messages");
+            $("<hr>", {"width": 500}).appendTo("#messages");
+        });
+    }
+    // Fetch all the guestbook messages
+    getAllMessages();
+</script>
+</html>

@@ -9,8 +9,7 @@ from . import crud, models, schemas
 from .database import SessionLocal, engine
 
 origins = [
-    "http://localhost:3000",
-    "localhost:3000"
+    "*"
 ]
 
 models.Base.metadata.create_all(bind=engine)
