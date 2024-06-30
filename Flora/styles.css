@@ -1,0 +1,77 @@
+body {
+    background-color: #FFFF99;
+    font-family: "Bitstream Charter", "URW Palladio L", "Palatino", "Palatino Linotype", "Book Antiqua", serif;
+    color: #000080;
+    text-align: center;
+}
+header {
+    background-color: #FF6600;
+    padding: 10px;
+}
+header h1 {
+    margin: 0;
+    color: #FFFFFF;
+}
+nav {
+    margin: 20px 0;
+}
+nav a {
+    color: #FF0000;
+    text-decoration: none;
+    margin: 0 15px;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+main {
+    margin: 20px auto;
+    padding: 20px;
+    width: 768px;
+   
+}
+.section {
+	padding:20px;
+	background-color: #FFFFFF;
+    margin-bottom: 30px;
+    background-color: #FFFFFF;
+    border: 5px dashed #FF6600;
+    border-radius: 30px;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border: 3px dashed #FF6600;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    line-height: 200px;
+    color: #000080;
+}
+
+.image-placeholder {
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    border: 3px dashed #000080;
+    width: 60%;
+    height: 200px;
+    background-color: #CCCCCC;
+    line-height: 200px;
+    color: #000080;
+}
+footer {
+    background-color: #FF6600;
+    padding: 10px;
+    color: #FFFFFF;
+    margin-bottom: -10px;
+}
+.footer-links a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: 0 10px 0px;
+}
+.footer-links a:hover {
+    text-decoration: underline;
+}
