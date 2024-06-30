@@ -3,8 +3,8 @@ function addWebring(response) {
     var inner = $("<div>", {class: "inner-webring-container"});
 
     inner.append($("<h2>").html("Proudly part of the <span>" + response.name + "</span> webring"));
+    inner.append($("<img>", {src:"../WebRings/images/food.gif"}));
     inner.append($("<p>").text("Navigate through our collection of linked websites!"));
-
     var links = $("<div>", {class: "webring-links"});
     links.append("[")
     links.append($("<a>", {href: response.previous_site_url, style: "margin: 0 10px;"}).text("Previous"));
