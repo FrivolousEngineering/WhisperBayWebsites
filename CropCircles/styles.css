@@ -1,0 +1,69 @@
+body {
+    font-family: "Courier New", Courier, monospace;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    background-image: url("images/starrybg.gif");
+}
+
+header {
+    background-color: #000080;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 255, 0.5);
+
+}
+
+main {
+    padding: 20px;
+}
+
+marquee {
+    display: flex;
+    justify-content: space-between;
+}
+
+section {
+    background-color: rgba(0, 0, 255, 0.5);
+    border: 1px solid #000000;
+    padding: 15px;
+    margin: 20px auto;
+    width: 80%;
+}
+
+footer {
+    background-color: rgba(0, 0, 255, 0.5);
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+h1 {
+    font-size: 72px;
+    margin: 0;
+}
+
+p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.blink {
+  animation: blinker 5s linear infinite;
+}
+
+@keyframes blinker {
+45% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  55% {
+    opacity: 1;
+  }
+}
