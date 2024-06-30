@@ -27,6 +27,13 @@ app.add_middleware(
 app.mount("/static", StaticFiles(directory="Server/static"), name="static")
 
 
+known_sites = {"Cornish Food Delights": "../CornishFood/index.html",
+               "Womens Institute": "../WomenInstitute/index.html",
+               "WhisperBay Community Garden": "../CommunityGarden/home.html"}
+
+
+food_webring = ["Cornish Food Delights", "Womens Institute", "WhisperBay Community Garden"]
+
 # Dependency
 def get_db():
     db = SessionLocal()
@@ -131,7 +138,6 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
     da = await request.form()
     da = jsonable_encoder(da)
 
-    print(da)
     return {"answer": "There is a bright future for you! You are so amazing!"}
     pass
 
@@ -140,3 +146,32 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
 async def reset_database( db: Session = Depends(get_db)):
     crud.reset_database(db)
     crud.seed_database(db)
+
+
+@app.get("/webring/",  response_model=schemas.WebRing)
+async def get_webring(site: str):
+    active_webring = []
+    webring_name = ""
+
+    # Find what webring was activated
+    if site in food_webring:
+        active_webring = food_webring
+        webring_name = "Food"
+
+    if active_webring:
+        webring_index = active_webring.index(site)
+        next_index = webring_index + 1
+        prev_index = webring_index - 1
+
+        if prev_index < 0:
+            prev_index = len(active_webring) - 1
+
+        if next_index > len(active_webring) - 1:
+            next_index = 0
+        prev_name = active_webring[prev_index]
+        next_name = active_webring[next_index]
+        prev_url = known_sites[prev_name]
+        next_url = known_sites[next_name]
+        return schemas.WebRing(next_site_url = next_url, next_site_name = next_name, previous_site_name = prev_name, previous_site_url = prev_url, name = webring_name)
+    raise HTTPException(status_code=404, detail="Item not found")
+

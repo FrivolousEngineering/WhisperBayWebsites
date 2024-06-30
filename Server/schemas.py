@@ -4,12 +4,20 @@ from pydantic import BaseModel
 from typing import Optional, List
 
 
+
 class QuestionType(str, Enum):
     boolean: str = "boolean"
     freeform: str = "freeform"
     pickone: str = "pickone"
     pickmultiple: str = "pickmultiple"
 
+
+class WebRing(BaseModel):
+    next_site_url: str
+    next_site_name: str
+    name: str
+    previous_site_url: str
+    previous_site_name: str
 
 class GuestbookMessageBase(BaseModel):
     author_name: str
