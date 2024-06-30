@@ -1,0 +1,111 @@
+body {
+    background-color: #ffebcd;
+    color: #000000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    border: 2px solid #000080;
+    background-color: #ffffff;
+}
+
+header {
+    text-align: center;
+    padding: 10px;
+    background-color: #ffa500;
+    border-bottom: 2px solid #000080;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+    color: #000080;
+}
+
+nav {
+    background-color: #00ffff;
+    border-bottom: 2px solid #000080;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000080;
+}
+
+main {
+    padding: 10px;
+}
+
+main section {
+    margin-bottom: 20px;
+}
+
+main h2 {
+    background-color: #ffa500;
+    padding: 5px;
+    border: 2px solid #000080;
+    color: #000080;
+}
+
+main img {
+    float: left;
+    margin-right: 10px;
+    border: 2px solid #000080;
+}
+
+.clear {
+    clear: both;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #ffa500;
+    border-top: 2px solid #000080;
+    clear: both;
+}
+
+footer p {
+    margin: 5px;
+}
+
+footer img {
+    display: block;
+    margin: 0 auto;
+}
+
+@keyframes fade {
+    0% { color: black; }
+    35% { color: black; }
+  50% { color: yellow; }
+  65% {color: black}
+  100% { color: black; }
+}
+
+
+blockquote{
+font-family: cursive;
+font-size: 1.5em;
+animation-name: fade;
+animation-duration: 5s;
+animation-iteration-count: infinite
+}
+
