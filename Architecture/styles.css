@@ -7,7 +7,19 @@ body {
     background-image: url('images/background.webp');
 }
 
+@keyframes blink {
+    0% { color  : red; }
+    30% { color : blue }
+    60% { color: green; }
+    100% { color  : red; }
+}
 
+marquee {
+    animation-name: blink;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
 .container {
     width: 80%;
     margin: auto;
@@ -17,11 +29,15 @@ body {
 }
 
 h1 {
-    color: #00509e;
+    color: #c97d53;
 }
 
 h2 {
-    color: #0074d9;
+    color: #FC9D68;
+}
+
+h3 {
+  color: #fcb086;
 }
 
 .gallery {
