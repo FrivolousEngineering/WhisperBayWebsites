@@ -22,7 +22,7 @@ function addWebring(response) {
 document.addEventListener('DOMContentLoaded', (event) => {
     var base_url = "http://localhost:8000/webring/?site="
     
-    $.get(base_url.concat(window.site_name), function (data) {
+    $.get(base_url.concat(window.site_name).concat("&ring=food"), function (data) {
         addWebring(data);
     });
 });

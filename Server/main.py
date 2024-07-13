@@ -149,12 +149,11 @@ async def reset_database( db: Session = Depends(get_db)):
 
 
 @app.get("/webring/",  response_model=schemas.WebRing)
-async def get_webring(site: str):
+async def get_webring(site: str, ring: str = ""):
     active_webring = []
     webring_name = ""
 
-    # Find what webring was activated
-    if site in food_webring:
+    if ring == "food":
         active_webring = food_webring
         webring_name = "Food"
 
