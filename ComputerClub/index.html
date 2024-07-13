@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Whisper Bay Computer Club</title>
+    <style>
+        body {
+            background-color: #c0c0c0;
+            background-image: url("images/background.png");
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #header {
+            background-color: #000080;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            border-bottom: 2px solid #ffcc00;
+            
+        }
+        #menu {
+            width: 20%;
+            float: left;
+            background-color: #ffffff;
+            border-right: 2px solid #000000;
+            padding: 10px;
+            height: calc(100vh - 130px);
+            position: fixed;
+            top: 130px;
+            overflow-y: auto;
+        }
+        #content {
+            width: 59%;
+            margin-left: 21%;
+            float: left;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        #links {
+            width: 20%;
+            float: right;
+            background-color: #ffffff;
+            border-left: 2px solid #000000;
+            padding: 10px;
+            height: calc(100vh - 130px);
+            position: fixed;
+            top: 130px;
+            overflow-y: auto;
+            right: 0;
+            box-sizing: border-box;
+        }
+        .menu-item, .link-item {
+            margin-bottom: 10px;
+            padding: 5px;
+            border-bottom: 1px solid #000000;
+            background-color: #ffcc00;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-item a, .link-item a {
+            text-decoration: none;
+            color: #000080;
+            font-weight: bold;
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+        .menu-item a::before, .link-item a::before {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: #ffcc00;
+            z-index: 1;
+            transition: left 0.5s ease-in-out;
+        }
+        .menu-item a:hover::before, .link-item a:hover::before {
+            left: 0;
+        }
+        .menu-item a:hover, .link-item a:hover {
+            color: #ff0000;
+        }
+        .menu-item:hover {
+            animation: bounce 1s infinite alternate;
+        }
+        .link-item:hover {
+            animation: shake 0.5s infinite alternate;
+        }
+        @keyframes bounce {
+            25% {transform: translateY(-5px);}
+            75% {transform: translateY(5px);}
+            100% {transform: translateY(0px);}
+        }
+        @keyframes shake {
+            25% {transform: translateX(-5px);}
+            75% {transform: translateX(5px);}
+            100% {transform: translateX(0px);}
+        }
+        .news-article {
+            background-color: #ffffff;
+            border: 1px solid #000000;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 5px 5px 10px #888888;
+            position: relative;
+        }
+        .news-article h3 {
+            color: #ff0000;
+            position: relative;
+            z-index: 1;
+        }
+        .news-article:hover h3 {
+            animation: colorChange 1s infinite alternate;
+        }
+        @keyframes colorChange {
+            from { color: #ff0000; }
+            to { color: #0000ff; }
+        }
+        .news-article::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: calc(100% + 10px);
+            height: calc(100% + 10px);
+            border: 2px solid #ffcc00;
+            animation: borderGlow 2s infinite alternate;
+        }
+        @keyframes borderGlow {
+            from { border-color: #ffcc00; }
+            to { border-color: #ff00ff; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <img src="images/computerclubheader.gif" alt="Replace with a GIF of a rotating computer or similar 90s style animation">
+</div>
+
+<div id="menu">
+    <div class="menu-item"><a href="#">Home</a></div>
+    <div class="menu-item"><a href="#">Local News</a></div>
+    <div class="menu-item"><a href="#">Members</a></div>
+    <div class="menu-item"><a href="#">Events</a></div>
+    <div class="menu-item"><a href="#">Websites</a></div>
+    <div class="menu-item"><a href="#">Contact</a></div>
+</div>
+
+<div id="content">
+    <h2>Local News</h2>
+    <div class="news-article">
+        <h3>Article Title 1</h3>
+        <p><i>Posted on [Date]</i></p>
+        <p>This is a placeholder for the first news article. Replace this text with the actual news content.</p>
+        <img src="placeholder1.jpg" alt="Replace with a relevant image for the first article">
+    </div>
+    <div class="news-article">
+        <h3>Article Title 2</h3>
+        <p><i>Posted on [Date]</i></p>
+        <p>This is a placeholder for the second news article. Replace this text with the actual news content.</p>
+        <img src="placeholder2.jpg" alt="Replace with a relevant image for the second article">
+    </div>
+    <div class="news-article">
+        <h3>Article Title 3</h3>
+        <p><i>Posted on [Date]</i></p>
+        <p>This is a placeholder for the third news article. Replace this text with the actual news content.</p>
+        <img src="placeholder3.jpg" alt="Replace with a relevant image for the third article">
+    </div>
+    <div class="news-article">
+        <h3>Article Title 4</h3>
+        <p><i>Posted on [Date]</i></p>
+        <p>This is a placeholder for the fourth news article. Replace this text with the actual news content.</p>
+        <img src="placeholder4.jpg" alt="Replace with a relevant image for the fourth article">
+    </div>
+    <div class="news-article">
+        <h3>Article Title 5</h3>
+        <p><i>Posted on [Date]</i></p>
+        <p>This is a placeholder for the fifth news article. Replace this text with the actual news content.</p>
+        <img src="placeholder5.jpg" alt="Replace with a relevant image for the fifth article">
+    </div>
+</div>
+
+<div id="links">
+    <h2>Other Websites</h2>
+    <div class="link-item"><a href="#">Website 1</a></div>
+    <div class="link-item"><a href="#">Website 2</a></div>
+    <div class="link-item"><a href="#">Website 3</a></div>
+    <div class="link-item"><a href="#">Website 4</a></div>
+    <div class="link-item"><a href="#">Website 5</a></div>
+    <img src="placeholder-links.jpg" alt="Replace with an image or logo for links section">
+</div>
+
+</body>
+</html>
+
