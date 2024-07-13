@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NEWS</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="../Server/static/jquery-3.7.1.min.js"></script>
+    <script src="../Server/static/jquery-cookie.js"></script>
+</head>
+<body>
+
+<div id="header">
+    <img src="images/computerclubheader.gif" alt="Replace with a GIF of a rotating computer or similar 90s style animation">
+</div>
+
+<div id="menu">
+    <div class="menu-item"><a href="index.html"><img src = "images/home1.gif"><br>Home</a></div>
+    <div class="menu-item"><a href="news.html"><img src = "images/News.gif"><br>Local News</a></div>
+    <div class="menu-item"><a href="members.html"><img src = "images/Members.gif"><br>Members</a></div>
+    <div class="menu-item"><a href="contact.html"><img src = "images/CONTACT.gif"><br>Contact us!</a></div>
+</div>
+
+<div id="content">
+    <div id="login-form" style="display: none;">
+        <h2>Login</h2>
+        <form id="login" action="javascript:void(0);" >
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <button type="submit">Login</button>
+        </form>
+        <p id="error-message" style="color: red; display: none;">Invalid username or password</p>
+    </div>
+
+    <div id="welcome-message" style="display: none;">
+        <h2>Welcome, <span id="user-name"></span>!</h2>
+        <button id="logout">Logout</button>
+    </div>
+</div>
+
+<div id="links">
+    <h2>Other Websites</h2>
+    <div class="link-item"><a href="../Architecture/index.html"><img src="images/house-jumping.gif"><br>Whisper Bay Architecture</a></div>
+    <div class="link-item"><a href="../ChildrenOfGreen/index.html"><img src="images/pantagramdraaiend.gif"><br>Children of the Green</a></div>
+    <div class="link-item"><a href="../Church/index.html"><img src="images/CHURCH.gif"><br>Whisper Bay Church</a></div>
+    <div class="link-item"><a href="../CommunityGarden/home.html"><img src="images/Plant_jumps.gif"><br>Community Gardens</a></div>
+    <div class="link-item"><a href="../CornishRiviera/index.html"><img src="images/Invest.gif"><br>Holiday Park Project</a></div>
+    <div class="link-item"><a href="../CropCircles/index.html"><img src="images/UFO.gif"><br>Signals From The Edge</a></div>
+    <div class="link-item"><a href="../Flora/index.html"><img src="images/plantmove.gif"><br>Local Plants</a></div>
+    <div class="link-item"><a href="../Folklore/index.html"><img src="images/writingelf.gif"><br>Local Folklore</a></div>
+    <div class="link-item"><a href="../CornishFood/index.html"><img src="images/cook.gif"><br>Recipes</a></div>
+    <div class="link-item"><a href="../TourismBoard/welcome_tourism.html"><img src="images/tourist2.gif"><br>Tourism Board</a></div>
+    <div class="link-item"><a href="../WomenInstitute/index.html"><img src="images/woman_impatient_in_chair.gif"><br>Womens Institute</a></div>
+    <div id="seeMore"><img src="images/down_ani.gif"><img src="images/more.gif"><img src="images/down_ani.gif"></div>
+</div>
+
+<script type="text/javascript" src="scripts.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Check if the user is already logged in
+        if ($.cookie('username')) {
+            showWelcomeMessage($.cookie('username'));
+        } else {
+            showLoginForm();
+        }
+
+        // Handle login form submission
+        $("#login").submit(function() {
+            var username = $("#username").val();
+            var password = $("#password").val();
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8000/authors/login/",
+                data: { username: username, password: password },
+                success: function(response) {
+                    $.cookie('username', response.username)
+                    //document.cookie = "username=" + response.username;
+                    showWelcomeMessage(response.username);
+                    $("#error-message").hide();
+                },
+                error: function() {
+                    $("#error-message").show();
+                }
+            });
+        });
+
+        // Handle logout
+        $("#logout").click(function() {
+            $.removeCookie('username');
+            // Clear out the password
+            $('#login-form').find("input[type=password], textarea").val("");
+
+            showLoginForm();
+        });
+
+        // Show welcome message
+        function showWelcomeMessage(username) {
+            $("#login-form").hide();
+            $("#user-name").text(username);
+            $("#welcome-message").show();
+        }
+
+        // Show login form
+        function showLoginForm() {
+            $("#welcome-message").hide();
+            $("#login-form").show();
+            $("#error-message").hide();
+        }
+
+    });
+</script>
+
+</body>
+</html>
+
