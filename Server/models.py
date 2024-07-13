@@ -42,3 +42,21 @@ class Answer(Base):
     value = Column(String)
     question_id = Column(Integer, ForeignKey("questions.id"))
     question = relationship("Question", back_populates="answers")
+
+
+class Author(Base):
+    __tablename__ = "authors"
+    id = Column(Integer, primary_key=True)
+    articles = relationship("NewsArticle", back_populates="author")
+    name = Column(String)
+    password = Column(String)
+
+
+class NewsArticle(Base):
+    __tablename__ = "news_articles"
+    id = Column(Integer, primary_key=True)
+    title = Column(String)
+    time = Column(String)
+    text = Column(String)
+    author_id = Column(Integer, ForeignKey("authors.id"))
+    author = relationship("Author", back_populates="articles")

@@ -1,4 +1,6 @@
-from fastapi import Depends, FastAPI, HTTPException
+from typing import Annotated
+
+from fastapi import Depends, FastAPI, HTTPException, Form
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from starlette.requests import Request
@@ -143,7 +145,7 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
 
 
 @app.post("/reset/")
-async def reset_database( db: Session = Depends(get_db)):
+async def reset_database(db: Session = Depends(get_db)):
     crud.reset_database(db)
     crud.seed_database(db)
 
@@ -174,3 +176,17 @@ async def get_webring(site: str, ring: str = ""):
         return schemas.WebRing(next_site_url = next_url, next_site_name = next_name, previous_site_name = prev_name, previous_site_url = prev_url, name = webring_name)
     raise HTTPException(status_code=404, detail="Item not found")
 
+
+@app.get("/authors/",  response_model=list[schemas.Author])
+async def get_authors(db: Session = Depends(get_db)):
+    for result in crud.get_authors(db):
+        print(result.name)
+    return crud.get_authors(db)
+
+
+@app.post("/authors/login/")
+async def login(username: Annotated[str, Form()], password: Annotated[str, Form()], db: Session = Depends(get_db)):
+    login_details_correct = crud.check_author_username_password_valid(db, username, password)
+    if not login_details_correct:
+        raise HTTPException(status_code=400, detail="Incorrect username or password")
+    return {"username": username}

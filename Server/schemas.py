@@ -19,6 +19,7 @@ class WebRing(BaseModel):
     previous_site_url: str
     previous_site_name: str
 
+
 class GuestbookMessageBase(BaseModel):
     author_name: str
     message: str
@@ -84,6 +85,37 @@ class Question(QuestionBase):
     options: Optional[List["QuestionOption"]]
     class Config:
         orm_mode = True
+
+
+# A user that can create news articles
+class AuthorBase(BaseModel):
+    name: str
+    password: str
+
+
+class AuthorSummary(AuthorBase):
+    id: int
+
+
+class NewsArticlesBase(BaseModel):
+    title: str
+    time: str
+    text: str
+
+
+class NewsArticle(NewsArticlesBase):
+    id: int
+    author: AuthorSummary
+    class Config:
+        orm_mode = True
+
+
+class Author(AuthorSummary):
+    articles: List["NewsArticle"]
+
+    class Config:
+        orm_mode = True
+
 
 
 

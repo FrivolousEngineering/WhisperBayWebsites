@@ -31,6 +31,10 @@ def get_questions(db: Session):
     return db.query(models.Question).order_by(models.Question.order)
 
 
+def get_authors(db: Session):
+    return db.query(models.Author)
+
+
 def get_question_option(db: Session, option_id: int):
     return db.query(models.QuestionOption).filter(models.QuestionOption.id == option_id).first()
 
@@ -93,9 +97,15 @@ def delete_option(db: Session, option_id: int):
     db.commit()
 
 
-def update_option_text(db:Session, option_id: int, new_text: str):
+def update_option_text(db: Session, option_id: int, new_text: str):
     db_question_option = get_question_option(db, option_id)
     db_question_option.value = new_text
+    db.commit()
+
+
+def create_author(db: Session, name, password):
+    db_author = models.Author(name=name, password = password)
+    db.add(db_author)
     db.commit()
 
 
@@ -105,6 +115,18 @@ def reset_database(db: Session):
     db.query(models.QuestionOption).delete()
     db.query(models.GuestbookMessage).delete()
     db.commit()
+
+
+def check_author_username_password_valid(db: Session, username: str, password: str) -> bool:
+    """
+    Check if the username and password for an author are valid. Since we don't want actual security, we don't
+    do any salting, hashing or any of that stuff.
+    """
+    author = db.query(models.Author).filter(models.Author.name == username).filter(models.Author.password == password).first()
+    if author:
+        return True
+
+    return False
 
 
 def seed_database(db: Session):
@@ -236,3 +258,6 @@ def seed_database(db: Session):
                                                                             target_board="recipes"),
                                          custom_time="1991-07-20 17:20")
 
+
+    # Authors
+    create_author(db, "Jaime", "Test")
