@@ -234,10 +234,13 @@
     function applyRandomColor() {
         const randomColor = getRandomColor();
         const randomColor2 = getRandomColor(100);
+        const randomColor3 = getRandomColor(200);
         const menuItems = document.querySelectorAll('.menu-item');
         const linkItems = document.querySelectorAll('.link-item');
+        const header = document.querySelectorAll("#header");
         menuItems.forEach(item => item.style.backgroundColor = randomColor);
         linkItems.forEach(item => item.style.backgroundColor = randomColor2);
+        header.forEach(item => item.style.backgroundColor = randomColor3);
     }
 
     document.addEventListener('DOMContentLoaded', applyRandomColor);
