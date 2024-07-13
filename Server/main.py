@@ -198,5 +198,5 @@ async def post_newsarticle(username: Annotated[str, Form()], article_subject: An
     return {}
 
 @app.get("/newsarticles/", response_model=list[schemas.NewsArticle])
-async def post_newsarticle(db: Session = Depends(get_db)):
+async def get_newsarticle(db: Session = Depends(get_db)):
     return crud.get_news_articles(db)

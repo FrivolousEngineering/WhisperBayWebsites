@@ -36,7 +36,7 @@ def get_authors(db: Session):
 
 
 def get_news_articles(db: Session):
-    return db.query(models.NewsArticle)
+    return db.query(models.NewsArticle).order_by(models.NewsArticle.id.desc())
 
 def get_question_option(db: Session, option_id: int):
     return db.query(models.QuestionOption).filter(models.QuestionOption.id == option_id).first()
