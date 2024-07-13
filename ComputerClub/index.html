@@ -3,7 +3,7 @@
 <head>
     <title>Whisper Bay Computer Club</title>
     <link rel="stylesheet" href="styles.css">
-    
+    <script src="../Server/static/jquery-3.7.1.min.js"></script>
 </head>
 <body>
 
@@ -45,7 +45,32 @@
 </div>
 
 <script type="text/javascript" src="scripts.js"></script>
+<script>
+function getNewsMessages() {
+    $.get("http://localhost:8000/newsarticles/", function (data) {
+        updateNews(data);
+    });
+}
 
+function updateNews(response) {
+  // Clear the old data (if any!)
+  $('#content').empty();
+  
+  $.each(response, function (i, article) {
+    var articleDiv = $("<div>", {class: "news-article"});
+    var title = $("<h3>").text(article.title);
+    var authorInfo = $("<p>").append($("<i>").html("Posted on " + article.time + " by <b>" + article.author.name + "</b>"));
+    var bodyText = $("<p>").text(article.text);
+    
+    articleDiv.append(title);
+    articleDiv.append(authorInfo);
+    articleDiv.append(bodyText);
+    articleDiv.appendTo("#content");
+  });
+};
+
+getNewsMessages();
+</script>
 </body>
 </html>
 
