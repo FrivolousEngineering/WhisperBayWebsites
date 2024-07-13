@@ -68,3 +68,75 @@ document.getElementById('links').addEventListener('scroll', function() {
         seeMore.classList.remove('disabled');
     }
 });
+const canvas = document.getElementById('fireCanvas');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+let particles = [];
+
+class Particle {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.size = Math.random() * 5 + 1;
+    this.speedX = Math.random() * 3 - 1.5;
+    this.speedY = Math.random() * 3 - 1.5;
+    this.color = `rgba(255, ${Math.floor(Math.random() * 255)}, 0, ${Math.random()})`;
+  }
+
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.size > 0.2) this.size -= 0.1;
+  }
+
+  draw() {
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+function handleParticles() {
+  for (let i = 0; i < particles.length; i++) {
+    particles[i].update();
+    particles[i].draw();
+    if (particles[i].size <= 0.2) {
+      particles.splice(i, 1);
+      i--;
+    }
+  }
+}
+
+function createParticles(x, y, number) {
+  for (let i = 0; i < number; i++) {
+    particles.push(new Particle(x, y));
+  }
+}
+
+function handleEvent(event) {
+  if (event.isTrusted) {
+    createParticles(event.clientX, event.clientY, event.type === 'click' ? 25 : 1);
+  }
+}
+
+['mousemove', 'click'].forEach(eventType => {
+  document.addEventListener(eventType, handleEvent);
+});
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  handleParticles();
+  requestAnimationFrame(animate);
+}
+
+animate();
+
