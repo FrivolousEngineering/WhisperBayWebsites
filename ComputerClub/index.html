@@ -16,7 +16,6 @@
             text-align: center;
             padding: 10px;
             border-bottom: 2px solid #ffcc00;
-            
         }
         #menu {
             width: 20%;
@@ -64,7 +63,7 @@
             font-weight: bold;
             display: block;
             position: relative;
-            z-index: 2;
+            
         }
         .menu-item a::before, .link-item a::before {
             position: absolute;
@@ -132,6 +131,18 @@
             from { border-color: #ffcc00; }
             to { border-color: #ff00ff; }
         }
+        /* Style for seeMore */
+        #seeMore {
+            position: sticky;
+            bottom: 0;
+            text-align: center;
+            background-color: #ffffff;
+            padding: 5px;
+            border-top: 1px solid #000000;
+        }
+        #seeMore.disabled {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -155,35 +166,12 @@
         <p>This is a placeholder for the first news article. Replace this text with the actual news content.</p>
         <img src="placeholder1.jpg" alt="Replace with a relevant image for the first article">
     </div>
-    <div class="news-article">
-        <h3>Article Title 2</h3>
-        <p><i>Posted on [Date]</i></p>
-        <p>This is a placeholder for the second news article. Replace this text with the actual news content.</p>
-        <img src="placeholder2.jpg" alt="Replace with a relevant image for the second article">
-    </div>
-    <div class="news-article">
-        <h3>Article Title 3</h3>
-        <p><i>Posted on [Date]</i></p>
-        <p>This is a placeholder for the third news article. Replace this text with the actual news content.</p>
-        <img src="placeholder3.jpg" alt="Replace with a relevant image for the third article">
-    </div>
-    <div class="news-article">
-        <h3>Article Title 4</h3>
-        <p><i>Posted on [Date]</i></p>
-        <p>This is a placeholder for the fourth news article. Replace this text with the actual news content.</p>
-        <img src="placeholder4.jpg" alt="Replace with a relevant image for the fourth article">
-    </div>
-    <div class="news-article">
-        <h3>Article Title 5</h3>
-        <p><i>Posted on [Date]</i></p>
-        <p>This is a placeholder for the fifth news article. Replace this text with the actual news content.</p>
-        <img src="placeholder5.jpg" alt="Replace with a relevant image for the fifth article">
-    </div>
 </div>
 
 <div id="links">
-    <h2>Other Websites</h2>
-    <div class="link-item"><a href="../Architecture/index.html"><img src="images/house-jumping.gif"></br>Whisper Bay Architecture</a></div>
+    <center><img src = "images/links_side_bar_link.gif"></center>
+    <p>We have collected a lot of local links! Please visit these fantastic and mostly local websites</p>
+    <div class="link-item"><a href="../Architecture/index.html"><img src="images/house-jumping.gif"><br>Whisper Bay Architecture</a></div>
     <div class="link-item"><a href="../ChildrenOfGreen/index.html"><img src="images/pantagramdraaiend.gif"><br>Children of the Green</a></div>
     <div class="link-item"><a href="../Church/index.html"><img src="images/CHURCH.gif"><br>Whisper Bay Church</a></div>
     <div class="link-item"><a href="../CommunityGarden/home.html"><img src="images/Plant_jumps.gif"><br>Community Gardens</a></div>
@@ -194,8 +182,20 @@
     <div class="link-item"><a href="../CornishFood/index.html"><img src="images/cook.gif"><br>Recipes</a></div>
     <div class="link-item"><a href="../TourismBoard/welcome_tourism.html"><img src="images/tourist2.gif"><br>Tourism Board</a></div>
     <div class="link-item"><a href="../WomenInstitute/index.html"><img src="images/woman_impatient_in_chair.gif"><br>Womens Institute</a></div>
-    <div id="seeMore"><img src="images/down_ani.gif"><img src= "images/more.gif"><img src="images/down_ani.gif"></div>
+    <div id="seeMore"><img src="images/down_ani.gif" height = 38px ><img src="images/more.gif"><img src="images/down_ani.gif" height = 38px></div>
 </div>
+
+<script>
+    document.getElementById('links').addEventListener('scroll', function() {
+        var links = document.getElementById('links');
+        var seeMore = document.getElementById('seeMore');
+        if (links.scrollTop + links.clientHeight >= links.scrollHeight) {
+            seeMore.classList.add('disabled');
+        } else {
+            seeMore.classList.remove('disabled');
+        }
+    });
+</script>
 
 </body>
 </html>
