@@ -83,6 +83,7 @@ class Question(QuestionBase):
     order: int
     answers: Optional[List["Answer"]]
     options: Optional[List["QuestionOption"]]
+
     class Config:
         orm_mode = True
 

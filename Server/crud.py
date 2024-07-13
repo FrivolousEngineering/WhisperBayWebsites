@@ -35,6 +35,9 @@ def get_authors(db: Session):
     return db.query(models.Author)
 
 
+def get_news_articles(db: Session):
+    return db.query(models.NewsArticle)
+
 def get_question_option(db: Session, option_id: int):
     return db.query(models.QuestionOption).filter(models.QuestionOption.id == option_id).first()
 
@@ -127,6 +130,16 @@ def check_author_username_password_valid(db: Session, username: str, password: s
         return True
 
     return False
+
+
+def create_news_article(db: Session, username: str, article_text: str, article_subject: str):
+    author = db.query(models.Author).filter(models.Author.name == username).first()
+    time = datetime.now()
+    time = time.replace(year=1991)
+    time_to_use = time.strftime("%Y-%m-%d %H:%M")
+    new_article = models.NewsArticle(title = article_subject, text = article_text, author_id = author.id, time = time_to_use)
+    db.add(new_article)
+    db.commit()
 
 
 def seed_database(db: Session):

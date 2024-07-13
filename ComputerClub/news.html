@@ -36,6 +36,14 @@
 
     <div id="welcome-message" style="display: none;">
         <h2>Welcome, <span id="user-name"></span>!</h2>
+        <form id="article" action="javascript:void(0);" >
+
+            <label for="subject">subject:</label>
+            <input type="text" id="subject" name="subject" required><br>
+            <label for="article_text">Text: </label>
+            <textarea name="text" id = "article_text" cols="40" rows="5"></textarea> <br>
+            <button type="submit">Publish</button>
+        </form>
         <button id="logout">Logout</button>
     </div>
 </div>
@@ -66,6 +74,26 @@
         } else {
             showLoginForm();
         }
+
+        // Handle posting a story
+        $("#article").submit(function() {
+            var article_text = $("#article_text").val();
+            var article_subject = $("#subject").val();
+            console.log(article_text)
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8000/newsarticles/",
+                data: { username: $.cookie('username'), article_text: article_text, article_subject:  article_subject},
+                success: function(response) {
+                    // Clear article text
+                    $("#article_text").val("")
+                },
+                error: function() {
+                    //
+                }
+            });
+        });
 
         // Handle login form submission
         $("#login").submit(function() {

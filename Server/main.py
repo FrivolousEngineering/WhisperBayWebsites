@@ -190,3 +190,13 @@ async def login(username: Annotated[str, Form()], password: Annotated[str, Form(
     if not login_details_correct:
         raise HTTPException(status_code=400, detail="Incorrect username or password")
     return {"username": username}
+
+
+@app.post("/newsarticles/")
+async def post_newsarticle(username: Annotated[str, Form()], article_subject: Annotated[str, Form()], article_text: Annotated[str, Form()], db: Session = Depends(get_db)):
+    crud.create_news_article(db, username = username, article_subject = article_subject, article_text=article_text)
+    return {}
+
+@app.get("/newsarticles/", response_model=list[schemas.NewsArticle])
+async def post_newsarticle(db: Session = Depends(get_db)):
+    return crud.get_news_articles(db)
