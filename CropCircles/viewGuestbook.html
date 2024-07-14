@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Circles</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="../Server/static/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1><img src="images/satelitesignal2.gif" height =72> <SPAN class="blink">SIGNALS</span> FROM THE EDGE <img src="images/satelitesignal2-flipped.gif" height =72></h1>
+        <p><img src="images/alienbelieve.gif"> <img src="images/alienxfiles.gif"> <img src="images/alienlovechild.gif"></p>
+        <p><a href="signGuestbook.html"><img src="images/signguestbookneon.gif"></a> <a href="viewGuestbook.html"><img src="images/viewguestbookneon.gif"></a></p>
+        <p><a href="index.html"><img src="images/BackToHomepage.gif"></a> </p>
+    </header>
+    <main id="messages">
+    
+    
+    </main>
+    <footer>
+        <marquee>
+			<span><i>"For those who believe, no evidence is necessary. For those who do not, none will suffice."</i> —Stuart Chase&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<span><i>"I believe there's other forms of intelligence in the universe. I've seen and heard some pretty convincing UFO stuff. Besides, if we're the most intelligent things in the universe... well, that's just depressing."</i> -Rekha Sharma &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<span><i>"I saw my first UFO in 1978."</i>  -Shaun Ryder &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<span<i>"I happen to be privileged enough to be in on the fact that we have been visited on this planet, and the UFO phenomenon is real."</i> -Edgar Mitchell &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		</marquee>
+    </footer>
+</body>
+<script>
+    function getAllMessages() {
+        $.get("http://localhost:8000/messages/?target_guestbook=alien", function (data) {
+            updateMessages(data);
+        });
+    }
+
+    function updateMessages(response) {
+        // Clear the old data (if any!)
+        $('#messages').empty();
+        // Go over all the questions
+        $.each(response, function (i, message) {
+            var username = $("<strong>", {}).text(message.author_name)
+            var element = $("<section>", {}).append(username).append(" - ").append(message.time).append($("<br>")).append($("<br>")).append(message.message)
+            element.appendTo("#messages");
+        });
+    }
+    // Fetch all the guestbook messages
+    getAllMessages();
+</script>
+</html>
