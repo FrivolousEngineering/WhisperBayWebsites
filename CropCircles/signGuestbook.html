@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Circles</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="../Server/static/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1><img src="images/satelitesignal2.gif" height =72> <SPAN class="blink">SIGNALS</span> FROM THE EDGE <img src="images/satelitesignal2-flipped.gif" height =72></h1>
+        <p><img src="images/alienbelieve.gif"> <img src="images/alienxfiles.gif"> <img src="images/alienlovechild.gif"></p>
+        <p><a href="signGuestbook.html"><img src="images/signguestbookneon.gif"></a> <a href="viewGuestbook.html"><img src="images/viewguestbookneon.gif"></a></p>
+        <p><a href="index.html"><img src="images/BackToHomepage.gif"></a> </p>
+    </header>
+    <main>
+    <section>
+      <form action = "http://localhost:8000/messages/form/?target_guestbook=alien" method = "post" id ="guestbookform">
+            <label for="name"><strong>Your Name</strong></label> <br>
+            <input id="name" class="name" type = "text" name = "name" > <br>
+            <label for="message"><strong>Message</strong></label> <br>
+            <textarea id="message" rows="2" class="auto_height" onInput="auto_height(this)" name = "message"></textarea> <br> <br>
+            <input type="submit" value="POST">
+        </form>
+</section>
+
+<section>
+        <div id="notification"></div>
+        <p><a href="viewGuestbook.html"><img src="images/viewguestbookneon.gif"></a></p>
+    </section>
+    </main>
+    <footer>
+        <marquee>
+			<span><i>"For those who believe, no evidence is necessary. For those who do not, none will suffice."</i> —Stuart Chase&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<span><i>"I believe there's other forms of intelligence in the universe. I've seen and heard some pretty convincing UFO stuff. Besides, if we're the most intelligent things in the universe... well, that's just depressing."</i> -Rekha Sharma &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<span><i>"I saw my first UFO in 1978."</i>  -Shaun Ryder &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<span<i>"I happen to be privileged enough to be in on the fact that we have been visited on this planet, and the UFO phenomenon is real."</i> -Edgar Mitchell &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		</marquee>
+    </footer>
+</body>
+<script>
+    function auto_height(elem) {
+        elem.style.height = '1px';
+        elem.style.height = `${elem.scrollHeight+10}px`;
+    }
+
+    $(document).on("submit", "form", function(event)
+    {
+        event.preventDefault();
+
+        var url=$(this).attr("action");
+        $.ajax({
+            url: url,
+            type: $(this).attr("method"),
+            dataType: "JSON",
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            beforeSend: function()
+            {
+                $("#notification").html("TRANSMITTING");
+                
+                // Disable all inputs
+                $("#guestbookform :input").prop("disabled", true);
+            },
+            success: function(data)
+            {
+                setTimeout(function() {
+                    $("#notification").html("<h2><strong>Your SIGNAL has been received!</strong></h2>");
+                    $("#guestbookform :input").prop("disabled", false);
+                    $("#name").val("")
+                    $("#message").val("")
+                }, 5000); // Simulate slowness
+            },
+            error: function (xhr, description, error)
+            {
+                $("#notification").html(xhr.responseText);
+                $("#guestbookform :input").prop("disabled", false);
+            }
+        });
+    });
+</script>
+</html>
