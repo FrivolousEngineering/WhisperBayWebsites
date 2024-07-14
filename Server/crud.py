@@ -272,5 +272,362 @@ def seed_database(db: Session):
                                          custom_time="1991-07-20 17:20")
 
 
+    ####### ALIEN MESSAGES
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="John",
+                                                                            message="I've always believed in the unexplained. Seeing this site gives me hope that we can uncover the truth about crop circles.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-01-05 14:30")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Emily",
+                                                                            message="I saw strange lights over a field last summer. It's a relief to find others who are curious about these phenomena.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-01-12 09:15")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Mark",
+                                                                            message="I've been fascinated by crop circles for years. Finally, a place to discuss and share theories!",
+                                                                            target_board="alien"),
+                                         custom_time="1991-02-01 11:20")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Sara",
+                                                                            message="I found this site through a friend. The stories here are incredible. I no longer feel alone in my experiences.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-02-15 16:45")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Tom",
+                                                                            message="Skeptics may say it's all fake, but the precision of these formations can't be ignored. Glad to see a community forming around this.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-03-10 13:50")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Anna",
+                                                                            message="I saw my first crop circle back in 1985. It's amazing to finally find others who are as intrigued as I am.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-03-25 10:30")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Brian",
+                                                                            message="This site is a beacon for those of us who seek the truth. Crop circles are just the beginning.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-04-02 15:10")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Lara",
+                                                                            message="Finding this community feels like coming home. I've had experiences I can't explain and now I can share them with others.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-04-15 09:00")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="David",
+                                                                            message="I've read about crop circles for years, but never had a place to discuss. This is fantastic!",
+                                                                            target_board="alien"),
+                                         custom_time="1991-05-01 17:25")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Ella",
+                                                                            message="The energy at crop circle sites is palpable. It's great to see others feel the same.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-05-10 08:30")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Frank",
+                                                                            message="I used to think I was crazy for believing in crop circles. This community is helping me realize I'm not alone.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-05-20 14:00")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Grace",
+                                                                            message="Just discovered this site. The testimonials here are powerful. I'm convinced there's more to crop circles than meets the eye.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-06-01 12:45")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Henry",
+                                                                            message="Grace, I feel the same way. This community is growing and so is our understanding of these phenomena.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-06-15 16:30")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Isabel",
+                                                                            message="I've always been fascinated by the unexplained. Finding this site has reignited my passion for the truth.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-06-25 11:15")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Jack",
+                                                                            message="Crop circles are just the tip of the iceberg. This community is a step towards uncovering greater mysteries.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-05 13:40")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Karen",
+                                                                            message="I've witnessed a crop circle being formed by strange lights. This site gives me hope that I'm not alone.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-10 18:20")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Leo",
+                                                                            message="Karen, your story is incredible. It's experiences like yours that make this community so important.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-12 14:50")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Mia",
+                                                                            message="The stories here are amazing. I feel like I'm finally part of a community that understands.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-13 09:35")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Nathan",
+                                                                            message="I've been searching for a place to share my experiences. This site is exactly what I've been looking for.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-15 15:05")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Olivia",
+                                                                            message="Nathan, welcome! We're all here to uncover the truth together. Your experiences are valuable.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-16 10:25")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Peter",
+                                                                            message="I've always been a skeptic, but the discussions here are making me question what I thought I knew.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-16 12:55")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Quinn",
+                                                                            message="Peter, it's good to have skeptics too. It keeps the discussion balanced and grounded.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-17 11:10")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Rachel",
+                                                                            message="I've experienced things I can't explain. It's comforting to know I'm not alone in seeking answers.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-17 13:45")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Steve",
+                                                                            message="This site has become my go-to place for all things unexplained. The community here is amazing.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-17 16:20")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Tina",
+                                                                            message="I never thought I'd find a community like this. The stories here are incredible and inspiring.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-18 14:30")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Uma",
+                                                                            message="I've always felt a connection to the unexplained. This site is a treasure trove of information and experiences.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-18 15:50")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Victor",
+                                                                            message="The discussions here are changing my perspective. Crop circles might be more than just hoaxes.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-18 17:40")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Wendy",
+                                                                            message="Victor, I had my doubts too, but the evidence and testimonials here are compelling.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-19 13:20")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Xander",
+                                                                            message="Wendy, the community here is great for keeping an open mind while seeking the truth.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-19 15:35")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Yvonne",
+                                                                            message="I'm so glad I found this site. The stories and discussions are fascinating and eye-opening.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-20 11:45")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Zach",
+                                                                            message="Yvonne, same here. This community is a great place to explore the mysteries of crop circles and beyond.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-20 14:25")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Alice",
+                                                                            message="I saw my first crop circle in 1990 and it was a life-changing experience. There is no doubt in my mind that they are made by extraterrestrials. Keep searching for the truth!",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-21 14:30")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Bob",
+                                                                            message="While crop circles are fascinating, I remain skeptical. It seems more likely that they are human-made hoaxes rather than messages from aliens. Show me some real evidence!",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-22 09:45")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Charlie",
+                                                                            message="Bob, you should visit a crop circle in person. The energy and precision cannot be explained by human activity alone. I've felt the presence of something otherworldly!",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-22 13:15")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Denise",
+                                                                            message="I agree with Bob. It's too easy to jump to conclusions without solid proof. Let's keep an open mind but demand more evidence.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-23 10:00")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Erik",
+                                                                            message="Denise and Bob, have you considered the historical context? Crop circles have been documented for centuries. They are not a modern phenomenon!",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-23 15:45")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Faith",
+                                                                            message="I recently witnessed strange lights over a field that later had a crop circle. It was incredible! We are not alone.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-23 20:30")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="George",
+                                                                            message="Faith, what you saw could have been anything. Natural phenomena, experimental aircraft, who knows? Let's not rush to conclusions.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-24 07:20")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Hannah",
+                                                                            message="George, your skepticism is healthy, but sometimes you have to trust your instincts. The truth is out there!",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-24 18:45")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Ivan",
+                                                                            message="I've been researching crop circles for years. The patterns often align with ancient sacred geometry. This can't be a coincidence.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-25 11:00")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Jane",
+                                                                            message="Ivan, that's an interesting point. But couldn't it also be that humans are creating these patterns deliberately, inspired by ancient designs?",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-25 14:30")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Kate",
+                                                                            message="Jane, why would people go to such lengths to create something so elaborate without taking credit? It doesn't make sense.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-25 17:15")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Liam",
+                                                                            message="Kate, sometimes people do things for the thrill of it, or to perpetuate a mystery. We shouldn't discount human ingenuity.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-26 09:00")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Monica",
+                                                                            message="I used to be a skeptic like Bob, but after seeing a crop circle myself, I can't deny the possibility of extraterrestrial involvement.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-26 19:45")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Nate",
+                                                                            message="Monica, what exactly changed your mind? Was it just the visual impact, or did you experience something more?",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 08:30")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Olivia",
+                                                                            message="I had an eerie feeling of being watched while visiting a crop circle. It's not something I can easily explain, but it felt significant.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 15:00")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Paul",
+                                                                            message="Olivia, feelings can be deceiving. Our brains are wired to find patterns and meaning, even where there may be none.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 16:20")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Quincy",
+                                                                            message="The debate is what makes this topic so fascinating. Whether you believe or not, crop circles spark our curiosity and imagination.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 18:50")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Rachel",
+                                                                            message="Well said, Quincy. Let's keep discussing and exploring. The search for truth is a journey, not a destination.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 19:15")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Sam",
+                                                                            message="I think it's important to approach this with scientific rigor. While the idea of extraterrestrial involvement is intriguing, we need to thoroughly investigate all possibilities.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 20:00")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Tina",
+                                                                            message="Sam, I agree that science is crucial, but sometimes science can't explain everything. There's a mystery here that goes beyond our current understanding.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 20:10")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Uma",
+                                                                            message="I have been studying crop circles for over a decade, and there are too many anomalies that science cannot explain away as hoaxes or natural phenomena.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 20:11")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Victor",
+                                                                            message="Uma, what kind of anomalies are you referring to? Can you provide specific examples?",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 20:18")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Wendy",
+                                                                            message="I visited a crop circle last year, and the electromagnetic readings were off the charts. This isn't something that can be easily faked.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 20:34")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Xander",
+                                                                            message="Wendy, those readings could have been affected by various factors. We need to be careful not to jump to conclusions based on anomalies.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 21:10")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Yvonne",
+                                                                            message="I believe that crop circles are messages from other beings. The complexity and beauty of the designs are beyond human capability.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 21:35")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Zach",
+                                                                            message="Yvonne, I think you're underestimating human creativity and overestimating the unknown. It's exciting, but we need to stay grounded.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 21:48")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Nathan",
+                                                                            message="I'm so glad to see more people joining this discussion. It seems like every day, new evidence comes to light that makes it harder to dismiss crop circles as mere hoaxes. I remember the first time I saw one, back in the summer of '89. The air was electric, and there was this strange hum that I could feel more than hear. It's something that has stayed with me ever since.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 21:53")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Lara",
+                                                                            message="Nathan, your story gives me chills. I've never experienced a crop circle firsthand, but I hope to one day. The more I read, the more convinced I become that there's a deeper meaning to these formations. Has anyone else felt that hum Nathan mentioned?",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 22:01")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Mia",
+                                                                            message="Lara, I've felt something similar. When I visited a crop circle last year, there was this overwhelming sense of calm and an almost imperceptible vibration in the air. It was as if the circle itself was alive.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 22:24")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Tom",
+                                                                            message="It's fascinating to hear about these experiences. I've always approached crop circles with skepticism, but the personal accounts here are making me reconsider. Maybe it's time I visited one myself and saw what all the fuss is about.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 23:09")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Sara",
+                                                                            message="Tom, you definitely should! Seeing a crop circle in person is a totally different experience from just reading about it. The scale, the detail, and the feeling you get standing in the middle of one... it's indescribable.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 23:46")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Frank",
+                                                                            message="I've been visiting crop circles for over a decade, and each one is unique. Some seem simple, while others are incredibly intricate. I've always wondered if there's a message we're supposed to decode. Maybe if we all put our heads together, we can figure it out.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-27 23:59")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Emily",
+                                                                            message="Frank, that's a great idea. I think there's definitely a pattern or a message in these formations. Has anyone here tried to decode them? What if we're missing something obvious?",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-28 00:03")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Brian",
+                                                                            message="Emily, I've been trying to decode crop circles for years. Some believe they're maps, others think they're messages. I've even heard theories that they're musical notes. It's so intriguing to consider all the possibilities.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-28 00:12")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Alice",
+                                                                            message="Brian, the idea of crop circles being musical notes is fascinating. I never thought of that! Maybe they're trying to communicate through a universal language that we haven't deciphered yet.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-28 00:49")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="John",
+                                                                            message="Alice, that makes a lot of sense. Music is something that transcends cultures and even species. Perhaps the crop circles are a way to establish a common ground with us.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-28 01:06")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Peter",
+                                                                            message="I'm still on the fence about all this, but the idea of crop circles being a form of communication is intriguing. Has anyone tried to play the patterns like a musical score? What if that's the key to understanding them?",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-28 01:32")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Tina",
+                                                                            message="Peter, that's a brilliant idea! We should definitely look into that. If anyone has the means to translate these patterns into music, it could be groundbreaking.",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-28 01:57")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Grace",
+                                                                            message="I've always felt that crop circles had a deeper meaning. The idea that they could be music or some form of universal language resonates with me. Let's explore this further!",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-28 01:58")
+
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Tom",
+                                                                            message="I've been following this discussion closely, and I have to say, it's the most exciting theory I've heard in a long time. I'll try to find someone who can help us translate these patterns into music. Stay tuned!",
+                                                                            target_board="alien"),
+                                         custom_time="1991-07-28 06:30")
+
     # Authors
     create_author(db, "Jaime", "Test")
