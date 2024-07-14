@@ -280,7 +280,7 @@ def seed_database(db: Session):
                                          custom_time="1991-01-05 14:30")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Emily",
-                                                                            message="I saw strange lights over a field last summer. It's a relief to find others who are curious about these phenomena.",
+                                                                            message="I saw strange lights over a field last summer. It's a relief to find others who are curious about these phenomena. More people from the village saw them, but noone could tell us what we saw exactly. Some folks with governement credentials told us that it was just a weather baloon. But they don't give of light, do they?",
                                                                             target_board="alien"),
                                          custom_time="1991-01-12 09:15")
 
@@ -320,12 +320,12 @@ def seed_database(db: Session):
                                          custom_time="1991-05-01 17:25")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Ella",
-                                                                            message="The energy at crop circle sites is palpable. It's great to see others feel the same.",
+                                                                            message="The energy at crop circle sites is palpable. I've visited quite a few of them. Every time I do I sleep better and feel refreshed for weeks. It works better for certain types than for others though. Does anyone know why?",
                                                                             target_board="alien"),
                                          custom_time="1991-05-10 08:30")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Frank",
-                                                                            message="I used to think I was crazy for believing in crop circles. This community is helping me realize I'm not alone.",
+                                                                            message="I used to think I was crazy for believing that crop circles are the work of actual aliens. This community is helping me realize I'm not alone.",
                                                                             target_board="alien"),
                                          custom_time="1991-05-20 14:00")
 
@@ -350,7 +350,7 @@ def seed_database(db: Session):
                                          custom_time="1991-07-05 13:40")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Karen",
-                                                                            message="I've witnessed a crop circle being formed by strange lights. This site gives me hope that I'm not alone.",
+                                                                            message="I've witnessed a crop circle being formed by strange lights. It was one of the most magical experiences in my life. I never really told anyone about it as i was affraid that people would think i'm loonie if i told them about it. This is the first time that i dared even to say something about it. Whatever the aliens want, i'm a 100% sure that they are here to help us out even if we don't understand how or why!",
                                                                             target_board="alien"),
                                          custom_time="1991-07-10 18:20")
 
@@ -385,12 +385,12 @@ def seed_database(db: Session):
                                          custom_time="1991-07-17 11:10")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Rachel",
-                                                                            message="I've experienced things I can't explain. It's comforting to know I'm not alone in seeking answers.",
+                                                                            message="I've experienced things I just can't explain away, as much as i want to (or ya know, probably should?). It's comforting to know I'm not alone in this.",
                                                                             target_board="alien"),
                                          custom_time="1991-07-17 13:45")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Steve",
-                                                                            message="This site has become my go-to place for all things unexplained. The community here is amazing.",
+                                                                            message="This site has become my go-to place for all things unexplained. The community here is a-m-a-z-i-n-g.",
                                                                             target_board="alien"),
                                          custom_time="1991-07-17 16:20")
 
@@ -410,7 +410,7 @@ def seed_database(db: Session):
                                          custom_time="1991-07-18 17:40")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Wendy",
-                                                                            message="Victor, I had my doubts too, but the evidence and testimonials here are compelling.",
+                                                                            message="Victor, I had my doubts too, but the evidence and testimonials here are compelling. You can't just dismiss all of these people as having hallucinations.",
                                                                             target_board="alien"),
                                          custom_time="1991-07-19 13:20")
 
@@ -420,7 +420,7 @@ def seed_database(db: Session):
                                          custom_time="1991-07-19 15:35")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Yvonne",
-                                                                            message="I'm so glad I found this site. The stories and discussions are fascinating and eye-opening.",
+                                                                            message="I'm so glad I found this site. The stories and discussions are fascinating and eye-opening. I'm a big believer, but i never realized that the governement might have some vested interest in keeping it secret for us. I just thought that most people didn't care.",
                                                                             target_board="alien"),
                                          custom_time="1991-07-20 11:45")
 
@@ -484,18 +484,18 @@ def seed_database(db: Session):
                                                                             target_board="alien"),
                                          custom_time="1991-07-25 17:15")
 
-    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Liam",
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Jane",
                                                                             message="Kate, sometimes people do things for the thrill of it, or to perpetuate a mystery. We shouldn't discount human ingenuity.",
                                                                             target_board="alien"),
                                          custom_time="1991-07-26 09:00")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Monica",
-                                                                            message="I used to be a skeptic like Bob, but after seeing a crop circle myself, I can't deny the possibility of extraterrestrial involvement.",
+                                                                            message="I used to be a skeptic like Jame, but after seeing a crop circle myself, I can't deny the possibility of extraterrestrial involvement.",
                                                                             target_board="alien"),
                                          custom_time="1991-07-26 19:45")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Nate",
-                                                                            message="Monica, what exactly changed your mind? Was it just the visual impact, or did you experience something more?",
+                                                                            message="Hey Monica! What exactly changed your mind? Was it just the visual impact, or did you experience something more? My family is having a very hard time believing me and i've tried EVERYTHING. Me believing this is tearing us apart and it just hurts. So anything you can give me would help a lot!",
                                                                             target_board="alien"),
                                          custom_time="1991-07-27 08:30")
 
@@ -504,13 +504,13 @@ def seed_database(db: Session):
                                                                             target_board="alien"),
                                          custom_time="1991-07-27 15:00")
 
-    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Paul",
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Jane",
                                                                             message="Olivia, feelings can be deceiving. Our brains are wired to find patterns and meaning, even where there may be none.",
                                                                             target_board="alien"),
                                          custom_time="1991-07-27 16:20")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Quincy",
-                                                                            message="The debate is what makes this topic so fascinating. Whether you believe or not, crop circles spark our curiosity and imagination.",
+                                                                            message="The debate is what makes this topic so fascinating. Whether you believe or not, crop circles spark our curiosity and imagination. I for one don't really care if they are 'real' or not. Both situations make for an interesting story",
                                                                             target_board="alien"),
                                          custom_time="1991-07-27 18:50")
 
@@ -520,32 +520,32 @@ def seed_database(db: Session):
                                          custom_time="1991-07-27 19:15")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Sam",
-                                                                            message="I think it's important to approach this with scientific rigor. While the idea of extraterrestrial involvement is intriguing, we need to thoroughly investigate all possibilities.",
+                                                                            message="I think it's important to approach this with scientific rigor. While the idea of extraterrestrial involvement is intriguing, we need to thoroughly investigate all possibilities. The assumption that it's aliens simply violates occam's razor!",
                                                                             target_board="alien"),
                                          custom_time="1991-07-27 20:00")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Tina",
-                                                                            message="Sam, I agree that science is crucial, but sometimes science can't explain everything. There's a mystery here that goes beyond our current understanding.",
+                                                                            message="I agree that science is crucial, but sometimes science can't explain everything. There's a mystery here that goes beyond our current understanding. So all this talk about scientific 'rigor' is all nice and well, but we can't summon the circles. If we could, we might consider to put science to work on it. Now we just have to believe and experience what we feel!",
                                                                             target_board="alien"),
                                          custom_time="1991-07-27 20:10")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Uma",
-                                                                            message="I have been studying crop circles for over a decade, and there are too many anomalies that science cannot explain away as hoaxes or natural phenomena.",
+                                                                            message="I have been studying crop circles for over a decade, and there are too many anomalies that science cannot explain away as hoaxes or natural phenomena. That doesn't stop the non believers from trying though. But you can just use their own principles against them. If it really was people doing it, they would be able to explain all the stuff, right?!",
                                                                             target_board="alien"),
                                          custom_time="1991-07-27 20:11")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Victor",
-                                                                            message="Uma, what kind of anomalies are you referring to? Can you provide specific examples?",
+                                                                            message="Uma, what kind of anomalies are you referring to? Can you provide specific examples? When you say anomalies, i think about stuff like gravity not working right, time going backwards, that kind of stuff. We would have hard about that on the news if they found that right? I doubt any governement agency could keep that under wraps...",
                                                                             target_board="alien"),
                                          custom_time="1991-07-27 20:18")
 
-    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Wendy",
-                                                                            message="I visited a crop circle last year, and the electromagnetic readings were off the charts. This isn't something that can be easily faked.",
+    create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Uma",
+                                                                            message="For instance, I visited a crop circle last year, and the electromagnetic readings were off the charts. This isn't something that can be easily faked! That's not the work of some jokers pulling a prank.",
                                                                             target_board="alien"),
                                          custom_time="1991-07-27 20:34")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Xander",
-                                                                            message="Wendy, those readings could have been affected by various factors. We need to be careful not to jump to conclusions based on anomalies.",
+                                                                            message="Uma, those readings could have been affected by various factors. We need to be careful not to jump to conclusions based on anomalies.",
                                                                             target_board="alien"),
                                          custom_time="1991-07-27 21:10")
 
@@ -615,17 +615,17 @@ def seed_database(db: Session):
                                          custom_time="1991-07-28 01:32")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Tina",
-                                                                            message="Peter, that's a brilliant idea! We should definitely look into that. If anyone has the means to translate these patterns into music, it could be groundbreaking.",
+                                                                            message="Sound? Music? How the hell would you even convert the circles into that? I'm sorry, i don't think it's music. I'm having a hard time believing that the visitors would hop into their UFO, travel lightyears to get here only so they can drop their latest and hottest mixtape with us? If you are right, it could be groundbreaking. But i for one am not getting my hopes up!",
                                                                             target_board="alien"),
                                          custom_time="1991-07-28 01:57")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Grace",
-                                                                            message="I've always felt that crop circles had a deeper meaning. The idea that they could be music or some form of universal language resonates with me. Let's explore this further!",
+                                                                            message="I've always felt that crop circles had a deeper meaning. The idea that they could be music or some form of universal language resonates with me. Let's explore this further! What can we do to help? How could we even translate it?",
                                                                             target_board="alien"),
                                          custom_time="1991-07-28 01:58")
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="Tom",
-                                                                            message="I've been following this discussion closely, and I have to say, it's the most exciting theory I've heard in a long time. I'll try to find someone who can help us translate these patterns into music. Stay tuned!",
+                                                                            message="I've been following this discussion closely, and I have to say, it's the most exciting theory I've heard in a long time. I'll try to find someone who can help us translate these patterns somehow. But keep in mind that we might be barking up the wrong tree...",
                                                                             target_board="alien"),
                                          custom_time="1991-07-28 06:30")
 
