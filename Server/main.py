@@ -64,10 +64,15 @@ app.mount("/static", StaticFiles(directory="Server/static"), name="static")
 
 known_sites = {"Cornish Food Delights": "../CornishFood/index.html",
                "Womens Institute": "../WomenInstitute/index.html",
-               "WhisperBay Community Garden": "../CommunityGarden/home.html"}
+               "WhisperBay Community Garden": "../CommunityGarden/home.html",
+               "General Store": "../GeneralStore/index.htm",
+               "Crystal Store": "../CrystalStore/index.htm",
+               "Tourism Board": "../TourismBoard/welcome_tourism.html",
+               "Holiday Park": "../CornishRiviera/index.html"}
 
 
 food_webring = ["Cornish Food Delights", "Womens Institute", "WhisperBay Community Garden"]
+commerce_webring = ["General Store", "Crystal Store", "Tourism Board", "Holiday Park"]
 
 # Dependency
 def get_db():
@@ -191,7 +196,10 @@ async def get_webring(site: str, ring: str = ""):
     if ring == "food":
         active_webring = food_webring
         webring_name = "Food"
-
+    if ring == "commerce":
+        active_webring = commerce_webring
+        webring_name = "Commerce"
+    print(commerce_webring)
     if active_webring:
         webring_index = active_webring.index(site)
         next_index = webring_index + 1
