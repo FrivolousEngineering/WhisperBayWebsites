@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Members</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="../Server/static/jquery-3.7.1.min.js"></script>
+    <script src="../Server/static/jquery-cookie.js"></script>
+</head>
+<body>
+
+<div id="header">
+    <img src="images/computerclubheader.gif" alt="Replace with a GIF of a rotating computer or similar 90s style animation">
+</div>
+
+<div id="menu">
+    <div class="menu-item"><a href="index.html"><img src = "images/home1.gif"><br>Home</a></div>
+    <div class="menu-item"><a href="news.html"><img src = "images/News.gif"><br>Local News</a></div>
+    <div class="menu-item"><a href="members.html"><img src = "images/Members.gif"><br>Members</a></div>
+    <div class="menu-item"><a href="contact.html"><img src = "images/CONTACT.gif"><br>Contact us!</a></div>
+</div>
+
+<div id="content">
+	<h1>Computer club members </h1>
+	<p> Here you can find a list of all members of the best club of Whisper Bay!</p>
+    <div id = "members"></div>
+</div>
+
+<div id="links">
+    <h2>Other Websites</h2>
+    <div class="link-item"><a href="../Architecture/index.html"><img src="images/house-jumping.gif"><br>Whisper Bay Architecture</a></div>
+    <div class="link-item"><a href="../ChildrenOfGreen/index.html"><img src="images/pantagramdraaiend.gif"><br>Children of the Green</a></div>
+    <div class="link-item"><a href="../Church/index.html"><img src="images/CHURCH.gif"><br>Whisper Bay Church</a></div>
+    <div class="link-item"><a href="../CommunityGarden/home.html"><img src="images/Plant_jumps.gif"><br>Community Gardens</a></div>
+    <div class="link-item"><a href="../CornishRiviera/index.html"><img src="images/Invest.gif"><br>Holiday Park Project</a></div>
+    <div class="link-item"><a href="../CropCircles/index.html"><img src="images/UFO.gif"><br>Signals From The Edge</a></div>
+    <div class="link-item"><a href="../Flora/index.html"><img src="images/plantmove.gif"><br>Local Plants</a></div>
+    <div class="link-item"><a href="../Folklore/index.html"><img src="images/writingelf.gif"><br>Local Folklore</a></div>
+    <div class="link-item"><a href="../CornishFood/index.html"><img src="images/cook.gif"><br>Recipes</a></div>
+    <div class="link-item"><a href="../TourismBoard/welcome_tourism.html"><img src="images/tourist2.gif"><br>Tourism Board</a></div>
+    <div class="link-item"><a href="../WomenInstitute/index.html"><img src="images/woman_impatient_in_chair.gif"><br>Womens Institute</a></div>
+    <div class="link-item"><a href="../CrystalStore/index.htm"><img src="images/crystal.gif"><br>Crystal Shop</a></div>
+    <div class="link-item"><a href="../GeneralStore/index.htm"><img src="images/store.gif"><br>General Store</a></div>
+    <div class="link-item"><a href="../LawnBowl/index.html"><img src="images/bowl.jpg" width=75px><br>Lawn Bowl Club</a></div>
+    <div class="link-item"><a href="../Playground/index.html"><img src="images/skull.gif"><br>Playground</a></div>
+    <div class="link-item"><a href="../ForrestSchool/index.html"><img src="images/anitree.gif"><br>Forest School</a></div>
+    <div id="seeMore"><img src="images/down_ani.gif"><img src="images/more.gif"><img src="images/down_ani.gif"></div>
+</div>
+<canvas id="fireCanvas"></canvas>
+<script type="text/javascript" src="scripts.js"></script>
+
+<script>
+   function getAllMembers() {
+        $.get("http://localhost:8000/clubmemberships/?club=computer", function (data) {
+            updateMembers(data);
+        });
+    }
+
+    function updateMembers(response) {
+	    // Create an unordered list element
+	    var ul = $("<ul>", {});
+
+	    $.each(response, function (i, member) {
+		var listItem = $("<li>", {});
+		var nicnameText = "";
+		if(member.nickname !== ""){
+			nicknameText = "\"" + member.nickname + "\" ";
+		}
+		var username = $("<span>", {}).text(member.first_name + " " + nicknameText + member.last_name);
+
+		if (member.title !== "") {
+		    username.append(" - ").append(($("<b>").text(member.title)));
+		}
+
+		listItem.append(username);
+		ul.append(listItem);
+	    });
+
+	    // Append the unordered list to the members container
+	    $("#members").append(ul);
+	}
+    getAllMembers();
+</script>
+
+</body>
+</html>
+
