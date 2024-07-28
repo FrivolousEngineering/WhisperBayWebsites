@@ -3,6 +3,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Club News</title>
         <link href="Badge.ico" rel="shortcut icon" type="image/x-icon">
+        <script src="../Server/static/jquery-3.7.1.min.js"></script>
         <link href="styles.css" rel="stylesheet" type="text/css">
     </head>
     <body>
@@ -26,8 +27,8 @@
             </div>
  
             <div id="wb_Text1" style="position:absolute;left:17%;top:7%;width:64%;height:60%;text-align:justify;z-index:2;">
-                <span style="color:#000000;font-family:Arial;font-size:20px;">
-                You can find about us by visiting one of our members. 
+                <span style="color:#000000;font-family:Arial;font-size:20px;" id="members">
+               	 You can find about us by visiting one of our members. 
  		</span>
             </div>
         </div>
@@ -60,5 +61,37 @@
             </div>
         </div>
     </body>
+    <script>
+   function getAllMembers() {
+        $.get("http://localhost:8000/clubmemberships/?club=bowls", function (data) {
+            updateMembers(data);
+        });
+    }
+
+    function updateMembers(response) {
+	    // Create an unordered list element
+	    var ul = $("<ul>", {});
+
+	    $.each(response, function (i, member) {
+		var listItem = $("<li>", {});
+		var nicnameText = "";
+		if(member.nickname !== ""){
+			nicknameText = "\"" + member.nickname + "\" ";
+		}
+		var username = $("<span>", {}).text(member.first_name + " " + nicknameText + member.last_name);
+
+		if (member.title !== "") {
+		    username.append(" - ").append(($("<b>").text(member.title)));
+		}
+
+		listItem.append(username);
+		ul.append(listItem);
+	    });
+
+	    // Append the unordered list to the members container
+	    $("#members").append(ul);
+	}
+    getAllMembers();
+</script>
 </html>
 
