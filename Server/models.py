@@ -60,3 +60,15 @@ class NewsArticle(Base):
     text = Column(String)
     author_id = Column(Integer, ForeignKey("authors.id"))
     author = relationship("Author", back_populates="articles")
+
+
+class ClubMembership(Base):
+    __tablename__ = "club_membership"
+    id = Column(Integer, primary_key=True)
+    first_name = Column(String)
+    last_name = Column(String)
+    nickname = Column(String)
+    club_run_1 = Column(String)
+    title_run_1 = Column(String)
+    club_run_2 = Column(String)
+    title_run_2 = Column(String)

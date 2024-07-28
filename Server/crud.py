@@ -38,6 +38,7 @@ def get_authors(db: Session):
 def get_news_articles(db: Session):
     return db.query(models.NewsArticle).order_by(models.NewsArticle.id.desc())
 
+
 def get_question_option(db: Session, option_id: int):
     return db.query(models.QuestionOption).filter(models.QuestionOption.id == option_id).first()
 
@@ -120,6 +121,22 @@ def reset_database(db: Session):
     db.commit()
 
 
+def get_all_club_members_by_club(db: Session, club_name: str, run: int = 1):
+    result = []
+    if run == 1:
+        club_members = db.query(models.ClubMembership).filter(models.ClubMembership.club_run_1 == club_name)
+        for member in club_members:
+            result.append(schemas.ClubMembership(first_name=member.first_name, last_name=member.last_name,
+                                                 nickname=member.nickname, title=member.title_run_1))
+    else:
+        club_members = db.query(models.ClubMembership).filter(models.ClubMembership.club_run_2 == club_name)
+        for member in club_members:
+            result.append(schemas.ClubMembership(first_name=member.first_name, last_name=member.last_name,
+                                                 nickname=member.nickname, title=member.title_run_1))
+
+    return result
+
+
 def check_author_username_password_valid(db: Session, username: str, password: str) -> bool:
     """
     Check if the username and password for an author are valid. Since we don't want actual security, we don't
@@ -130,6 +147,13 @@ def check_author_username_password_valid(db: Session, username: str, password: s
         return True
 
     return False
+
+
+def create_club_membership(db: Session, first_name: str, last_name: str, nickname: str, club_run_1: str, club_run_2: str, title_run_1: str = "", title_run_2: str = ""):
+    db_membership = models.ClubMembership(first_name=first_name, last_name=last_name, nickname=nickname, club_run_1=club_run_1, club_run_2=club_run_2, title_run_1=title_run_1, title_run_2=title_run_2)
+
+    db.add(db_membership)
+    db.commit()
 
 
 def create_news_article(db: Session, username: str, article_text: str, article_subject: str):
@@ -631,3 +655,10 @@ def seed_database(db: Session):
 
     # Authors
     create_author(db, "Jaime", "Test")
+
+    # TEST USER
+    create_club_membership(db, "Jaime", "van Kessel", "", club_run_1="computer", club_run_2="computer")
+
+    create_club_membership(db, "Felicity", "Kempthorne", "", club_run_1="wi", club_run_2="wi", title_run_1="Chairwomen", title_run_2="Chairwomen")
+
+    create_club_membership(db, "Rosenwyn", "Jelbert", "Roz", club_run_1="wi", club_run_2="wi")

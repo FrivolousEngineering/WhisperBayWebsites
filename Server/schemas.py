@@ -104,6 +104,13 @@ class NewsArticlesBase(BaseModel):
     text: str
 
 
+class ClubMembership(BaseModel):
+    first_name: str
+    last_name: str
+    nickname: str
+    title: str
+
+
 class NewsArticle(NewsArticlesBase):
     id: int
     author: AuthorSummary

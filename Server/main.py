@@ -200,3 +200,9 @@ async def post_newsarticle(username: Annotated[str, Form()], article_subject: An
 @app.get("/newsarticles/", response_model=list[schemas.NewsArticle])
 async def get_newsarticle(db: Session = Depends(get_db)):
     return crud.get_news_articles(db)
+
+
+@app.get("/clubmemberships/", response_model=list[schemas.ClubMembership])
+async def get_memberships(club: str, db: Session = Depends(get_db)):
+    # Todo: maybe also add some handling if the club wasn't recognised.
+    return crud.get_all_club_members_by_club(db, club)

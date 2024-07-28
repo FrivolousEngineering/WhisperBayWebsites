@@ -17,7 +17,6 @@
 </head>
 <body>
     <div class="container">
-        
         <main>
             <section id="about">
                 <p>At the Women's Institute of Whisper Bay, we strive to empower women, promote friendship, and contribute to the well-being of our community. Our institute is a place where women come together to share experiences, develop new skills, and support each other. Established in 1923, the Women's Institute of Whisper Bay has a long tradition of community service and social activities. Over the decades, we have been at the forefront of numerous community projects, from educational programs to charity events. Felicity Kempthorne has been the chairwoman of the Women's Institute for the past five years. Together with the hard working volunteers of the WI they are the driving force of all it's initiatives. </p>
@@ -49,6 +48,10 @@
                 <p><strong>Women's Institute of Whisper Bay</strong></p>
                 <p>Whisper Bay Village Hall <br> Whisper Bay, Cornwall, UK</p>
             </section>
+            <section id="members">
+                <h2>Members</h2>
+                
+            </section>
             <section id="history">
                 <h2>History and Archives</h2>
                 <p>The National Federation of Women's Institutes (NFWI) is the overall body of the WI in England, Wales, the Channel Islands, and the Isle of Man, with headquarters in London and an office in Cardiff, NFWI-Wales. Each individual WI is a separate charitable organization, run by and for its own members with a constitution agreed at national level but the possibility of local bye-laws.</p>
@@ -70,4 +73,33 @@
 	</audio> 
     <div id="webring"></div>
 </body>
+
+<script>
+    function getAllMembers() {
+        $.get("http://localhost:8000/clubmemberships/?club=wi", function (data) {
+            updateMembers(data);
+        });
+    }
+
+    function updateMembers(response) {
+	    // Create an unordered list element
+	    var ul = $("<ul>", {});
+
+	    $.each(response, function (i, member) {
+		var listItem = $("<li>", {});
+		var username = $("<span>", {}).text(member.first_name + " " + member.last_name);
+
+		if (member.title !== "") {
+		    username.append(" (").append(member.title).append(")");
+		}
+
+		listItem.append(username);
+		ul.append(listItem);
+	    });
+
+	    // Append the unordered list to the members container
+	    $("#members").append(ul);
+	}
+    getAllMembers();
+</script>
 </html>
