@@ -1,4 +1,4 @@
-.webring-container-food {
+.webring-container-edu {
     font-family: "Times New Roman", Times, serif;
     border: 4px outset #ccc;
     padding: 5px;
@@ -12,29 +12,29 @@
     font-size: 1em;
 }
 
-.inner-webring-container-food {
+.inner-webring-container-edu {
     border: 1px solid #ccc;
     padding: 10px 10px 5px 10px;
 }
-.webring-container-food h2 span {
+.webring-container-edu h2 span {
   font-weight: bold;
 }
-.webring-container-food h2{
+.webring-container-edu h2{
   color: black; 
   font-weight: normal;
 }
-.webring-container-food p{
+.webring-container-edu p{
   color: black; 
 }
-.copyright-food
+.copyright-edu
 {
 font-size: 0.75em;
 }
-.webring-links-food a {
+.webring-links-edu a {
     text-decoration: none;
     color: #007BFF;
     margin: 0 10px;
 }
-.webring-links-food a:hover {
+.webring-links-edu a:hover {
     text-decoration: underline;
 }

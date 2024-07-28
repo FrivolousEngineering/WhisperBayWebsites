@@ -68,11 +68,14 @@ known_sites = {"Cornish Food Delights": "../CornishFood/index.html",
                "General Store": "../GeneralStore/index.htm",
                "Crystal Store": "../CrystalStore/index.htm",
                "Tourism Board": "../TourismBoard/welcome_tourism.html",
-               "Holiday Park": "../CornishRiviera/index.html"}
+               "Holiday Park": "../CornishRiviera/index.html",
+               "Computer Club": "../ComputerClub/index.html",
+               "Forest School": "../ForrestSchool/index.html"}
 
 
 food_webring = ["Cornish Food Delights", "Womens Institute", "WhisperBay Community Garden"]
 commerce_webring = ["General Store", "Crystal Store", "Tourism Board", "Holiday Park"]
+education_webring = ["Computer Club", "Forest School", "Womens Institute"]
 
 # Dependency
 def get_db():
@@ -199,7 +202,9 @@ async def get_webring(site: str, ring: str = ""):
     if ring == "commerce":
         active_webring = commerce_webring
         webring_name = "Commerce"
-    print(commerce_webring)
+    if ring == "education":
+        active_webring = education_webring
+        webring_name = "Education"
     if active_webring:
         webring_index = active_webring.index(site)
         next_index = webring_index + 1

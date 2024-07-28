@@ -84,3 +84,11 @@ textarea {
 .name{
 width: 500px;
 }
+
+.webring {
+	display: flex;
+	flex-direction: row;
+	justify-content: center; /* Center children vertically */
+    align-items: center; /* Center children horizontally */
+    height: 100%; /* Make parent take up full height, adjust as needed */
+}

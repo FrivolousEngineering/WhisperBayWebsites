@@ -139,6 +139,13 @@ marquee {
     100% { opacity: 1; }
 }
 
+.webring {
+	display: flex;
+	flex-direction: row;
+	justify-content: center; /* Center children vertically */
+    align-items: center; /* Center children horizontally */
+    height: 100%; /* Make parent take up full height, adjust as needed */
+}
     </style>
     <script>window.site_name = "WhisperBay Community Garden";</script>
     <script src="../Server/static/jquery-3.7.1.min.js"></script>
@@ -195,7 +202,7 @@ marquee {
         Phone: +44 1234 567890</p>
     </section>
     
-    <div id="webring"></div>
+    <div id="webring" class = "webring"></div>
     
     <footer>
         <p>Join Us Today! Become a part of our gardening community. Whether you're a novice or a seasoned gardener, there’s a place for you here at Whisper Bay Community Garden.</p>
