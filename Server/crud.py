@@ -118,6 +118,7 @@ def reset_database(db: Session):
     db.query(models.Question).delete()
     db.query(models.QuestionOption).delete()
     db.query(models.GuestbookMessage).delete()
+    db.query(models.ClubMembership).delete()
     db.commit()
 
 
@@ -657,7 +658,10 @@ def seed_database(db: Session):
     create_author(db, "Jaime", "Test")
 
     # TEST USER
-    create_club_membership(db, "Jaime", "van Kessel", "", club_run_1="computer", club_run_2="computer")
+    create_club_membership(db, "Jaime", "van Kessel", "Nallath", club_run_1="FrivolousEngineering", club_run_2="FrivolousEngineering", title_run_1="Chief untouchable engineering", title_run_2="Chief untouchable engineering")
+    create_club_membership(db, "Corne", "van Kessel", "BlazingEclipse", club_run_1="FrivolousEngineering", club_run_2="FrivolousEngineering", title_run_1="Chief touchable Engineering", title_run_2="Chief touchable Engineering")
+    # Left title empty on purpose for testing purposes
+    create_club_membership(db, "Roos", "Schultheiss", "Fjadderal", club_run_1="FrivolousEngineering", club_run_2="FrivolousEngineering", title_run_1="", title_run_2="")
 
     create_club_membership(db, "Felicity", "Kempthorne", "", club_run_1="wi", club_run_2="wi", title_run_1="Chairwomen", title_run_2="Chairwomen")
 
