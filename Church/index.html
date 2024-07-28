@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Whisper Bay Church</title>
+	<script src="../Server/static/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -88,10 +89,7 @@
             <section id="council">
                 <h2>Parish Council</h2>
                 <img src="images/graceofgodblinkie.gif" alt="Council image"> 
-                <ul style="margin-left:150px">
-                	<li> Ales Thomas - Chair
-                	<li> Sevi Jelbert - secretary
-                </ul>
+                <div id="members"> </div>
                 <div class="clear"></div>
             </section>
 
@@ -122,4 +120,33 @@
         </footer>
     </div>
 </body>
+
+<script>
+    function getAllMembers() {
+        $.get("http://localhost:8000/clubmemberships/?club=parish", function (data) {
+            updateMembers(data);
+        });
+    }
+
+    function updateMembers(response) {
+	    // Create an unordered list element
+	    var ul = $("<ul>", {});
+
+	    $.each(response, function (i, member) {
+		var listItem = $("<li>", {"style": "margin-left:150px"});
+		var username = $("<span>", {}).text(member.first_name + " " + member.last_name);
+
+		if (member.title !== "") {
+		    username.append(" - ").append(member.title);
+		}
+
+		listItem.append(username);
+		ul.append(listItem);
+	    });
+
+	    // Append the unordered list to the members container
+	    $("#members").append(ul);
+	}
+    getAllMembers();
+</script>
 </html>
