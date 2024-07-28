@@ -1,18 +1,17 @@
-﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <title>Best Playground Toys</title>
     <style type="text/css">
         body {
             font-family: 'Garamond', serif;
-            background-color: #2B2B2B;
+            background-color: #F5F5F5;
+            color: #333;
             background-image: url('gothic_wallpaper.jpg');
-            color: #E0E0E0;
         }
         h1 {
             text-align: center;
-            color: #B22222;
-            text-shadow: 2px 2px #4B0082;
+            color: #4B0082;
         }
         h2 {
             color: #8A2BE2;
@@ -20,25 +19,18 @@
         }
         .toy {
             margin-bottom: 20px;
-            border: 5px dashed #4B0082;
+            border: 3px dashed #4B0082;
             padding: 10px;
-            background-color: #3E3E3E;
+            background-color: #E0E0E0;
         }
-        .gif {
+        .gif, .paint-drawing {
             display: block;
             margin: 10px auto;
+            max-width: 300px;
         }
         .paint-drawing {
-            display: block;
-            margin: 10px auto;
             border: 5px solid #32CD32;
             animation: rainbow-border 10s infinite;
-        }
-        .zalgo {
-            font-family: 'Garamond', serif;
-            color: #B22222;
-            font-size: 18px;
-            animation: zalgo 15s infinite;
         }
         .subliminal {
             display: none;
@@ -54,60 +46,48 @@
             85% { border-color: violet; }
             100% { border-color: red; }
         }
-        @keyframes zalgo {
-            0% {
-                transform: translateY(0);
-            }
-            25% {
-                transform: translateY(-5px) rotate(-2deg);
-            }
-            50% {
-                transform: translateY(5px) rotate(2deg);
-            }
-            75% {
-                transform: translateY(-3px) rotate(-1deg);
-            }
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-        }
         @keyframes subliminal {
             0%, 98%, 100% {
                 display: none;
             }
             99% {
-                display: block;
+                display: inline;
             }
         }
     </style>
 </head>
 <body>
-    <marquee class="blinking" direction="alternate">*** Welcome to the Best Playground Toys Page! ***</marquee>
-    <h1>Best Playground Toys!!! <span class="subliminal">They are watching...</span></h1><img src="hand1.gif" alt="Hand in your neck" class="gif"> <img src="babysplaygroundclr.gif" alt="Come and play" class="gif"></span></h1><img src="hand1.gif" alt="Hand in your neck" class="gif">
+    <marquee direction="left">*** Welcome to the Best Playground Toys Page! ***</marquee>
+    <h1>Best Playground Toys!!!</h1>
     <div class="toy" id="slides">
         <h2>Slides</h2>
-        <p>Slides are the best! You can climb up and slide down super fast. Be careful, though, sometimes when you reach the bottom, you might feel like someone's watching... They say if you look closely, you can see a shadow that wasn't there before.</p>
+        <p>Slides are the best! You can climb up and slide down super fast. Sometimes, at the bottom, it feels like the world shifts just a little. Maybe it's just your imagination, but it's always fun to wonder.</p>
+        <p>Once, my friend Jimmy said he saw something weird at the bottom of the slide. It was like a shadow that didn't belong to anyone. He got scared and ran away, but when we went back, it was gone. Some kids say if you slide down at exactly midnight, you might see it too. I haven't tried yet. Maybe one day I will.</p>
         <img src="hampsterslide.gif" alt="Slide gif" class="gif">
         <img src="paint_slide.png" alt="Paint drawing of slide" class="paint-drawing">
     </div>
     <div class="toy" id="swings">
         <h2>Swings</h2>
-        <p>Swings let you fly through the air! Pump your legs to go higher and higher. Just don't swing too high, or you might see the shadows moving...Some say there's a ghost that swings with you at night.</p>
+        <p>Swings let you fly through the air! Pump your legs to go higher and higher. Have you ever felt like you could touch the sky? Sometimes, if you go high enough, you might see something out of the corner of your eye. A bird? A plane? Who knows?</p>
+        <p>One evening, as the sun was setting, I saw a figure swinging next to me. But when I looked again, there was no one there. My mom says it's just my imagination, but it felt so real. I heard that if you swing high enough and close your eyes, you can feel someone pushing you higher. It's like having an invisible friend with you. Just don't look back too quickly, or you might scare them away.</p>
         <img src="https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif" alt="Swing gif" class="gif">
         <img src="paint_swings.png" alt="Paint drawing of swings" class="paint-drawing">
     </div>
     <div class="toy" id="monkeybars">
         <h2>Monkey Bars</h2>
-        <p>Monkey bars are great for climbing and hanging around. Sometimes you can almost hear whispers when you're upside down... Legend has it, a child once fell and now haunts the monkey bars.</p>
+        <p>Monkey bars are great for climbing and hanging around. Upside down, the world looks different. Sometimes you hear things differently too. Was that a whisper, or just the wind? The monkey bars are a great place to let your imagination run wild.</p>
+        <p>There’s a rumor that if you hang upside down for too long, you might hear someone whisper your name. My friend Sarah told me she heard it once, but she was too scared to stay and listen. Some say it's just the wind, but others think it's the spirit of a kid who used to play here a long time ago. It's kind of spooky, but also exciting. Next time, I’ll try to stay longer and see what happens.</p>
         <img src="https://media.giphy.com/media/xUPGcty1iBm4J7vBgA/giphy.gif" alt="Monkey Bars gif" class="gif">
         <img src="paint_monkeybars.png" alt="Paint drawing of monkey bars" class="paint-drawing">
     </div>
     <div class="toy" id="seesaw">
         <h2>Seesaw</h2>
-        <p>The seesaw is fun with a friend. You can go up and down together. Just make sure you have a real friend with you, not the one that only appears at night... Some say the ghost of a lonely child seeks a friend on the seesaw.</p>
+        <p>The seesaw is fun with a friend. You can go up and down together, sharing laughs and stories. Sometimes, when you're up high, it feels like you're on top of the world. And when you're down low, you might notice something interesting on the ground that you hadn't seen before.</p>
+        <p>One day, I was on the seesaw with my friend, and we saw a shiny object buried in the dirt. It looked like an old coin, but when we dug it out, it vanished. We both saw it, but no one believes us. They say that sometimes the seesaw shows you things that aren’t really there. Maybe it’s a trick of the light, or maybe it’s something else. It makes you think about what’s really hidden in the playground.</p>
         <img src="https://media.giphy.com/media/3o7aD5t1r8g6tKTuvq/giphy.gif" alt="Seesaw gif" class="gif">
         <img src="paint_seesaw.png" alt="Paint drawing of seesaw" class="paint-drawing">
     </div>
-    <marquee direction="right" class="blinking">Hope you enjoy the best toys! <span class="subliminal">Look behind you...</span></marquee>
+    <marquee direction="right">Hope you enjoy the best toys! <span class="subliminal">Have fun exploring!</span></marquee>
 </body>
 </html>
+
