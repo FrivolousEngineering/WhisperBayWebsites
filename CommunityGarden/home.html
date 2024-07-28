@@ -14,7 +14,7 @@
 
 /* Body styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Comic Sans MS", cursive, sans-serif;
     background-color: #ffffcc; /* light yellow */
     color: #000066; /* dark blue */
     text-align: center;
@@ -28,11 +28,13 @@ header {
     color: #ffffcc; /* light yellow */
     padding: 10px;
     margin-bottom: 20px;
+    border: 3px dashed #ff6600; /* orange border */
 }
 
 header h1 {
-    font-size: 2.5em;
+    font-size: 3em;
     margin-bottom: 10px;
+    animation: blink 1s infinite;
 }
 
 header p {
@@ -70,7 +72,7 @@ section {
     margin-bottom: 30px;
     padding: 20px;
     background-color: #ffffcc; /* light yellow */
-    border: 1px solid #000066; /* dark blue */
+    border: 3px solid #000066; /* dark blue */
     text-align: left;
 }
 
@@ -78,6 +80,7 @@ section h2 {
     font-size: 1.8em;
     margin-bottom: 10px;
     color: #000066; /* dark blue */
+    border-bottom: 2px solid #ff6600; /* orange underline */
 }
 
 section p {
@@ -91,6 +94,8 @@ section ul {
 
 section ul li {
     margin-bottom: 5px;
+    list-style-type: square;
+    color: #ff6600; /* orange bullet points */
 }
 
 /* Footer styles */
@@ -100,6 +105,7 @@ footer {
     padding: 10px;
     font-size: 0.9em;
     margin-top: 30px;
+    border: 3px dashed #ff6600; /* orange border */
 }
 
 footer p {
@@ -115,7 +121,20 @@ a {
 a:hover {
     text-decoration: underline;
 }
-    
+
+/* Marquee styles */
+marquee {
+    font-size: 1.2em;
+    color: #ff6600; /* orange */
+}
+
+/* Blinking text animation */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
     </style>
     <script>window.site_name = "WhisperBay Community Garden";</script>
     <script src="../Server/static/jquery-3.7.1.min.js"></script>
@@ -129,20 +148,30 @@ a:hover {
         <p>Established 1964 - Homegrown Happiness Since the Early Days</p>
     </header>
     
-
+    <nav>
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#offer">What We Offer</a></li>
+            <li><a href="#join">Join Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <marquee behavior="scroll" direction="left">Welcome to WhisperBay Community Garden! Join us today and be part of our growing community!</marquee>
     
     <section id="about">
         <h2>About Us</h2>
-        <p>Welcome to our little green corner of Whisper Bay! Our community garden has been a hub for gardening enthusiasts, nature lovers, and families since 1964. Located amidst the serene landscapes of our beautifull Whisper Bay, it's more than just a place to grow veggies—it's where friendships bloom and green thumbs unite.</p> <br>
+        <p>Welcome to our little green corner of Whisper Bay! Our community garden has been a hub for gardening enthusiasts, nature lovers, and families since 1964. Located amidst the serene landscapes of our beautiful Whisper Bay, it's more than just a place to grow veggies—it's where friendships bloom and green thumbs unite.</p> <br>
         <p>We strive to foster a sense of community and promote sustainable gardening practices. It doesn't matter if you're old or new to the hobby, as long as you want to get your hands dirty, you've come to the right place!</p>
     </section>
+    
     <section>
-    	<h2>Images</h2>
-    	<image src="images/GardenImage.jpg">
-    	<image src="images/GardenImage2.jpg">
-    	<image src="images/GardenImage3.webp">
-    	<image src="images/GardenImage4.webp">
-    	<image src="images/pumpkin.png">
+        <h2>Images</h2>
+        <img src="images/GardenImage.jpg" alt="Garden Image 1">
+        <img src="images/GardenImage2.jpg" alt="Garden Image 2">
+        <img src="images/GardenImage3.webp" alt="Garden Image 3">
+        <img src="images/GardenImage4.webp" alt="Garden Image 4">
+        <img src="images/pumpkin.png" alt="Pumpkin">
     </section>
     
     <section id="offer">
@@ -154,24 +183,19 @@ a:hover {
             <li>Gallery: View snapshots of our garden throughout the seasons.</li>
         </ul>
     </section>
-
     
-    <section>
-    <h2>Join Us Today!</h2>
-    <image src="images/Lettuce.jpeg"> <br>
-
-	
-
+    <section id="join">
+        <h2>Join Us Today!</h2>
+        <img src="images/Lettuce.jpeg" alt="Lettuce"> <br>
         <p>WhisperBay Community Garden<br>Green Lane, Whisper Bay, Cornwall, UK<br>
-
         Phone: +44 1234 567890</p>
-        
     </section>
     
-    	Number of visitors: <image src="images/counter.png">
-	<div id="webring"></div>
+    <div id="webring"></div>
+    
     <footer>
         <p>Join Us Today! Become a part of our gardening community. Whether you're a novice or a seasoned gardener, there’s a place for you here at Whisper Bay Community Garden.</p>
     </footer>
 </body>
 </html>
+
