@@ -170,18 +170,11 @@ def create_news_article(db: Session, username: str, article_text: str, article_s
 def seed_database(db: Session):
     # Add the default stuff in the datbase
     create_question(db, schemas.QuestionCreate(text="What is your name?", type="freeform", required=True))
-    create_question(db, schemas.QuestionCreate(text="What is your age?", type="pickone", required=True))
+    create_question(db, schemas.QuestionCreate(text="What is your age?", type="integer", required=True))
     create_question(db, schemas.QuestionCreate(text="What is your gender?", type="pickone", required=True))
     create_question(db, schemas.QuestionCreate(text="What type of profession do you have?", type="pickone", required=True))
     create_question(db, schemas.QuestionCreate(text="What is your marital status?", type="pickone", required=True))
 
-    # Age brackets
-    create_question_option(db, schemas.QuestionOptionCreate(value="18 to 24"), 2)
-    create_question_option(db, schemas.QuestionOptionCreate(value="25 to 34"), 2)
-    create_question_option(db, schemas.QuestionOptionCreate(value="35 to 44"), 2)
-    create_question_option(db, schemas.QuestionOptionCreate(value="45 to 54"), 2)
-    create_question_option(db, schemas.QuestionOptionCreate(value="55 to 64"), 2)
-    create_question_option(db, schemas.QuestionOptionCreate(value="65+"),      2)
 
     # Gender
     create_question_option(db, schemas.QuestionOptionCreate(value="Male"), 3)

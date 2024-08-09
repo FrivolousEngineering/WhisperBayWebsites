@@ -10,6 +10,7 @@ class QuestionType(str, Enum):
     freeform: str = "freeform"
     pickone: str = "pickone"
     pickmultiple: str = "pickmultiple"
+    integer: int = "integer"
 
 
 class WebRing(BaseModel):
