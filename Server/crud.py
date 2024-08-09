@@ -172,6 +172,7 @@ def seed_database(db: Session):
     create_question(db, schemas.QuestionCreate(text="What is your name?", type="freeform", required=True))
     create_question(db, schemas.QuestionCreate(text="What is your age?", type="pickone", required=True))
     create_question(db, schemas.QuestionCreate(text="What is your gender?", type="pickone", required=True))
+    create_question(db, schemas.QuestionCreate(text="What type of profession do you have?", type="pickone", required=True))
     create_question(db, schemas.QuestionCreate(text="What is your marital status?", type="pickone", required=True))
 
     # Age brackets
@@ -186,33 +187,42 @@ def seed_database(db: Session):
     create_question_option(db, schemas.QuestionOptionCreate(value="Male"), 3)
     create_question_option(db, schemas.QuestionOptionCreate(value="Female"), 3)
 
+    # Profession
+    create_question_option(db, schemas.QuestionOptionCreate(value="Professional"), 4)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Business owner"), 4)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Unemployed"), 4)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Public services"), 4)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Student"), 4)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Creative"), 4)
+
     # Marital status
-    create_question_option(db, schemas.QuestionOptionCreate(value="Single"), 4)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Married"), 4)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Widowed"), 4)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Divorced"), 4)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Separated"), 4)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Single"), 5)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Married"), 5)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Widowed"), 5)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Divorced"), 5)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Separated"), 5)
+
 
     # Add some of the not required questions
     create_question(db, schemas.QuestionCreate(text="It is impossible to stay faithful to one’s spouse for 40 years", type="pickone", required = False))
-    create_question_option(db, schemas.QuestionOptionCreate(value="Strongly Disagree"), 5)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Slightly Disagree"), 5)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Slightly Agree"), 5)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Strongly Agree"), 5)
-
-    create_question(db, schemas.QuestionCreate(text="It is likely that the West will win the cold war",
-                                               type="pickone", required = False))
     create_question_option(db, schemas.QuestionOptionCreate(value="Strongly Disagree"), 6)
     create_question_option(db, schemas.QuestionOptionCreate(value="Slightly Disagree"), 6)
     create_question_option(db, schemas.QuestionOptionCreate(value="Slightly Agree"), 6)
     create_question_option(db, schemas.QuestionOptionCreate(value="Strongly Agree"), 6)
 
-    create_question(db, schemas.QuestionCreate(text="I am a religious person",
+    create_question(db, schemas.QuestionCreate(text="It is likely that the West will win the cold war",
                                                type="pickone", required = False))
     create_question_option(db, schemas.QuestionOptionCreate(value="Strongly Disagree"), 7)
     create_question_option(db, schemas.QuestionOptionCreate(value="Slightly Disagree"), 7)
     create_question_option(db, schemas.QuestionOptionCreate(value="Slightly Agree"), 7)
     create_question_option(db, schemas.QuestionOptionCreate(value="Strongly Agree"), 7)
+
+    create_question(db, schemas.QuestionCreate(text="I am a religious person",
+                                               type="pickone", required = False))
+    create_question_option(db, schemas.QuestionOptionCreate(value="Strongly Disagree"), 8)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Slightly Disagree"), 8)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Slightly Agree"), 8)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Strongly Agree"), 8)
 
     create_question(db, schemas.QuestionCreate(text="Please describe your earliest memory in as much detail as possible",
                                                type="freeform", required = False))
@@ -221,17 +231,17 @@ def seed_database(db: Session):
 
     create_question(db, schemas.QuestionCreate(text="My sexual relationships are satisfying",
                                                type="pickone", required = False))
-    create_question_option(db, schemas.QuestionOptionCreate(value="Strongly Disagree"), 10)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Slightly Disagree"), 10)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Slightly Agree"), 10)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Strongly Agree"), 10)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Strongly Disagree"), 11)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Slightly Disagree"), 11)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Slightly Agree"), 11)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Strongly Agree"), 11)
 
     create_question(db, schemas.QuestionCreate(text="A certain train is 125 m long. It passes a man, running at 5 km/hr in the same direction in which the train is going. It takes the train 10 seconds to cross the man completely. Then the speed of the train is: ",
                                                type="pickone", required=False))
-    create_question_option(db, schemas.QuestionOptionCreate(value="60 km/h"), 11)
-    create_question_option(db, schemas.QuestionOptionCreate(value="66 km/h"), 11)
-    create_question_option(db, schemas.QuestionOptionCreate(value="50 km/h"), 11)
-    create_question_option(db, schemas.QuestionOptionCreate(value="55 km/h"), 11)
+    create_question_option(db, schemas.QuestionOptionCreate(value="60 km/h"), 12)
+    create_question_option(db, schemas.QuestionOptionCreate(value="66 km/h"), 12)
+    create_question_option(db, schemas.QuestionOptionCreate(value="50 km/h"), 12)
+    create_question_option(db, schemas.QuestionOptionCreate(value="55 km/h"), 12)
 
 
     # Recipes messages
