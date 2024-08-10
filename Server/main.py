@@ -181,6 +181,13 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
     da = await request.form()
     da = jsonable_encoder(da)
 
+
+    # Yeah i didn't built this in the greatest way. Whatever
+    age = da["question_2_answer"]
+    gender = da["question_3_answer"]
+
+    print(age, gender)
+
     return {"answer": "There is a bright future for you! You are so amazing!"}
     pass
 

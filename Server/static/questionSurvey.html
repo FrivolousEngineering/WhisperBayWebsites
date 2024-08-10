@@ -104,6 +104,7 @@
 
     function validateForm() {
         var valid = true;
+        
         $('.form-field').each(function () { // Loop over every thing with the "form-field" class
             if ($(this).val() === "" ) {
                 valid = false;
@@ -143,7 +144,7 @@
             } else if (question.type === "boolean") {
                 // TODO!
             } else if (question.type === "integer") {
-                form.append($("<input>", {type:"range", min:0, max:99, value: 50, oninput: "rangeValue.innerText = this.value"}));
+                form.append($("<input>", {type:"range", min:0, max:99, value: 50, oninput: "rangeValue.innerText = this.value", name: "question_" + question.id + "_answer"}));
                 form.append($("<p>", {id: "rangeValue"}).text("50"));
             }
             // Horizontal line to make distinction between fields
