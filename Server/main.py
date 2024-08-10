@@ -190,8 +190,8 @@ def calculate_age_score(input_age: int, character_age: int) -> float:
 class Character(BaseModel):
     first_name: str
     last_name: str
-    gender_run_1: str
-    gender_run_2: str
+    gender_run1: str
+    gender_run2: str
     profession: str
     age: int
     relationship_status: str
@@ -213,6 +213,221 @@ characters = [
 ]
 
 
+
+def generate_relation_advice(relationship_status:str, collectivist_individualist: str, agnostic_spiritual: str, progressive_conservative: str):
+    advice = []
+    if collectivist_individualist == "collectivist":
+        if relationship_status == "Married":
+            advice.append("Focus on building a strong support network with other couples. Hosting or attending community events can strengthen your marriage.")
+        elif relationship_status == "Widowed":
+            advice.append("Consider joining a support group or community organization to find solace and new connections during this time.")
+        elif relationship_status == "In a relationship":
+            advice.append("Engage in activities that connect you and your partner with friends and family, reinforcing your social bonds.")
+        elif relationship_status == "Single":
+            advice.append("Participate in group activities or community events to expand your social circle and feel more connected.")
+        elif relationship_status == "Separated":
+            advice.append("Seek comfort and advice from close friends and family as you navigate this transition.")
+        elif relationship_status == "Engaged":
+            advice.append("Work together with your partner to build a strong network of shared friends and family before marriage.")
+        else:
+            print(f"Could not find relationship type [{relationship_status}]")
+    elif collectivist_individualist == "individualist":
+        if relationship_status == "Married":
+            advice.append("Ensure that you maintain your individual interests and hobbies within your marriage. Personal fulfillment leads to a stronger partnership.")
+        elif relationship_status == "Widowed":
+            advice.append("Focus on rediscovering your personal goals and passions during this period of transition.")
+        elif relationship_status == "In a relationship":
+            advice.append("Make sure to nurture your own identity and personal space within the relationship.")
+        elif relationship_status == "Single":
+            advice.append("Take this time to focus on your personal growth and pursue your own passions without compromise.")
+        elif relationship_status == "Separated":
+            advice.append("Use this time to focus on your own needs and personal growth. Rediscover what makes you happy as an individual.")
+        elif relationship_status == "Engaged":
+            advice.append("While planning your future together, remember to maintain your individuality and personal goals.")
+        else:
+            print(f"Could not find relationship type [{relationship_status}]")
+
+    if agnostic_spiritual == "agnostic":
+        if relationship_status == "Married":
+            advice.append("Maintain an open dialogue with your spouse about your views. Respecting each other’s perspectives is key to harmony.")
+        elif relationship_status == "Widowed":
+            advice.append("Explore your own beliefs and thoughts on life and death. Find comfort in personal reflection.")
+        elif relationship_status == "In a relationship":
+            advice.append("Engage in intellectual discussions with your partner about your beliefs. Encourage each other to explore new ideas.")
+        elif relationship_status == "Single":
+            advice.append("Use this time to explore your own beliefs without external influences. Focus on understanding your own perspective.")
+        elif relationship_status == "Separated":
+            advice.append("Take this time to reflect on your beliefs and values. It’s a good period to reassess what’s important to you.")
+        elif relationship_status == "Engaged":
+            advice.append("Discuss your views on spirituality with your partner to ensure a mutual understanding before marriage.")
+        else:
+            print(f"Could not find relationship type [{relationship_status}]")
+    elif agnostic_spiritual == "spiritual":
+        if relationship_status == "Married":
+            advice.append("Nurture your marriage through shared spiritual practices, such as attending religious services or meditating together.")
+        elif relationship_status == "Widowed":
+            advice.append("Seek solace in your spiritual beliefs during this time of loss. Consider engaging in practices that bring you peace.")
+        elif relationship_status == "In a relationship":
+            advice.append("Explore spiritual activities together with your partner. A shared spiritual journey can deepen your connection.")
+        elif relationship_status == "Single":
+            advice.append("Use this time to deepen your spiritual practice and seek inner peace through meditation, prayer, or reflection.")
+        elif relationship_status == "Separated":
+            advice.append("Turn to your spiritual beliefs for guidance and comfort as you navigate this change in your life.")
+        elif relationship_status == "Engaged":
+            advice.append("Incorporate your spiritual beliefs into your wedding plans. Building a marriage on shared spiritual values can bring lasting happiness.")
+        else:
+            print(f"Could not find relationship type [{relationship_status}]")
+
+    if progressive_conservative == "progressive":
+        if relationship_status == "Married":
+            advice.append("Embrace change and growth in your marriage. Be open to new experiences and evolving roles within your partnership.")
+        elif relationship_status == "Widowed":
+            advice.append("Consider new ways to honor your past while embracing the future. Explore new avenues for personal growth.")
+        elif relationship_status == "In a relationship":
+            advice.append("Encourage growth and change in your relationship. Be open to new experiences that can strengthen your bond.")
+        elif relationship_status == "Single":
+            advice.append("Focus on self-discovery and personal evolution. This is a time to explore new ways of living and thinking.")
+        elif relationship_status == "Separated":
+            advice.append("View this as an opportunity to reinvent yourself and pursue new directions in life.")
+        elif relationship_status == "Engaged":
+            advice.append("Plan a non-traditional wedding that reflects your shared progressive values and ideas.")
+        else:
+            print(f"Could not find relationship type [{relationship_status}]")
+
+    elif progressive_conservative == "conservative":
+        if relationship_status == "Married":
+            advice.append("Strengthen your marriage by upholding traditional values and focusing on long-term stability and commitment.")
+        elif relationship_status == "Widowed":
+            advice.append("Find comfort in familiar routines and traditions as you navigate this period of change.")
+        elif relationship_status == "In a relationship":
+            advice.append("Focus on building a stable, long-term relationship based on shared values and traditional commitments.")
+        elif relationship_status == "Single":
+            advice.append("Look for a partner who shares your traditional values and focus on building a stable, lasting relationship.")
+        elif relationship_status == "Separated":
+            advice.append("Seek stability and comfort in familiar routines and practices as you move forward.")
+        elif relationship_status == "Engaged":
+            advice.append("Plan a traditional wedding that honors your shared values and sets the foundation for a stable marriage.")
+        else:
+            print(f"Could not find relationship type [{relationship_status}]")
+    return advice
+
+def generate_professional_advice(profession, collectivist_individualist: str, agnostic_spiritual: str, progressive_conservative: str):
+    advice = []
+
+    # Collectivist -- Individualist advice
+    if collectivist_individualist == "collectivist":
+        if profession == "Professional":
+            advice.append("Collaborate with colleagues on projects that benefit the larger team or organization. Collective success will bring you personal fulfillment.")
+        elif profession == "Unemployed":
+            advice.append("Volunteering with community organizations can help you stay connected while also opening up new opportunities.")
+        elif profession == "Manual":
+            advice.append("Work on building camaraderie with your coworkers. Shared experiences can make your job more rewarding.")
+        elif profession == "Business owner":
+            advice.append("Invest in your local community by supporting local causes or engaging in partnerships that benefit others.")
+        elif profession == "Public services":
+            advice.append("Your work impacts many lives. Find satisfaction in the difference you make in your community.")
+        elif profession == "Creative":
+            advice.append("Collaborate with other artists or creators to bring collective ideas to life, enhancing both your work and your connections.")
+        elif profession == "Student":
+            advice.append("Participate in study groups and campus activities to build a strong social network during your academic journey.")
+        else:
+            print(f"Could not find relationship type [{profession}]")
+
+    elif collectivist_individualist == "individualist":
+        if profession == "Professional":
+            advice.append("Pursue career opportunities that align with your personal ambitions, even if it means taking a less traditional path.")
+        elif profession == "Unemployed":
+            advice.append("Focus on personal development and consider pursuing new skills or hobbies that align with your individual passions.")
+        elif profession == "Manual":
+            advice.append("Take pride in your own craftsmanship and seek out opportunities where you can work independently.")
+        elif profession == "Business owner":
+            advice.append("Prioritize your business goals and strategies that align with your vision, even if it means going against the grain.")
+        elif profession == "Public services":
+            advice.append("Look for ways to innovate within your role, focusing on the impact you can make as an individual.")
+        elif profession == "Creative":
+            advice.append("Embrace your unique style and voice. Let your individuality shine in your creative projects.")
+        elif profession == "Student":
+            advice.append("Focus on your individual academic goals and explore areas of study that truly interest you.")
+        else:
+            print(f"Could not find relationship type [{profession}]")
+
+    # Agnostic -- Spiritual advice
+    if agnostic_spiritual == "agnostic":
+        if profession == "Professional":
+            advice.append("Bring a rational, analytical approach to your work. Focus on evidence-based strategies and decisions.")
+        elif profession == "Unemployed":
+            advice.append("Use this time to critically assess your life’s direction. Explore new opportunities that align with your personal beliefs.")
+        elif profession == "Manual":
+            advice.append("Focus on the practical aspects of your work, and take pride in the tangible results you produce.")
+        elif profession == "Business owner":
+            advice.append("Make decisions based on logic and reason, prioritizing strategies that are grounded in solid evidence.")
+        elif profession == "Public services":
+            advice.append("Apply a rational approach to your role, ensuring that your actions are grounded in practical benefits for the community.")
+        elif profession == "Creative":
+            advice.append("Challenge traditional narratives in your work. Let your art or creativity reflect a questioning of established norms.")
+        elif profession == "Student":
+            advice.append("Engage in critical thinking and encourage debate. Explore a variety of viewpoints in your studies.")
+        else:
+            print(f"Could not find relationship type [{profession}]")
+
+    elif agnostic_spiritual == "spiritual":
+        if profession == "Professional":
+            advice.append("Seek work that aligns with your spiritual beliefs, or find ways to incorporate your values into your daily tasks.")
+        elif profession == "Unemployed":
+            advice.append("Use this period to reconnect with your spiritual beliefs and seek direction through meditation or prayer.")
+        elif profession == "Manual":
+            advice.append("Take pride in your work by seeing it as a form of spiritual practice. Engage fully in the present moment.")
+        elif profession == "Business owner":
+            advice.append("Incorporate your spiritual values into your business practices, focusing on ethical and meaningful work.")
+        elif profession == "Public services":
+            advice.append("Let your spiritual beliefs guide your work, ensuring that your actions benefit the broader community.")
+        elif profession == "Creative":
+            advice.append("Infuse your art with spiritual themes, exploring the deeper meanings of life through your creative expression.")
+        elif profession == "Student":
+            advice.append("Seek to understand the spiritual dimensions of your studies. Explore how your academic work can align with your beliefs.")
+        else:
+            print(f"Could not find relationship type [{profession}]")
+
+    # Progressive -- Conservative advice
+    if progressive_conservative == "progressive":
+        if profession == "Professional":
+            advice.append("Drive innovation in your workplace. Challenge existing practices and push for progressive changes.")
+        elif profession == "Unemployed":
+            advice.append("Use this time to explore new, forward-thinking career paths that align with your progressive values.")
+        elif profession == "Manual":
+            advice.append("Seek out ways to improve your work through new techniques or technologies. Embrace change in your field.")
+        elif profession == "Business owner":
+            advice.append("Innovate within your business, considering how you can break new ground and challenge industry norms.")
+        elif profession == "Public services":
+            advice.append("Advocate for policies that promote equality and progress. Be a voice for change within your community.")
+        elif profession == "Creative":
+            advice.append("Push the boundaries of your creative work. Explore themes that challenge societal norms and promote change.")
+        elif profession == "Student":
+            advice.append("Engage in studies that promote social change and innovation. Focus on areas where you can make a difference.")
+        else:
+            print(f"Could not find relationship type [{profession}]")
+
+    elif progressive_conservative == "conservative":
+        if profession == "Professional":
+            advice.append("Focus on roles that offer stability and align with your core values. Seek to maintain continuity in your work.")
+        elif profession == "Unemployed":
+            advice.append("Look for opportunities in established fields that offer security and align with traditional values.")
+        elif profession == "Manual":
+            advice.append("Take pride in the craftsmanship and traditions of your trade. Honor the techniques that have stood the test of time.")
+        elif profession == "Business owner":
+            advice.append("Build your business on tried-and-true methods. Focus on maintaining stability and reliability for your clients.")
+        elif profession == "Public services":
+            advice.append("Uphold the traditions and values that have guided your work. Focus on preserving and protecting established practices.")
+        elif profession == "Creative":
+            advice.append("Draw inspiration from classic themes and traditional techniques. Focus on creating works that resonate with timeless values.")
+        elif profession == "Student":
+            advice.append("Engage in studies that deepen your understanding of traditional values and practices. Focus on areas that uphold continuity and stability.")
+        else:
+            print(f"Could not find relationship type [{profession}]")
+
+    return advice
+
+
 @app.post("/evaluateAnswers/")
 async def post_answers(request: Request, db: Session = Depends(get_db)):
     da = await request.form()
@@ -223,16 +438,37 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
     # Yeah i didn't built this in the greatest way. Whatever
     age = int(da["question_2_answer"])
     gender = da["question_3_answer"]
+    profession = da["question_4_answer"]
+    relation_status = da["question_5_answer"]
 
     # Loop over all characters and figure out wich of them match the best
     for character in characters:
         age_score = calculate_age_score(age, character.age)
         # TODO: hardcoded run
         gender_score = int(gender == character.gender_run1)
-
+    print(da)
     print(age, gender)
 
-    return {"answer": "There is a bright future for you! You are so amazing!"}
+    individual_vs_collectivist = "individualist"
+    agnostic_vs_spiritual = "spiritual"
+    progressive_vs_conservative = "conservative"
+
+    result = "There is a bright future for you! You are so amazing!"
+    extra_advice = []
+    relation_advice = generate_relation_advice(relation_status, individual_vs_collectivist, agnostic_vs_spiritual,
+                                                     progressive_vs_conservative)
+    professional_advice = generate_professional_advice(profession, individual_vs_collectivist, agnostic_vs_spiritual, progressive_vs_conservative)
+
+    if relation_advice:
+        extra_advice.append("<h1>Relation advice</h1>")
+        extra_advice.extend(relation_advice)
+    if professional_advice:
+        extra_advice.append("<h1>Professional advice</h1>")
+        extra_advice.extend(professional_advice)
+
+    for line in extra_advice:
+        result += f"</br> {line}"
+    return {"answer": result}
     pass
 
 

@@ -89,7 +89,7 @@
 
                     setTimeout(function() {
                         window.location.href = "http://localhost:8000/static/result.html?answer=" + data.answer;
-                    }, 10000);
+                    }, 100); // TODO: Set to higher time for final releases
 
                 },
                 error: function (xhr, description, error) {
