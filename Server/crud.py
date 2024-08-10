@@ -191,6 +191,7 @@ def seed_database(db: Session):
 
     # Marital status
     create_question_option(db, schemas.QuestionOptionCreate(value="Single"), 5)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Engaged"), 5)
     create_question_option(db, schemas.QuestionOptionCreate(value="Married"), 5)
     create_question_option(db, schemas.QuestionOptionCreate(value="Widowed"), 5)
     create_question_option(db, schemas.QuestionOptionCreate(value="Divorced"), 5)

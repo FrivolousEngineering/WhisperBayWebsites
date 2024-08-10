@@ -233,6 +233,8 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
                 "Participate in group activities or community events to expand your social circle and feel more connected.")
         elif relationship_status == "Separated":
             advice.append("Seek comfort and advice from close friends and family as you navigate this transition.")
+        elif relationship_status == "Divorced":
+            advice.append("Lean on your community for support as you rebuild and look toward new beginnings.")
         elif relationship_status == "Engaged":
             advice.append(
                 "Work together with your partner to build a strong network of shared friends and family before marriage.")
@@ -253,6 +255,8 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
         elif relationship_status == "Separated":
             advice.append(
                 "Use this time to focus on your own needs and personal growth. Rediscover what makes you happy as an individual.")
+        elif relationship_status == "Divorced":
+            advice.append("Reclaim your individuality and take this opportunity to pursue personal goals and passions.")
         elif relationship_status == "Engaged":
             advice.append(
                 "While planning your future together, remember to maintain your individuality and personal goals.")
@@ -266,12 +270,15 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
             advice.append(
                 "Take time to care for yourself and honor the memories of your loved one while looking forward to new possibilities.")
         elif relationship_status == "In a relationship":
-            advice.append("Maintain a healthy balance of togetherness and personal space in your relationship.")
+            advice.append("Cultivate a relationship that honors both your togetherness and your need for personal space.")
         elif relationship_status == "Single":
             advice.append(
                 "Use this time to explore your interests and grow as an individual while remaining open to new connections.")
         elif relationship_status == "Separated":
             advice.append("Reflect on your needs and aspirations as you move forward from this transition.")
+        elif relationship_status == "Divorced":
+            advice.append(
+                "Focus on moving forward by cherishing the memories of the past while remaining open to new experiences and opportunities.")
         elif relationship_status == "Engaged":
             advice.append("Focus on planning a wedding that reflects both of your personalities and shared dreams.")
         else:
@@ -294,6 +301,8 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
         elif relationship_status == "Separated":
             advice.append(
                 "Take this time to reflect on your beliefs and values. It’s a good period to reassess what’s important to you.")
+        elif relationship_status == "Divorced":
+            advice.append("Reflect on your beliefs and values as you navigate this new chapter in your life.")
         elif relationship_status == "Engaged":
             advice.append(
                 "Discuss your views on spirituality with your partner to ensure a mutual understanding before marriage.")
@@ -316,6 +325,8 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
         elif relationship_status == "Separated":
             advice.append(
                 "Turn to your spiritual beliefs for guidance and comfort as you navigate this change in your life.")
+        elif relationship_status == "Divorced":
+            advice.append("Seek spiritual guidance or practices to help you heal and find peace after your divorce.")
         elif relationship_status == "Engaged":
             advice.append(
                 "Incorporate your spiritual beliefs into your wedding plans. Building a marriage on shared spiritual values can bring lasting happiness.")
@@ -330,12 +341,14 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
                 "Reflect on your beliefs as you navigate this challenging time, finding comfort in familiar practices or personal reflection.")
         elif relationship_status == "In a relationship":
             advice.append(
-                "Discuss your beliefs openly with your partner, finding a balance that works for both of you.")
+                "Discuss your beliefs openly with your partner, it's important to find something works for both of you.")
         elif relationship_status == "Single":
             advice.append("Explore your beliefs and values at your own pace, remaining open to new perspectives.")
         elif relationship_status == "Separated":
             advice.append(
                 "Use this time to reassess your beliefs and values, finding clarity in your personal journey.")
+        elif relationship_status == "Divorced":
+            advice.append("Seek harmony between spiritual introspection and practical actions as you navigate future relationships.")
         elif relationship_status == "Engaged":
             advice.append(
                 "Ensure that you and your partner are on the same page regarding spiritual matters before marriage.")
@@ -358,6 +371,9 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
                 "Focus on self-discovery and personal evolution. This is a time to explore new ways of living and thinking.")
         elif relationship_status == "Separated":
             advice.append("View this as an opportunity to reinvent yourself and pursue new directions in life.")
+        elif relationship_status == "Divorced":
+            advice.append(
+                "Embrace this as a chance to start anew, exploring new ways to find happiness and fulfillment.")
         elif relationship_status == "Engaged":
             advice.append("Plan a non-traditional wedding that reflects your shared progressive values and ideas.")
         else:
@@ -377,6 +393,9 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
                 "Look for a partner who shares your traditional values and focus on building a stable, lasting relationship.")
         elif relationship_status == "Separated":
             advice.append("Seek stability and comfort in familiar routines and practices as you move forward.")
+        elif relationship_status == "Divorced":
+            advice.append(
+                "Rely on time-tested strategies and traditional values as you rebuild your life post-divorce.")
         elif relationship_status == "Engaged":
             advice.append(
                 "Plan a traditional wedding that honors your shared values and sets the foundation for a stable marriage.")
@@ -397,6 +416,9 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
             advice.append("Explore new ideas and opportunities while staying true to your core values.")
         elif relationship_status == "Separated":
             advice.append("Find a balance between holding onto the past and embracing the future as you move forward.")
+        elif relationship_status == "Divorced":
+            advice.append(
+                "Balance respect for tradition with openness to new possibilities as you move forward in life.")
         elif relationship_status == "Engaged":
             advice.append(
                 "Incorporate both traditional and modern elements into your wedding planning, reflecting your shared values.")
@@ -463,7 +485,7 @@ def generate_professional_advice(profession, collectivist_individualist: str, ag
     else:  # Neutral position
         if profession == "Professional":
             advice.append(
-                "Balance personal ambition with collaboration in your professional life. Both can lead to fulfillment.")
+                "Balance personal ambition with collaboration in your professional life. Both can and will lead to fulfillment.")
         elif profession == "Unemployed":
             advice.append(
                 "Consider both personal development and community engagement as you explore new opportunities.")
@@ -471,7 +493,7 @@ def generate_professional_advice(profession, collectivist_individualist: str, ag
             advice.append("Strive for both personal satisfaction and teamwork in your work environment.")
         elif profession == "Business owner":
             advice.append(
-                "Balance your personal vision with community involvement to create a successful and meaningful business.")
+                "A succesfull business requires a combination of your personal vision as well as ties to the local community. Ensure that you work on both in equal measure")
         elif profession == "Public services":
             advice.append("Combine individual innovation with community service to maximize your impact.")
         elif profession == "Creative":
