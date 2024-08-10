@@ -2,6 +2,7 @@ from typing import Annotated
 
 from fastapi import Depends, FastAPI, HTTPException, Form
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from starlette.requests import Request
 from fastapi.encoders import jsonable_encoder
@@ -176,15 +177,58 @@ async def delete_question(option_id: int, db: Session = Depends(get_db)):
     crud.delete_option(db, option_id)
 
 
+def calculate_age_score(input_age: int, character_age: int) -> float:
+    age_difference = abs(input_age - character_age)
+    max_difference = 20  # You can adjust this value based on your needs
+
+    if age_difference >= max_difference:
+        return 0.0  # No match if the difference is too large
+
+    return (1 - (age_difference / max_difference))
+
+# This is some debug code so that I can work with the hapyness 2000 matching testing
+class Character(BaseModel):
+    first_name: str
+    last_name: str
+    gender_run_1: str
+    gender_run_2: str
+    profession: str
+    age: int
+    relationship_status: str
+    children: bool
+    contact_with_siblings: str
+
+
+characters = [
+    Character(first_name="Aswen", last_name="Pengelly", gender_run1="Female", gender_run2="Female", age=42, profession="Professional", relationship_status="Married", children=True, contact_with_siblings="No"),
+    Character(first_name="Merryn", last_name="Pengelly", gender_run1="Male", gender_run2="Male", age=43, profession="Professional", relationship_status="Married", children=True, contact_with_siblings="No"),
+    Character(first_name="Oscar", last_name="Fitzwilliam", gender_run1="Male", gender_run2="Male", age=40, profession="Public services", relationship_status="Single", children=False, contact_with_siblings="Yes"),
+    Character(first_name="Veronica", last_name="Kempthorne", gender_run1="Female", gender_run2="Female", age=39, profession="Business owner", relationship_status="Single", children=False, contact_with_siblings="No"),
+    Character(first_name="Sevi", last_name="Jelbert", gender_run1="Female", gender_run2="Male", age=41, profession="Business owner", relationship_status="Separated", children=True, contact_with_siblings="No"),
+    Character(first_name="Locryn", last_name="Chenoweth", gender_run1="Male", gender_run2="Male", age=45, profession="Business owner", relationship_status="Widowed", children=True, contact_with_siblings="No"),
+    Character(first_name="Tressa", last_name="Moon", gender_run1="Female", gender_run2="Female", age=28, profession="Public services", relationship_status="In a relationship", children=False, contact_with_siblings="Yes"),
+    Character(first_name="Oliver", last_name="Moon", gender_run1="Male", gender_run2="Female", age=24, profession="Unemployed", relationship_status="Single", children=False, contact_with_siblings="Yes"),
+    Character(first_name="Nathan", last_name="Foxton", gender_run1="Male", gender_run2="Male", age=29, profession="Unemployed", relationship_status="Single", children=False, contact_with_siblings="No"),
+    Character(first_name="Anneth", last_name="Enys", gender_run1="Female", gender_run2="Female", age=26, profession="Business owner", relationship_status="In a relationship", children=False, contact_with_siblings="Yes"),
+]
+
+
 @app.post("/evaluateAnswers/")
 async def post_answers(request: Request, db: Session = Depends(get_db)):
     da = await request.form()
     da = jsonable_encoder(da)
 
+    best_match = None
 
     # Yeah i didn't built this in the greatest way. Whatever
-    age = da["question_2_answer"]
+    age = int(da["question_2_answer"])
     gender = da["question_3_answer"]
+
+    # Loop over all characters and figure out wich of them match the best
+    for character in characters:
+        age_score = calculate_age_score(age, character.age)
+        # TODO: hardcoded run
+        gender_score = int(gender == character.gender_run1)
 
     print(age, gender)
 

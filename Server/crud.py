@@ -167,6 +167,7 @@ def create_news_article(db: Session, username: str, article_text: str, article_s
     db.commit()
 
 
+
 def seed_database(db: Session):
     # Add the default stuff in the datbase
     create_question(db, schemas.QuestionCreate(text="What is your name?", type="freeform", required=True))

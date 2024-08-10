@@ -104,7 +104,8 @@
 
     function validateForm() {
         var valid = true;
-        
+        // Hardcoded for my convenience (so i can have partial results)
+        return valid;
         $('.form-field').each(function () { // Loop over every thing with the "form-field" class
             if ($(this).val() === "" ) {
                 valid = false;
