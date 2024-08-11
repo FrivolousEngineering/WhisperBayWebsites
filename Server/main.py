@@ -216,16 +216,16 @@ characters = [
 ]
 
 
-
-
 @app.post("/evaluateAnswers/")
 async def post_answers(request: Request, db: Session = Depends(get_db)):
     da = await request.form()
     da = jsonable_encoder(da)
 
     best_match = None
+    highest_score = 0
+    run_number = 1 # TODO: hardcoded run
 
-    # Yeah i didn't built this in the greatest way. Whatever
+    # Yeah i didn't build this in the greatest way. Whatever
     age = int(da["question_2_answer"])
     gender = da["question_3_answer"]
     profession = da["question_4_answer"]
@@ -234,10 +234,24 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
     # Loop over all characters and figure out wich of them match the best
     for character in characters:
         age_score = calculate_age_score(age, character.age)
-        # TODO: hardcoded run
-        gender_score = int(gender == character.gender_run1)
+        if run_number == 1:
+            gender_score = int(gender == character.gender_run1)
+        else:
+            gender_score = int(gender == character.gender_run2)
+
+        relationship_score = int(relation_status == character.relationship_status)
+        profession_score = int(profession == character.profession)
+
+        total_score = (gender_score + age_score + profession_score + relationship_score)
+
+        if total_score > highest_score:
+            highest_score = total_score
+            best_match = character
+
     print(da)
     print(age, gender)
+
+    print(f"The best match is {best_match.first_name} {best_match.last_name} with a score of {highest_score}")
 
     individual_vs_collectivist = "neutral"
     agnostic_vs_spiritual = "neutral"
