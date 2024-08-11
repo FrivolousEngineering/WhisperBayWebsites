@@ -180,7 +180,6 @@ creepy_relation_advice_data = {
     }
 }
 
-
 unhinged_relation_advice_data = {
     "collectivist_individualist": {
         "collectivist": {
@@ -222,51 +221,51 @@ unhinged_relation_advice_data = {
             "Engaged": "Let your engagement be a crucible where beliefs are tested and reforged. In this intense fire, your bond will either emerge unbreakable, strengthened by the trials you face together, or it will crumble into ash, revealing what could not withstand the heat. Embrace the process, for only through this trial by fire will the true nature of your commitment be revealed."
         },
         "spiritual": {
-            "Married": "Entwine your spirits in a bond that transcends flesh and blood. Together, you shall walk the paths of the unseen, guided by forces beyond mortal comprehension.",
-            "Widowed": "Seek communion with the departed, let their voices guide your steps. The veil between worlds is thin, and through it, wisdom flows like a river of shadows.",
-            "In a relationship": "Let your souls dance together in the twilight, where the boundaries of reality blur and merge. There, you will find a connection that defies the mortal coil.",
-            "Single": "Embrace the solitude of your soul, for in the quiet, the spirits gather to whisper secrets that only the truly alone can hear.",
-            "Separated": "Turn to the ancient rituals, the ones forgotten by time, for they hold the power to heal a heart torn asunder.",
-            "Divorced": "Purge the remnants of your past with fire and incantation, let the spirits cleanse you, so you may rise anew, reborn in the ashes of what was.",
-            "Engaged": "Prepare your spirit for the union to come, for when two souls merge, they create a force that can reshape the very fabric of existence."
+            "Married": "Entwine your spirits in a bond that transcends flesh and blood. Together, you shall walk the paths of the unseen, guided by forces beyond mortal comprehension. In this unity, you become more than mere mortals—something otherworldly, bound by the eternal.",
+            "Widowed": "Seek communion with the departed, let their voices guide your steps. The veil between worlds is thin, and through it, wisdom flows like a river of shadows. In their whispers, you may find solace and purpose in the darkness.",
+            "In a relationship": "Let your souls dance together in the twilight, where the boundaries of reality blur and merge. In this liminal space, you will find a connection that defies the mortal coil, a bond that transcends the mundane and touches the infinite.",
+            "Single": "Embrace the solitude of your soul, for in the quiet, the spirits gather to whisper secrets that only the truly alone can hear. In this isolation, you become a vessel for truths hidden from the world, understanding the mysteries that evade the rest.",
+            "Separated": "Turn to the ancient rituals, the ones forgotten by time, for they hold the power to heal a heart torn asunder. In the shadows of the past, you will find the tools to mend your spirit, to weave it back into something stronger than before.",
+            "Divorced": "Purge the remnants of your past with fire and incantation, let the spirits cleanse you, so you may rise anew, reborn in the ashes of what was. Embrace this transformation, for it is in destruction that you will find your rebirth, free from the chains that once bound you.",
+            "Engaged": "Prepare your spirit for the union to come, for when two souls merge, they create a force that can reshape the very fabric of existence. This is not a mere promise, but a forging of destinies that will ripple through time and space."
         },
         "neutral": {
-            "Married": "Straddle the line between belief and doubt, where the answers lie in the tension between what is known and what is feared.",
-            "Widowed": "Hold the memory of your loved one like a candle in the dark, for in the glow, you will find the strength to face the shadows.",
-            "In a relationship": "Explore the realms of both reason and faith with your partner, for only in the union of the two can true understanding be found.",
-            "Single": "Let your mind wander through the labyrinth of what is and what could be, for in the spaces between thoughts, reality takes shape.",
-            "Separated": "Seek the wisdom of both the seen and the unseen, for in understanding both, you will find the clarity to rebuild what has been torn apart.",
-            "Divorced": "Balance the rational and the mystical as you reconstruct your life, for in the blending of the two, you will find a strength unyielding.",
-            "Engaged": "Prepare your union to be a melding of both mind and spirit, for only through the harmony of the two can the bond endure the trials to come."
+            "Married": "Straddle the line between belief and doubt, where the answers lurk in the tension between what is known and what is feared. In this twilight, your bond will either be strengthened by the shadows or consumed by them.",
+            "Widowed": "Hold the memory of your loved one like a candle in the dark, for in its fragile glow, you will find the strength to confront the encroaching shadows that seek to overwhelm you.",
+            "In a relationship": "Venture into the realms of both reason and faith with your partner, for it is in the collision of these forces that true understanding—and perhaps a deeper connection—can be forged.",
+            "Single": "Let your mind wander through the labyrinth of what is and what could be, for it is in the shadowed spaces between thoughts that the true shape of reality is revealed.",
+            "Separated": "Seek the wisdom of both the seen and the unseen, for only by understanding the forces that shape your world can you find the clarity to rebuild what has been torn apart.",
+            "Divorced": "Balance the rational with the mystical as you reconstruct your life, for it is in the melding of these two opposing forces that you will discover an unyielding strength to rise from the ashes.",
+            "Engaged": "Prepare your union to be a melding of both mind and spirit, for only through the harmonious blending of these forces can your bond endure the trials that lie ahead."
         }
     },
     "progressive_conservative": {
         "progressive": {
-            "Married": "Tear down the walls that confine your union, rebuild it with the stones of revolution. Your marriage shall be the spark that ignites a new world.",
-            "Widowed": "Turn your back on the past, forge a path through the wilderness of the unknown. In the ashes of yesterday, you will find the seeds of tomorrow.",
-            "In a relationship": "Embrace the chaos of change, let it mold and shape your bond into something new, something that defies the very nature of what once was.",
-            "Single": "Shatter the chains of tradition, walk a path untraveled and unseen. You are the architect of a future no one else can imagine.",
-            "Separated": "Rise from the ruins of your former life like a phoenix from the flames. Let the past be nothing but kindling for the fire of your rebirth.",
-            "Divorced": "Erase the remnants of what was, carve a new destiny from the bones of the old. In the death of the past lies the birth of the future.",
-            "Engaged": "Let your union be a beacon of change, a defiance against the forces that would hold you to the past. Together, you will forge a new path through the wilderness."
+            "Married": "Tear down the walls that confine your union, rebuild it with the stones of revolution. Your marriage shall be the spark that ignites a new world, where the old order crumbles under the weight of your shared resolve.",
+            "Widowed": "Turn your back on the past, and carve a path through the wilderness of the unknown. In the ashes of yesterday, you will find the seeds of a tomorrow that defies the darkness of loss.",
+            "In a relationship": "Embrace the chaos of change, let it twist and forge your bond into something unrecognizable, something that defies the very nature of what once was, creating a union born of transformation.",
+            "Single": "Shatter the chains of tradition, and stride boldly on a path untraveled and unseen. You are the architect of a future no one else can envision, where the constraints of the past have no power over you.",
+            "Separated": "Rise from the ruins of your former life like a phoenix from the flames. Let the past be nothing more than kindling for the inferno of your rebirth, as you ascend to a new existence forged in fire.",
+            "Divorced": "Erase the remnants of what was, and carve a new destiny from the bones of the old. In the death of the past lies the birth of a future forged by your own hand, unshackled and unyielding.",
+            "Engaged": "Let your union be a beacon of change, a defiant force against those who would bind you to the past. Together, you will carve a new path through the wilderness, where your love becomes the foundation of a new era."
         },
         "conservative": {
-            "Married": "Cling to the ancient ways, let tradition be the bedrock upon which your marriage is built. In the old ways, you will find strength that time cannot erode.",
-            "Widowed": "Wrap yourself in the comfort of the past, let the echoes of bygone days guide your steps. In the wisdom of the ancestors, you will find the solace you seek.",
-            "In a relationship": "Root your bond in the soil of tradition, let the growth of your love be slow and steady, nourished by the wisdom of those who came before.",
-            "Single": "Walk the well-trodden path of those who came before you, for in their footsteps, you will find the safety and stability that the future cannot promise.",
-            "Separated": "Return to the foundations of your life, let the solidity of tradition support you as you rebuild. The old ways have withstood the test of time for a reason.",
-            "Divorced": "Rebuild your life upon the sturdy bones of the past, for in the old ways, you will find the structure needed to face the uncertainty of what is to come.",
-            "Engaged": "Prepare for your union with the reverence and solemnity of ages past. In the traditions of your ancestors, you will find the strength to forge a future together."
+            "Married": "Cling to the ancient ways, let tradition be the unyielding bedrock upon which your marriage is built. In the old ways, you will find a strength that time cannot erode, a fortress against the chaos of the modern world.",
+            "Widowed": "Wrap yourself in the comforting shroud of the past, let the echoes of bygone days guide your steps. In the wisdom of the ancestors, you will find the solace and strength to endure the shadows of loss.",
+            "In a relationship": "Root your bond deeply in the rich soil of tradition, allowing your love to grow slow and steady, nourished by the wisdom and resilience of those who came before.",
+            "Single": "Walk the well-trodden path of those who came before you, for in their footsteps lies the safety and stability that the uncertain future cannot promise. Let the past be your guide through the labyrinth of life.",
+            "Separated": "Return to the bedrock foundations of your life, letting the solidity of tradition support you as you rebuild. The old ways have withstood the test of time, offering strength in times of fracture.",
+            "Divorced": "Rebuild your life upon the sturdy bones of the past, for in the old ways, you will find the structure and resilience needed to face the uncertainties that lie ahead.",
+            "Engaged": "Prepare for your union with the reverence and solemnity that the ages demand. In the traditions of your ancestors, you will find the strength to forge a future together, grounded in the unbreakable bonds of the past."
         },
         "neutral": {
-            "Married": "Walk the tightrope between tradition and progress, for in the balance lies the strength to face the unknown together.",
-            "Widowed": "Stand at the crossroads of past and future, for in choosing your path, you will find the power to shape what is yet to come.",
-            "In a relationship": "Blend the stability of the past with the promise of the future, for in the fusion of the two, your bond will grow unbreakable.",
-            "Single": "Let your steps be guided by both the wisdom of ages and the daring of youth, for in the harmony of the two, your path will lead you to places unseen.",
-            "Separated": "Rebuild your life by drawing on both the lessons of the past and the possibilities of the future. In this union, you will find the strength to rise again.",
-            "Divorced": "Anchor yourself in the traditions that have stood the test of time, while reaching toward the unknown. This balance will give you the stability you seek.",
-            "Engaged": "Prepare your future together by honoring the past and embracing the new, for in the confluence of these forces, your union will be forged unbreakable."
+            "Married": "Walk the tightrope between tradition and progress, for in this delicate balance lies the strength to face the unknown together. Hold fast to both, for they are the twin pillars of your future.",
+            "Widowed": "Stand at the crossroads of past and future, where the shadows of what was meet the dawn of what will be. In choosing your path, you will find the power to shape a destiny yet unwritten.",
+            "In a relationship": "Blend the stability of the past with the promise of the future, for in this fusion of time’s extremes, your bond will grow unbreakable, fortified by the wisdom of what has been and the potential of what could be.",
+            "Single": "Let your steps be guided by both the wisdom of ages and the daring of youth. In this harmony of old and new, your path will lead you to places unseen, where the echoes of the past meet the whispers of the future.",
+            "Separated": "Rebuild your life by drawing on the lessons of the past while embracing the possibilities of the future. In this union of strength and hope, you will find the resilience to rise once more.",
+            "Divorced": "Anchor yourself in the traditions that have withstood the test of time, even as you reach toward the unknown. This balance will give you the stability to face the uncertainties ahead with confidence.",
+            "Engaged": "Prepare your future together by honoring the past and embracing the new, for in the confluence of these forces, your union will be forged unbreakable, a testament to both legacy and innovation."
         }
     }
 }
