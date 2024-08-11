@@ -213,7 +213,6 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
 
     return advice
 
-
 def generate_creepy_relation_advice(relationship_status: str, collectivist_individualist: str, agnostic_spiritual: str,
                                     progressive_conservative: str):
     advice = []
@@ -222,75 +221,75 @@ def generate_creepy_relation_advice(relationship_status: str, collectivist_indiv
     if collectivist_individualist == "collectivist":
         if relationship_status == "Married":
             advice.append(
-                "Focus on building a strong support network with other couples. Hosting or attending community events can strengthen your marriage. But remember, not all ties are meant to be seen by the light of day.")
+                "Focus on building a strong support network with other couples. Hosting or attending community events can strengthen your marriage. Not all ties should be exposed to the light of day.")
         elif relationship_status == "Widowed":
             advice.append(
-                "Consider joining a support group or community organization to find solace and new connections during this time. The shadows of Whisper Bay whisper secrets to those who listen.")
+                "Consider joining a support group or community organization to find solace and new connections during this time. The shadows whisper secrets to those who dare to listen.")
         elif relationship_status == "In a relationship":
             advice.append(
-                "Engage in activities that connect you and your partner with friends and family, reinforcing your social bonds. But be wary of what lies beneath the surface of familiar faces.")
+                "Engage in activities that connect you and your partner with friends and family, reinforcing your social bonds. Be wary of what lies beneath the surface of familiar faces.")
         elif relationship_status == "Single":
             advice.append(
-                "Participate in group activities or community events to expand your social circle and feel more connected. Sometimes, it’s those who stand just outside the circle that you need to watch.")
+                "Participate in group activities or community events to expand your social circle and feel more connected. Sometimes, it’s those who stand just outside the circle that you should fear.")
         elif relationship_status == "Separated":
             advice.append(
-                "Seek comfort and advice from close friends and family as you navigate this transition. The winds of change carry voices that aren't always your own.")
+                "Seek comfort and advice from close friends and family as you navigate this transition. The winds of change carry voices that might not be your own.")
         elif relationship_status == "Divorced":
             advice.append(
-                "Lean on your community for support as you rebuild and look toward new beginnings. But remember, in Whisper Bay, not everything buried stays underground.")
+                "Lean on your community for support as you rebuild and look toward new beginnings. Not everything buried stays underground forever.")
         elif relationship_status == "Engaged":
             advice.append(
-                "Work together with your partner to build a strong network of shared friends and family before marriage. Yet, some bonds formed in the dark don’t unravel easily.")
+                "Work together with your partner to build a strong network of shared friends and family before marriage. Some bonds formed in the dark are not easily unraveled.")
         else:
             print(f"Could not find relationship type [{relationship_status}]")
 
     elif collectivist_individualist == "individualist":
         if relationship_status == "Married":
             advice.append(
-                "Ensure that you maintain your individual interests and hobbies within your marriage. Personal fulfillment leads to a stronger partnership. But don’t forget, isolation can breed shadows that follow.")
+                "Ensure that you maintain your individual interests and hobbies within your marriage. Personal fulfillment leads to a stronger partnership. Isolation often breeds shadows that follow.")
         elif relationship_status == "Widowed":
             advice.append(
-                "Focus on rediscovering your personal goals and passions during this period of transition. The echoes of the past sometimes linger longer than you'd expect.")
+                "Focus on rediscovering your personal goals and passions during this period of transition. The echoes of the past sometimes linger longer than expected.")
         elif relationship_status == "In a relationship":
             advice.append(
-                "Make sure to nurture your own identity and personal space within the relationship. Beware the lines that blur in the moonlight.")
+                "Make sure to nurture your own identity and personal space within the relationship. Beware the lines that blur under the moonlight.")
         elif relationship_status == "Single":
             advice.append(
-                "Take this time to focus on your personal growth and pursue your own passions without compromise. Just be sure the path you walk is truly your own.")
+                "Take this time to focus on your personal growth and pursue your own passions without compromise. The path you walk is yours, but beware of the crossroads ahead.")
         elif relationship_status == "Separated":
             advice.append(
-                "Use this time to focus on your own needs and personal growth. Rediscover what makes you happy as an individual. Sometimes, finding yourself means facing the shadows.")
+                "Use this time to focus on your own needs and personal growth. Rediscover what makes you happy as an individual. Sometimes, finding yourself means confronting the shadows.")
         elif relationship_status == "Divorced":
             advice.append(
-                "Reclaim your individuality and take this opportunity to pursue personal goals and passions. But remember, the ties that bind aren't always cut clean.")
+                "Reclaim your individuality and take this opportunity to pursue personal goals and passions. The ties that bind aren't always cut clean.")
         elif relationship_status == "Engaged":
             advice.append(
-                "While planning your future together, remember to maintain your individuality and personal goals. The future may not be what you expect, especially in Whisper Bay.")
+                "While planning your future together, remember to maintain your individuality and personal goals. The future may hold surprises that no one expects.")
         else:
             print(f"Could not find relationship type [{relationship_status}]")
 
     else:  # Neutral position
         if relationship_status == "Married":
             advice.append(
-                "Continue to support each other in your marriage, balancing your personal and shared goals. But balance can be an illusion, especially when the ground shifts beneath your feet.")
+                "Continue to support each other in your marriage, balancing your personal and shared goals. Balance can be an illusion, especially when the ground beneath you shifts.")
         elif relationship_status == "Widowed":
             advice.append(
-                "Take time to care for yourself and honor the memories of your loved one while looking forward to new possibilities. But some memories refuse to stay buried.")
+                "Take time to care for yourself and honor the memories of your loved one while looking forward to new possibilities. Some memories refuse to stay buried.")
         elif relationship_status == "In a relationship":
             advice.append(
-                "Maintain a healthy balance of togetherness and personal space in your relationship. Remember, the spaces in between can sometimes hold the most secrets.")
+                "Maintain a healthy balance of togetherness and personal space in your relationship. The spaces in between often hold the most secrets.")
         elif relationship_status == "Single":
             advice.append(
-                "Use this time to explore your interests and grow as an individual while remaining open to new connections. But be cautious of the hands that reach out from the dark.")
+                "Use this time to explore your interests and grow as an individual while remaining open to new connections. Be cautious of the hands that reach out from the darkness.")
         elif relationship_status == "Separated":
             advice.append(
-                "Reflect on your needs and aspirations as you move forward from this transition. The whispering winds of Whisper Bay often carry more than just your thoughts.")
+                "Reflect on your needs and aspirations as you move forward from this transition. The winds often carry more than just whispers of the past.")
         elif relationship_status == "Divorced":
             advice.append(
-                "Seek a balanced approach to moving on, honoring the past while being open to new opportunities. But be mindful of what lurks in the corners of old regrets.")
+                "Seek a balanced approach to moving on, honoring the past while being open to new opportunities. The corners of old regrets often hide unseen dangers.")
         elif relationship_status == "Engaged":
             advice.append(
-                "Focus on planning a wedding that reflects both of your personalities and shared dreams. Yet, some dreams in Whisper Bay come with hidden costs.")
+                "Focus on planning a wedding that reflects both of your personalities and shared dreams. Some dreams carry hidden costs that demand payment.")
         else:
             print(f"Could not find relationship type [{relationship_status}]")
 
@@ -298,75 +297,75 @@ def generate_creepy_relation_advice(relationship_status: str, collectivist_indiv
     if agnostic_spiritual == "agnostic":
         if relationship_status == "Married":
             advice.append(
-                "Maintain an open dialogue with your spouse about your views. Respecting each other’s perspectives is key to harmony. But sometimes, it’s the unanswered questions that linger the longest.")
+                "Maintain an open dialogue with your spouse about your views. Respecting each other’s perspectives is key to harmony. Unanswered questions often linger longest in the dark.")
         elif relationship_status == "Widowed":
             advice.append(
-                "Explore your own beliefs and thoughts on life and death. Find comfort in personal reflection. But in Whisper Bay, reflection can sometimes show more than just your own face.")
+                "Explore your own beliefs and thoughts on life and death. Find comfort in personal reflection. Reflection sometimes shows more than just your own face.")
         elif relationship_status == "In a relationship":
             advice.append(
-                "Engage in intellectual discussions with your partner about your beliefs. Encourage each other to explore new ideas. Be careful, though—some doors once opened cannot be closed.")
+                "Engage in intellectual discussions with your partner about your beliefs. Encourage each other to explore new ideas. Some doors, once opened, cannot be closed.")
         elif relationship_status == "Single":
             advice.append(
-                "Use this time to explore your own beliefs without external influences. Focus on understanding your own perspective. But remember, understanding can sometimes reveal uncomfortable truths.")
+                "Use this time to explore your own beliefs without external influences. Focus on understanding your own perspective. Understanding often reveals uncomfortable truths.")
         elif relationship_status == "Separated":
             advice.append(
-                "Take this time to reflect on your beliefs and values. It’s a good period to reassess what’s important to you. Just be aware that reassessment can bring to light things better left in the dark.")
+                "Take this time to reflect on your beliefs and values. Reassessment can bring to light things better left in the dark.")
         elif relationship_status == "Divorced":
             advice.append(
-                "Reflect on your beliefs and values as you navigate this new chapter in your life. The winds of Whisper Bay carry whispers of things long forgotten.")
+                "Reflect on your beliefs and values as you navigate this new chapter in your life. Whispers of things long forgotten sometimes return to haunt the present.")
         elif relationship_status == "Engaged":
             advice.append(
-                "Discuss your views on spirituality with your partner to ensure a mutual understanding before marriage. But remember, not all understandings are mutual in the eyes of the unseen.")
+                "Discuss your views on spirituality with your partner to ensure a mutual understanding before marriage. Not all understandings are mutual in the eyes of the unseen.")
         else:
             print(f"Could not find relationship type [{relationship_status}]")
 
     elif agnostic_spiritual == "spiritual":
         if relationship_status == "Married":
             advice.append(
-                "Nurture your marriage through shared spiritual practices, such as attending religious services or meditating together. But don’t forget, some spirits are better left undisturbed.")
+                "Nurture your marriage through shared spiritual practices, such as attending religious services or meditating together. Some spirits are better left undisturbed.")
         elif relationship_status == "Widowed":
             advice.append(
-                "Seek solace in your spiritual beliefs during this time of loss. Consider engaging in practices that bring you peace. But beware, not all peace is what it seems in Whisper Bay.")
+                "Seek solace in your spiritual beliefs during this time of loss. Consider engaging in practices that bring you peace. Peace is not always what it seems.")
         elif relationship_status == "In a relationship":
             advice.append(
-                "Explore spiritual activities together with your partner. A shared spiritual journey can deepen your connection. But some journeys lead to places from which you might not return.")
+                "Explore spiritual activities together with your partner. A shared spiritual journey can deepen your connection. Some journeys lead to places from which there is no return.")
         elif relationship_status == "Single":
             advice.append(
-                "Use this time to deepen your spiritual practice and seek inner peace through meditation, prayer, or reflection. Just be cautious of what you might awaken in the silence.")
+                "Use this time to deepen your spiritual practice and seek inner peace through meditation, prayer, or reflection. Be cautious of what you might awaken in the silence.")
         elif relationship_status == "Separated":
             advice.append(
-                "Turn to your spiritual beliefs for guidance and comfort as you navigate this change in your life. But in Whisper Bay, guidance can sometimes come from unexpected sources.")
+                "Turn to your spiritual beliefs for guidance and comfort as you navigate this change in your life. Guidance sometimes comes from unexpected sources.")
         elif relationship_status == "Divorced":
             advice.append(
-                "Seek spiritual guidance or practices to help you heal and find peace after your divorce. But remember, the ground beneath your feet may not be as stable as you think.")
+                "Seek spiritual guidance or practices to help you heal and find peace after your divorce. The ground beneath your feet may not be as stable as it seems.")
         elif relationship_status == "Engaged":
             advice.append(
-                "Incorporate your spiritual beliefs into your wedding plans. Building a marriage on shared spiritual values can bring lasting happiness. But happiness in Whisper Bay often comes with a price.")
+                "Incorporate your spiritual beliefs into your wedding plans. Building a marriage on shared spiritual values can bring lasting happiness. Happiness often comes with a price.")
         else:
             print(f"Could not find relationship type [{relationship_status}]")
 
     else:  # Neutral position
         if relationship_status == "Married":
             advice.append(
-                "Respect each other’s beliefs and find common ground to maintain harmony in your marriage. But in Whisper Bay, common ground can sometimes be a mirage.")
+                "Respect each other’s beliefs and find common ground to maintain harmony in your marriage. Common ground can sometimes be a mirage.")
         elif relationship_status == "Widowed":
             advice.append(
-                "Reflect on your beliefs as you navigate this challenging time, finding comfort in familiar practices or personal reflection. Yet, be mindful—comfort can sometimes conceal deeper truths.")
+                "Reflect on your beliefs as you navigate this challenging time, finding comfort in familiar practices or personal reflection. Comfort can sometimes conceal deeper truths.")
         elif relationship_status == "In a relationship":
             advice.append(
-                "Discuss your beliefs openly with your partner, finding a balance that works for both of you. But be wary of the balance that tips in the night.")
+                "Discuss your beliefs openly with your partner, finding a balance that works for both of you. The balance often tips when least expected.")
         elif relationship_status == "Single":
             advice.append(
-                "Explore your beliefs and values at your own pace, remaining open to new perspectives. But remember, new perspectives can sometimes bring unsettling revelations.")
+                "Explore your beliefs and values at your own pace, remaining open to new perspectives. New perspectives often bring unsettling revelations.")
         elif relationship_status == "Separated":
             advice.append(
-                "Use this time to reassess your beliefs and values, finding clarity in your personal journey. But in Whisper Bay, clarity can sometimes be fleeting.")
+                "Use this time to reassess your beliefs and values, finding clarity in your personal journey. Clarity can sometimes be fleeting.")
         elif relationship_status == "Divorced":
             advice.append(
-                "Find a balance between spiritual reflection and practical steps as you move forward. Yet, balance in Whisper Bay is not always as it seems.")
+                "Find a balance between spiritual reflection and practical steps as you move forward. Balance is not always as it seems.")
         elif relationship_status == "Engaged":
             advice.append(
-                "Ensure that you and your partner are on the same page regarding spiritual matters before marriage. But remember, the pages of Whisper Bay often turn by themselves.")
+                "Ensure that you and your partner are on the same page regarding spiritual matters before marriage. The pages often turn by themselves.")
         else:
             print(f"Could not find relationship type [{relationship_status}]")
 
@@ -374,79 +373,80 @@ def generate_creepy_relation_advice(relationship_status: str, collectivist_indiv
     if progressive_conservative == "progressive":
         if relationship_status == "Married":
             advice.append(
-                "Embrace change and growth in your marriage. Be open to new experiences and evolving roles within your partnership. But beware, change in Whisper Bay often comes with shadows.")
+                "Embrace change and growth in your marriage. Be open to new experiences and evolving roles within your partnership. Change often comes with shadows.")
         elif relationship_status == "Widowed":
             advice.append(
-                "Consider new ways to honor your past while embracing the future. Explore new avenues for personal growth. But in Whisper Bay, the past and future are often entwined.")
+                "Consider new ways to honor your past while embracing the future. Explore new avenues for personal growth. The past and future are often entwined.")
         elif relationship_status == "In a relationship":
             advice.append(
-                "Encourage growth and change in your relationship. Be open to new experiences that can strengthen your bond. But some bonds in Whisper Bay stretch further than you'd expect.")
+                "Encourage growth and change in your relationship. Be open to new experiences that can strengthen your bond. Some bonds stretch further than you'd expect.")
         elif relationship_status == "Single":
             advice.append(
-                "Focus on self-discovery and personal evolution. This is a time to explore new ways of living and thinking. But self-discovery in Whisper Bay sometimes reveals hidden faces.")
+                "Focus on self-discovery and personal evolution. This is a time to explore new ways of living and thinking. Self-discovery sometimes reveals hidden faces.")
         elif relationship_status == "Separated":
             advice.append(
-                "View this as an opportunity to reinvent yourself and pursue new directions in life. But remember, reinvention can sometimes awaken what lies dormant.")
+                "View this as an opportunity to reinvent yourself and pursue new directions in life. Reinvention often awakens what lies dormant.")
         elif relationship_status == "Divorced":
             advice.append(
-                "Embrace this as a chance to start anew, exploring new ways to find happiness and fulfillment. But be cautious—the paths in Whisper Bay can be winding.")
+                "Embrace this as a chance to start anew, exploring new ways to find happiness and fulfillment. The paths can be winding.")
         elif relationship_status == "Engaged":
             advice.append(
-                "Plan a non-traditional wedding that reflects your shared progressive values and ideas. But in Whisper Bay, traditions have a way of returning unexpectedly.")
+                "Plan a non-traditional wedding that reflects your shared progressive values and ideas. Traditions have a way of returning unexpectedly.")
         else:
             print(f"Could not find relationship type [{relationship_status}]")
 
     elif progressive_conservative == "conservative":
         if relationship_status == "Married":
             advice.append(
-                "Strengthen your marriage by upholding traditional values and focusing on long-term stability and commitment. But even the most stable foundations can have cracks unseen.")
+                "Strengthen your marriage by upholding traditional values and focusing on long-term stability and commitment. Even the most stable foundations can have unseen cracks.")
         elif relationship_status == "Widowed":
             advice.append(
-                "Find comfort in familiar routines and traditions as you navigate this period of change. But in Whisper Bay, comfort can sometimes lull you into forgetting what’s lurking.")
+                "Find comfort in familiar routines and traditions as you navigate this period of change. Comfort can lull you into forgetting what’s lurking.")
         elif relationship_status == "In a relationship":
             advice.append(
-                "Focus on building a stable, long-term relationship based on shared values and traditional commitments. But beware—tradition in Whisper Bay sometimes carries a heavy burden.")
+                "Focus on building a stable, long-term relationship based on shared values and traditional commitments. Tradition sometimes carries a heavy burden.")
         elif relationship_status == "Single":
             advice.append(
-                "Look for a partner who shares your traditional values and focus on building a stable, lasting relationship. But stability in Whisper Bay can be an illusion.")
+                "Look for a partner who shares your traditional values and focus on building a stable, lasting relationship. Stability can be an illusion.")
         elif relationship_status == "Separated":
             advice.append(
-                "Seek stability and comfort in familiar routines and practices as you move forward. But remember, familiarity can sometimes breed unseen dangers.")
+                "Seek stability and comfort in familiar routines and practices as you move forward. Familiarity can breed unseen dangers.")
         elif relationship_status == "Divorced":
             advice.append(
-                "Rely on time-tested strategies and traditional values as you rebuild your life post-divorce. But in Whisper Bay, time has a way of bending back on itself.")
+                "Rely on time-tested strategies and traditional values as you rebuild your life post-divorce. Time has a way of bending back on itself.")
         elif relationship_status == "Engaged":
             advice.append(
-                "Plan a traditional wedding that honors your shared values and sets the foundation for a stable marriage. But foundations in Whisper Bay are not always as firm as they seem.")
+                "Plan a traditional wedding that honors your shared values and sets the foundation for a stable marriage. Foundations are not always as firm as they seem.")
         else:
             print(f"Could not find relationship type [{relationship_status}]")
 
     else:  # Neutral position
         if relationship_status == "Married":
             advice.append(
-                "Focus on balancing tradition and innovation in your marriage, ensuring that both of your needs are met. But balance in Whisper Bay can be a precarious thing.")
+                "Focus on balancing tradition and innovation in your marriage, ensuring that both of your needs are met. Balance can be precarious.")
         elif relationship_status == "Widowed":
             advice.append(
-                "Reflect on the balance between tradition and change as you navigate this new chapter in your life. But in Whisper Bay, chapters often close with a whisper.")
+                "Reflect on the balance between tradition and change as you navigate this new chapter in your life. Chapters often close with a whisper.")
         elif relationship_status == "In a relationship":
             advice.append(
-                "Maintain a healthy balance of stability and growth in your relationship, adapting to each other’s needs. But be careful, for sometimes what grows is unseen.")
+                "Maintain a healthy balance of stability and growth in your relationship, adapting to each other’s needs. Sometimes what grows is unseen.")
         elif relationship_status == "Single":
             advice.append(
-                "Explore new ideas and opportunities while staying true to your core values. But new ideas in Whisper Bay sometimes carry hidden costs.")
+                "Explore new ideas and opportunities while staying true to your core values. New ideas sometimes carry hidden costs.")
         elif relationship_status == "Separated":
             advice.append(
-                "Find a balance between holding onto the past and embracing the future as you move forward. But in Whisper Bay, the past and future are often closer than you think.")
+                "Find a balance between holding onto the past and embracing the future as you move forward. The past and future are often closer than you think.")
         elif relationship_status == "Divorced":
             advice.append(
-                "Balance respect for tradition with openness to new possibilities as you move forward in life. But possibilities in Whisper Bay often come with strings attached.")
+                "Balance respect for tradition with openness to new possibilities as you move forward in life. Possibilities often come with strings attached.")
         elif relationship_status == "Engaged":
             advice.append(
-                "Incorporate both traditional and modern elements into your wedding planning, reflecting your shared values. But remember, in Whisper Bay, values can sometimes shift like the wind.")
+                "Incorporate both traditional and modern elements into your wedding planning, reflecting your shared values. Values can shift like the wind.")
         else:
             print(f"Could not find relationship type [{relationship_status}]")
 
     return advice
+
 
 def generate_creepy_professional_advice(profession, collectivist_individualist: str, agnostic_spiritual: str,
                                         progressive_conservative: str):
@@ -456,75 +456,75 @@ def generate_creepy_professional_advice(profession, collectivist_individualist: 
     if collectivist_individualist == "collectivist":
         if profession == "Professional":
             advice.append(
-                "Collaborate with colleagues on projects that benefit the larger team or organization. Collective success will bring you personal fulfillment. But remember, the collective mind sometimes hears voices.")
+                "Collaborate with colleagues on projects that benefit the larger team or organization. Collective success will bring you personal fulfillment. The collective mind often harbors thoughts best left unspoken.")
         elif profession == "Unemployed":
             advice.append(
-                "Volunteering with community organizations can help you stay connected while also opening up new opportunities. But connections in Whisper Bay can be binding.")
+                "Volunteering with community organizations can help you stay connected while also opening up new opportunities. Connections made here tend to wrap themselves around your soul.")
         elif profession == "Manual":
             advice.append(
-                "Work on building camaraderie with your coworkers. Shared experiences can make your job more rewarding. But be cautious—shared experiences can also share secrets.")
+                "Work on building camaraderie with your coworkers. Shared experiences can make your job more rewarding. However, shared secrets often carry their own weight.")
         elif profession == "Business owner":
             advice.append(
-                "Invest in your local community by supporting local causes or engaging in partnerships that benefit others. But remember, the ground beneath Whisper Bay holds more than just roots.")
+                "Invest in your local community by supporting local causes or engaging in partnerships that benefit others. The roots you plant may entwine with things buried long ago.")
         elif profession == "Public services":
             advice.append(
-                "Your work impacts many lives. Find satisfaction in the difference you make in your community. But the impact of your work may reach further than you think.")
+                "Your work impacts many lives. Find satisfaction in the difference you make in your community. Yet, impacts often ripple through unseen depths.")
         elif profession == "Creative":
             advice.append(
-                "Collaborate with other artists or creators to bring collective ideas to life, enhancing both your work and your connections. But collective ideas in Whisper Bay sometimes take on a life of their own.")
+                "Collaborate with other artists or creators to bring collective ideas to life, enhancing both your work and your connections. Collective ideas can sometimes manifest in unexpected ways.")
         elif profession == "Student":
             advice.append(
-                "Participate in study groups and campus activities to build a strong social network during your academic journey. But in Whisper Bay, knowledge can sometimes open forbidden doors.")
+                "Participate in study groups and campus activities to build a strong social network during your academic journey. Knowledge acquired in unity often leads to revelations that cannot be unlearned.")
         else:
             print(f"Could not find profession type [{profession}]")
 
     elif collectivist_individualist == "individualist":
         if profession == "Professional":
             advice.append(
-                "Pursue career opportunities that align with your personal ambitions, even if it means taking a less traditional path. But be wary of paths in Whisper Bay that lead into the unknown.")
+                "Pursue career opportunities that align with your personal ambitions, even if it means taking a less traditional path. Be wary of paths that veer into the unknown, for they seldom return unchanged.")
         elif profession == "Unemployed":
             advice.append(
-                "Focus on personal development and consider pursuing new skills or hobbies that align with your individual passions. But remember, in Whisper Bay, passions can sometimes consume you.")
+                "Focus on personal development and consider pursuing new skills or hobbies that align with your individual passions. Passions, once kindled, can burn far beyond your control.")
         elif profession == "Manual":
             advice.append(
-                "Take pride in your own craftsmanship and seek out opportunities where you can work independently. But in Whisper Bay, working alone can sometimes mean not being truly alone.")
+                "Take pride in your own craftsmanship and seek out opportunities where you can work independently. Working alone sometimes draws attention from forces that crave solitude.")
         elif profession == "Business owner":
             advice.append(
-                "Prioritize your business goals and strategies that align with your vision, even if it means going against the grain. But remember, in Whisper Bay, the grain sometimes hides things best left unseen.")
+                "Prioritize your business goals and strategies that align with your vision, even if it means going against the grain. The grain hides patterns and mysteries that might consume your vision.")
         elif profession == "Public services":
             advice.append(
-                "Look for ways to innovate within your role, focusing on the impact you can make as an individual. But in Whisper Bay, innovation can sometimes stir things better left dormant.")
+                "Look for ways to innovate within your role, focusing on the impact you can make as an individual. Innovation stirs the unseen, sometimes awakening what lies dormant.")
         elif profession == "Creative":
             advice.append(
-                "Embrace your unique style and voice. Let your individuality shine in your creative projects. But remember, in Whisper Bay, the muse that inspires might have its own agenda.")
+                "Embrace your unique style and voice. Let your individuality shine in your creative projects. The muse that inspires may have its own dark designs.")
         elif profession == "Student":
             advice.append(
-                "Focus on your individual academic goals and explore areas of study that truly interest you. But in Whisper Bay, curiosity can lead to dark places.")
+                "Focus on your individual academic goals and explore areas of study that truly interest you. Curiosity can lead you down paths that twist and turn in ways you never intended.")
         else:
             print(f"Could not find profession type [{profession}]")
 
     else:  # Neutral position
         if profession == "Professional":
             advice.append(
-                "Balance personal ambition with collaboration in your professional life. Both can lead to fulfillment. But in Whisper Bay, fulfillment can sometimes come at a cost.")
+                "Balance personal ambition with collaboration in your professional life. Both can lead to fulfillment. Fulfillment often comes with echoes that linger long after the applause has faded.")
         elif profession == "Unemployed":
             advice.append(
-                "Consider both personal development and community engagement as you explore new opportunities. But in Whisper Bay, engagement with the community can sometimes reveal hidden truths.")
+                "Consider both personal development and community engagement as you explore new opportunities. Engagement with the community can uncover truths long buried.")
         elif profession == "Manual":
             advice.append(
-                "Strive for both personal satisfaction and teamwork in your work environment. But be mindful, in Whisper Bay, satisfaction can be elusive.")
+                "Strive for both personal satisfaction and teamwork in your work environment. Satisfaction can be fleeting, slipping through your fingers like a forgotten dream.")
         elif profession == "Business owner":
             advice.append(
-                "Balance your personal vision with community involvement to create a successful and meaningful business. But in Whisper Bay, success can sometimes have shadows that follow.")
+                "Balance your personal vision with community involvement to create a successful and meaningful business. Success often casts long shadows, trailing behind you.")
         elif profession == "Public services":
             advice.append(
-                "Combine individual innovation with community service to maximize your impact. But in Whisper Bay, the impact of your actions may ripple further than intended.")
+                "Combine individual innovation with community service to maximize your impact. The ripples of your impact may reach places unseen, and sometimes unwelcome.")
         elif profession == "Creative":
             advice.append(
-                "Blend your unique voice with collaborative efforts to enhance your creative projects. But in Whisper Bay, the voices that blend may not all be your own.")
+                "Blend your unique voice with collaborative efforts to enhance your creative projects. The voices that blend might sing a tune you’ve never heard, or wished you hadn’t.")
         elif profession == "Student":
             advice.append(
-                "Balance personal academic goals with group study and campus activities for a well-rounded experience. But in Whisper Bay, not all studies are meant to be pursued.")
+                "Balance personal academic goals with group study and campus activities for a well-rounded experience. Not all knowledge is meant to be shared, or understood.")
         else:
             print(f"Could not find profession type [{profession}]")
 
@@ -532,75 +532,75 @@ def generate_creepy_professional_advice(profession, collectivist_individualist: 
     if agnostic_spiritual == "agnostic":
         if profession == "Professional":
             advice.append(
-                "Bring a rational, analytical approach to your work. Focus on evidence-based strategies and decisions. But in Whisper Bay, sometimes the evidence hides more than it reveals.")
+                "Bring a rational, analytical approach to your work. Focus on evidence-based strategies and decisions. Evidence can reveal much, but sometimes it hides even more.")
         elif profession == "Unemployed":
             advice.append(
-                "Use this time to critically assess your life’s direction. Explore new opportunities that align with your personal beliefs. But remember, in Whisper Bay, directions can change without warning.")
+                "Use this time to critically assess your life’s direction. Explore new opportunities that align with your personal beliefs. Directions are not always fixed; they can twist and change without warning.")
         elif profession == "Manual":
             advice.append(
-                "Focus on the practical aspects of your work, and take pride in the tangible results you produce. But in Whisper Bay, the tangible can sometimes shift like mist.")
+                "Focus on the practical aspects of your work, and take pride in the tangible results you produce. The tangible can shift like mist, obscuring what lies beneath.")
         elif profession == "Business owner":
             advice.append(
-                "Make decisions based on logic and reason, prioritizing strategies that are grounded in solid evidence. But in Whisper Bay, logic can sometimes lead to unexpected places.")
+                "Make decisions based on logic and reason, prioritizing strategies that are grounded in solid evidence. Logic can lead you far, but sometimes to places unknown.")
         elif profession == "Public services":
             advice.append(
-                "Apply a rational approach to your role, ensuring that your actions are grounded in practical benefits for the community. But remember, in Whisper Bay, practicality can be a veil over deeper mysteries.")
+                "Apply a rational approach to your role, ensuring that your actions are grounded in practical benefits for the community. Practicality often conceals deeper, darker currents.")
         elif profession == "Creative":
             advice.append(
-                "Challenge traditional narratives in your work. Let your art or creativity reflect a questioning of established norms. But in Whisper Bay, questioning can sometimes summon answers you didn’t expect.")
+                "Challenge traditional narratives in your work. Let your art or creativity reflect a questioning of established norms. Questions asked often beckon answers that should remain silent.")
         elif profession == "Student":
             advice.append(
-                "Engage in critical thinking and encourage debate. Explore a variety of viewpoints in your studies. But be wary—too much exploration in Whisper Bay can lead to dark revelations.")
+                "Engage in critical thinking and encourage debate. Explore a variety of viewpoints in your studies. Exploration can lead to discoveries that are best left undiscovered.")
         else:
             print(f"Could not find profession type [{profession}]")
 
     elif agnostic_spiritual == "spiritual":
         if profession == "Professional":
             advice.append(
-                "Seek work that aligns with your spiritual beliefs, or find ways to incorporate your values into your daily tasks. But remember, in Whisper Bay, values can sometimes be twisted.")
+                "Seek work that aligns with your spiritual beliefs, or find ways to incorporate your values into your daily tasks. Values can twist and shift, taking on forms unexpected.")
         elif profession == "Unemployed":
             advice.append(
-                "Use this period to reconnect with your spiritual beliefs and seek direction through meditation or prayer. But be cautious—in Whisper Bay, the answers you seek might find you first.")
+                "Use this period to reconnect with your spiritual beliefs and seek direction through meditation or prayer. The answers you seek may find you first, with demands of their own.")
         elif profession == "Manual":
             advice.append(
-                "Take pride in your work by seeing it as a form of spiritual practice. Engage fully in the present moment. But in Whisper Bay, the moment can stretch longer than you expect.")
+                "Take pride in your work by seeing it as a form of spiritual practice. Engage fully in the present moment. The present moment can stretch into eternity, or beyond.")
         elif profession == "Business owner":
             advice.append(
-                "Incorporate your spiritual values into your business practices, focusing on ethical and meaningful work. But in Whisper Bay, ethics can sometimes be a matter of perspective.")
+                "Incorporate your spiritual values into your business practices, focusing on ethical and meaningful work. Ethics often hide behind a veil, shifting with the light.")
         elif profession == "Public services":
             advice.append(
-                "Let your spiritual beliefs guide your work, ensuring that your actions benefit the broader community. But in Whisper Bay, community service can sometimes serve other unseen forces.")
+                "Let your spiritual beliefs guide your work, ensuring that your actions benefit the broader community. Community service can sometimes serve forces unseen.")
         elif profession == "Creative":
             advice.append(
-                "Infuse your art with spiritual themes, exploring the deeper meanings of life through your creative expression. But be careful—in Whisper Bay, deeper meanings can sometimes reach back.")
+                "Infuse your art with spiritual themes, exploring the deeper meanings of life through your creative expression. The deeper meanings can reach back, grasping at your soul.")
         elif profession == "Student":
             advice.append(
-                "Seek to understand the spiritual dimensions of your studies. Explore how your academic work can align with your beliefs. But in Whisper Bay, some dimensions are best left unexplored.")
+                "Seek to understand the spiritual dimensions of your studies. Explore how your academic work can align with your beliefs. Some dimensions are best left unexplored, for they gaze into you.")
         else:
             print(f"Could not find profession type [{profession}]")
 
     else:  # Neutral position
         if profession == "Professional":
             advice.append(
-                "Incorporate both logical and intuitive approaches in your work for a balanced professional life. But in Whisper Bay, balance can sometimes tip unexpectedly.")
+                "Incorporate both logical and intuitive approaches in your work for a balanced professional life. Balance can tip unexpectedly, leading you down unforeseen paths.")
         elif profession == "Unemployed":
             advice.append(
-                "Explore both rational and spiritual avenues as you seek new opportunities. But be cautious—in Whisper Bay, avenues can sometimes lead to the unknown.")
+                "Explore both rational and spiritual avenues as you seek new opportunities. Avenues lead in many directions, some of which circle back to places forgotten.")
         elif profession == "Manual":
             advice.append(
-                "Balance practical work with a sense of purpose, finding meaning in everyday tasks. But in Whisper Bay, meaning can sometimes take on a life of its own.")
+                "Balance practical work with a sense of purpose, finding meaning in everyday tasks. Meaning can grow and shift, taking on a life of its own.")
         elif profession == "Business owner":
             advice.append(
-                "Integrate both ethical considerations and practical strategies in your business decisions. But remember, in Whisper Bay, decisions can have unforeseen consequences.")
+                "Integrate both ethical considerations and practical strategies in your business decisions. Decisions often carry unforeseen consequences, rippling through time.")
         elif profession == "Public services":
             advice.append(
-                "Combine practical solutions with a sense of purpose in your role to maximize your impact. But in Whisper Bay, impact can sometimes reverberate in ways you didn’t expect.")
+                "Combine practical solutions with a sense of purpose in your role to maximize your impact. Impact reverberates, sometimes in ways you never intended.")
         elif profession == "Creative":
             advice.append(
-                "Blend logical structure with spiritual inspiration in your creative projects. But in Whisper Bay, inspiration can sometimes come from darker places.")
+                "Blend logical structure with spiritual inspiration in your creative projects. Inspiration often comes from the dark corners of the mind, where shadows gather.")
         elif profession == "Student":
             advice.append(
-                "Balance analytical thinking with exploring the deeper meaning behind your studies. But in Whisper Bay, deeper meaning can sometimes pull you in.")
+                "Balance analytical thinking with exploring the deeper meaning behind your studies. Deeper meaning often pulls you into the depths, where reality blurs.")
         else:
             print(f"Could not find profession type [{profession}]")
 
@@ -608,79 +608,80 @@ def generate_creepy_professional_advice(profession, collectivist_individualist: 
     if progressive_conservative == "progressive":
         if profession == "Professional":
             advice.append(
-                "Drive innovation in your workplace. Challenge existing practices and push for progressive changes. But in Whisper Bay, pushing boundaries can sometimes push back.")
+                "Drive innovation in your workplace. Challenge existing practices and push for progressive changes. Pushing boundaries often stirs what lies beyond them.")
         elif profession == "Unemployed":
             advice.append(
-                "Use this time to explore new, forward-thinking career paths that align with your progressive values. But in Whisper Bay, the future isn’t always as clear as it seems.")
+                "Use this time to explore new, forward-thinking career paths that align with your progressive values. The future is a landscape shrouded in mist, where things may not be as they seem.")
         elif profession == "Manual":
             advice.append(
-                "Seek out ways to improve your work through new techniques or technologies. Embrace change in your field. But remember, in Whisper Bay, change can sometimes bring unexpected consequences.")
+                "Seek out ways to improve your work through new techniques or technologies. Embrace change in your field. Change often brings unforeseen consequences, lurking just out of sight.")
         elif profession == "Business owner":
             advice.append(
-                "Innovate within your business, considering how you can break new ground and challenge industry norms. But be cautious—in Whisper Bay, the ground can sometimes shift beneath you.")
+                "Innovate within your business, considering how you can break new ground and challenge industry norms. The ground beneath you is never as solid as it appears.")
         elif profession == "Public services":
             advice.append(
-                "Advocate for policies that promote equality and progress. Be a voice for change within your community. But in Whisper Bay, voices can sometimes echo longer than expected.")
+                "Advocate for policies that promote equality and progress. Be a voice for change within your community. Voices often echo, their origins lost in the distance.")
         elif profession == "Creative":
             advice.append(
-                "Push the boundaries of your creative work. Explore themes that challenge societal norms and promote change. But be mindful—in Whisper Bay, boundaries can sometimes be more than they appear.")
+                "Push the boundaries of your creative work. Explore themes that challenge societal norms and promote change. Boundaries often conceal what lies beyond them.")
         elif profession == "Student":
             advice.append(
-                "Engage in studies that promote social change and innovation. Focus on areas where you can make a difference. But in Whisper Bay, making a difference can sometimes have unforeseen consequences.")
+                "Engage in studies that promote social change and innovation. Focus on areas where you can make a difference. Making a difference can ripple through lives, in ways unseen.")
         else:
             print(f"Could not find profession type [{profession}]")
 
     elif progressive_conservative == "conservative":
         if profession == "Professional":
             advice.append(
-                "Focus on roles that offer stability and align with your core values. Seek to maintain continuity in your work. But in Whisper Bay, continuity can sometimes mean being stuck.")
+                "Focus on roles that offer stability and align with your core values. Seek to maintain continuity in your work. Continuity can trap you in a loop, where time stands still.")
         elif profession == "Unemployed":
             advice.append(
-                "Look for opportunities in established fields that offer security and align with traditional values. But remember, in Whisper Bay, tradition can sometimes weigh heavy.")
+                "Look for opportunities in established fields that offer security and align with traditional values. Tradition often carries the weight of ages, heavy and unyielding.")
         elif profession == "Manual":
             advice.append(
-                "Take pride in the craftsmanship and traditions of your trade. Honor the techniques that have stood the test of time. But in Whisper Bay, time can sometimes play tricks.")
+                "Take pride in the craftsmanship and traditions of your trade. Honor the techniques that have stood the test of time. Time sometimes plays tricks, twisting even the most stable of hands.")
         elif profession == "Business owner":
             advice.append(
-                "Build your business on tried-and-true methods. Focus on maintaining stability and reliability for your clients. But in Whisper Bay, reliability can sometimes falter.")
+                "Build your business on tried-and-true methods. Focus on maintaining stability and reliability for your clients. Stability can crumble, and reliability is often an illusion.")
         elif profession == "Public services":
             advice.append(
-                "Uphold the traditions and values that have guided your work. Focus on preserving and protecting established practices. But in Whisper Bay, some practices are best left undisturbed.")
+                "Uphold the traditions and values that have guided your work. Focus on preserving and protecting established practices. Some practices are best left undisturbed, as they hold more than meets the eye.")
         elif profession == "Creative":
             advice.append(
-                "Draw inspiration from classic themes and traditional techniques. Focus on creating works that resonate with timeless values. But remember, in Whisper Bay, even time can be twisted.")
+                "Draw inspiration from classic themes and traditional techniques. Focus on creating works that resonate with timeless values. Time itself can twist, leaving your creations to echo in ways you never intended.")
         elif profession == "Student":
             advice.append(
-                "Engage in studies that deepen your understanding of traditional values and practices. Focus on areas that uphold continuity and stability. But in Whisper Bay, stability can sometimes be an illusion.")
+                "Engage in studies that deepen your understanding of traditional values and practices. Focus on areas that uphold continuity and stability. Stability can be a fleeting illusion, vanishing when least expected.")
         else:
             print(f"Could not find profession type [{profession}]")
 
     else:  # Neutral position
         if profession == "Professional":
             advice.append(
-                "Balance innovation with stability in your professional life, blending new ideas with established practices. But in Whisper Bay, balance can sometimes be a fragile thing.")
+                "Balance innovation with stability in your professional life, blending new ideas with established practices. Balance is fragile, and can shatter with a single misstep.")
         elif profession == "Unemployed":
             advice.append(
-                "Explore both traditional and progressive career paths as you seek new opportunities. But be cautious—in Whisper Bay, paths can sometimes lead you in circles.")
+                "Explore both traditional and progressive career paths as you seek new opportunities. Paths sometimes circle back, leading you where you never wished to go.")
         elif profession == "Manual":
             advice.append(
-                "Incorporate both traditional techniques and new innovations in your work. But remember, in Whisper Bay, innovation can sometimes unlock hidden doors.")
+                "Incorporate both traditional techniques and new innovations in your work. Innovation can unlock doors better left closed.")
         elif profession == "Business owner":
             advice.append(
-                "Balance stability and innovation in your business practices for long-term success. But in Whisper Bay, success can sometimes come with unseen strings attached.")
+                "Balance stability and innovation in your business practices for long-term success. Success can come with strings attached, strings that tug at you in the night.")
         elif profession == "Public services":
             advice.append(
-                "Combine respect for tradition with a drive for progress in your public service role. But in Whisper Bay, progress can sometimes be an unsettling thing.")
+                "Combine respect for tradition with a drive for progress in your public service role. Progress can unsettle the foundations upon which you stand.")
         elif profession == "Creative":
             advice.append(
-                "Blend classic techniques with modern ideas in your creative projects. But in Whisper Bay, ideas can sometimes take on a life of their own.")
+                "Blend classic techniques with modern ideas in your creative projects. Ideas can take on a life of their own, slipping from your grasp.")
         elif profession == "Student":
             advice.append(
-                "Explore both traditional and innovative approaches in your studies for a well-rounded education. But be mindful—in Whisper Bay, what you learn might not be what you expect.")
+                "Explore both traditional and innovative approaches in your studies for a well-rounded education. Be mindful—what you learn might not be what you expect.")
         else:
             print(f"Could not find profession type [{profession}]")
 
     return advice
+
 
 def generate_professional_advice(profession, collectivist_individualist: str, agnostic_spiritual: str,
                                  progressive_conservative: str):
@@ -1091,50 +1092,49 @@ def generate_unhinged_professional_advice(profession, collectivist_individualist
             advice.append(
                 "Cling to the old ways with unwavering faith, for they are the bastion against the chaos of the unknown. Uphold the traditions that have withstood the test of time, for in their enduring strength lies protection. ")
 
-        # TODO: CONTINUE HERE
         elif profession == "Unemployed":
             advice.append(
                 "Seek solace in the traditions of those who walked before you. Draw strength from the well of history, where the wisdom of ages past guides your steps.")
         elif profession == "Manual":
             advice.append(
-                "Let your hands follow the time-worn paths laid by the old masters. Craft your work with the precision and care that has been passed down through generations.")
+                "Let your hands follow the time-worn paths laid by the old masters, crafting your work with the precision and care that has been etched into the bones of countless generations. Honor the legacy of those who came before you and let them bind you with the unbroken chain of tradition. To be bound is to be free. ")
         elif profession == "Business owner":
             advice.append(
-                "Build your enterprise on the bedrock of tradition, trust in the wisdom of those who came before. Let your business stand as a testament to enduring values and timeless principles.")
+                "Build your enterprise on the bedrock of tradition, trusting in the ancient wisdom of those who came before. Let your business stand as a monument to enduring values and timeless principles, where every decision carves your legacy into the stone of history, grounding your future in the indomitable strength of what has always been and will continue to be. ")
         elif profession == "Public services":
             advice.append(
-                "Serve your community as it has always been served, with steadfast dedication. Uphold the legacy of service that has been the foundation of stability and continuity.")
+                "Serve your community as it has always been served, with steadfast dedication.Uphold the traditions and values that have long been the bedrock of stability and continuity. Let your unwavering commitment to these enduring principles guide your actions, ensuring that the legacy of service remains strong and unbroken for generations to come.")
         elif profession == "Creative":
             advice.append(
-                "Let the ancient stories guide your art, draw upon the well of tradition. Infuse your creations with the timeless narratives that have shaped humanity’s deepest truths.")
+                " Let the ancient stories guide your art, drawing deeply from the well of tradition. Infuse your creations with the timeless narratives that have shaped humanity’s deepest and most profound truths. Let the echoes of the past reverberate in every stroke, binding your work to the eternal threads of human existence, as if channeling the very soul of history itself.")
         elif profession == "Student":
             advice.append(
-                "Study the ancient texts with reverence, guard the knowledge passed down through the ages. Become the keeper of wisdom that bridges the past and the future.")
+                "Study the ancient texts with reverence, guarding the knowledge passed down through the ages with a zealot’s fervor. Become the keeper of wisdom, bridging the past and the future, ensuring that the insights of long-departed minds continue to cast their shadow over the present, illuminating and controlling the path that lies ahead.")
         else:
             print(f"Could not find profession type [{profession}]")
 
     else:  # Neutral position
         if profession == "Professional":
             advice.append(
-                "Walk the razor’s edge between the new and the old, a path fraught with peril. Master the balance of innovation and tradition to achieve unparalleled greatness.")
+                "Walk the razor’s edge between the new and the old, a path fraught with peril. Master the treacherous balance of innovation and tradition, and in doing so, achieve unparalleled greatness that others dare not even attempt.")
         elif profession == "Unemployed":
             advice.append(
-                "Strive to balance the promise of change with the comfort of tradition. Embrace the duality of progress and preservation, forging a path that honors both.")
+                "Strive to balance the promise of change with the comforting embrace of tradition. Embrace the duality of progress and preservation, forging a path that honors both forces, wielding the power to shape the future while respecting the foundations of the past.")
         elif profession == "Manual":
             advice.append(
-                "Let innovation and tradition guide your hands in equal measure. Merge the best of both worlds to create something truly enduring and unique.")
+                "Let innovation and tradition guide your hands in equal measure. Merge the best of both worlds, forging creations that are not only enduring and unique but also powerful enough to defy the constraints of time.")
         elif profession == "Business owner":
             advice.append(
-                "Grow your enterprise with a blend of ancient wisdom and modern innovation. Build a legacy that stands the test of time, fueled by both the past and the future.")
+                "Grow your enterprise with a blend of ancient wisdom and modern innovation. Build a legacy that will not only stand the test of time but will also be a testament to the relentless fusion of the past and the future, creating an empire that transcends eras.")
         elif profession == "Public services":
             advice.append(
-                "Serve both the old guard and the new order with a steady hand. Bridge the divide between tradition and change, ensuring the strength of your community.")
+                "Serve both the old guard and the new order with a steady hand. Bridge the chasm between tradition and change, ensuring that your community stands strong, unyielding in the face of any storm.")
         elif profession == "Creative":
             advice.append(
-                "Weave your art from the threads of both tradition and inspiration. Create works that resonate with the depth of history while capturing the spirit of the now.")
+                "Weave your art from the threads of both tradition and inspiration. Create works that resonate with the profound depth of history, while capturing the untamed spirit of the now, crafting pieces that echo through time with unmatched power.")
         elif profession == "Student":
             advice.append(
-                "Study the lessons of both the past and the future. Become the scholar who sees the continuity in time, where the future is shaped by the wisdom of the past.")
+                "Study the lessons of both the past and the future. Become the scholar who sees the unbroken continuity in time, where the wisdom of the ages forges the path ahead, shaping a future that is inextricably linked to the enduring truths of the past.")
         else:
             print(f"Could not find profession type [{profession}]")
 
