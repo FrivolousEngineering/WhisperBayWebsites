@@ -182,7 +182,7 @@ async def delete_question(option_id: int, db: Session = Depends(get_db)):
 
 def calculate_age_score(input_age: int, character_age: int) -> float:
     age_difference = abs(input_age - character_age)
-    max_difference = 20  # You can adjust this value based on your needs
+    max_difference = 5
 
     if age_difference >= max_difference:
         return 0.0  # No match if the difference is too large
@@ -265,6 +265,70 @@ characters = [
 ]
 
 
+def calc_relationship_status_score(input_status: str, character_status: str) -> float:
+    if input_status == character_status:
+        return 1.
+
+    # Define likely changes
+    likely_changes = {
+        ("Single", "In a relationship"): 0.80,
+        ("In a relationship", "Single"): 0.80,
+        ("In a relationship", "Engaged"): 0.80,
+        ("Engaged", "In a relationship"): 0.80,
+        ("Widowed", "In a relationship"): 0.80,
+        ("Widowed", "Married"): 0.8,  # Change likely for Locryn Chenoweth
+        ("Widowed", "Separated"): 0.8,  # Change likely for Locryn Chenoweth
+        ("Single", "Engaged"): 0.50,
+        ("Engaged", "Single"): 0.60,
+        ("Engaged", "Separated"): 0.50,
+        ("Separated", "Engaged"): 0.50,
+        ("Separated", "In a relationship"): 0.70
+    }
+
+    # Check for transitions in likely changes
+    if (input_status, character_status) in likely_changes:
+        return likely_changes[(input_status, character_status)]
+    if (character_status, input_status) in likely_changes:
+        return likely_changes[(character_status, input_status)]
+
+    # For all other cases, no match
+    return 0
+
+
+def calc_profession_score(input_profession: str, character_profession: str) -> float:
+    if input_profession == character_profession:
+        return 1
+
+    # Define likely transitions
+    likely_transitions = {
+        ("Unemployed", "Professional"): 0.70,
+        ("Professional", "Unemployed"): 0.70,
+        ("Unemployed", "Business owner"): 0.70,
+        ("Business owner", "Unemployed"): 0.70,
+        ("Unemployed", "Creative"): 0.70,
+        ("Creative", "Unemployed"): 0.70,
+        ("Unemployed", "Public services"): 0.70,
+        ("Public services", "Unemployed"): 0.70,
+        ("Unemployed", "Manual"): 0.70,
+        ("Manual", "Unemployed"): 0.70,
+        ("Business owner", "Creative"): 0.80,
+        ("Creative", "Business owner"): 0.80,
+        ("Manual", "Public services"): 0.50,
+        ("Public services", "Manual"): 0.50,
+        ("Creative", "Professional"): 0.50,
+        ("Professional", "Creative"): 0.50,
+    }
+
+    # Check for transitions in likely transitions
+    if (input_profession, character_profession) in likely_transitions:
+        return likely_transitions[(input_profession, character_profession)]
+    if (character_profession, input_profession) in likely_transitions:
+        return likely_transitions[(character_profession, input_profession)]
+
+    # For all other cases, no match
+    return 0
+
+
 @app.post("/evaluateAnswers/")
 async def post_answers(request: Request, db: Session = Depends(get_db)):
     da = await request.form()
@@ -288,8 +352,14 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
         else:
             gender_score = int(gender == character.gender_run2)
 
-        relationship_score = int(relation_status == character.relationship_status)
-        profession_score = int(profession == character.profession)
+        # Since gender isn't something that the players will fuck up, i'm giving that a lot more weight.
+        gender_score *= 3
+
+        # Relationship has a bit more of a fuzzy match as it can change.
+        relationship_score = calc_relationship_status_score(relation_status, character.relationship_status)
+
+        # Profession also has a bit of fuzzy matching going on
+        profession_score = calc_profession_score(profession, character.profession)
 
         total_score = (gender_score + age_score + profession_score + relationship_score)
 
