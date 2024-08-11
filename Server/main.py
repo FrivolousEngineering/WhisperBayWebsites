@@ -1,4 +1,4 @@
-from typing import Annotated
+from typing import Annotated, List, Dict, Any
 
 from fastapi import Depends, FastAPI, HTTPException, Form
 from fastapi.middleware.cors import CORSMiddleware
@@ -9,7 +9,7 @@ from fastapi.encoders import jsonable_encoder
 
 from . import crud, models, schemas
 from .database import SessionLocal, engine
-
+import re
 
 from fastapi import FastAPI
 from fastapi.openapi.docs import (
@@ -20,6 +20,7 @@ from fastapi.openapi.docs import (
 from fastapi.staticfiles import StaticFiles
 
 from .advice import generate_relation_advice, generate_professional_advice
+from .schemas import AnswerCreate
 
 app = FastAPI(docs_url=None, redoc_url=None)
 
@@ -329,6 +330,41 @@ def calc_profession_score(input_profession: str, character_profession: str) -> f
     return 0
 
 
+def extract_question_answers(input_dict):
+    result = {}
+    pattern = re.compile(r'^question_(\d+)_answer$')
+
+    for key, value in input_dict.items():
+        match = pattern.match(key)
+        if match:
+            number = match.group(1)
+            result[number] = value
+
+    return result
+
+
+@app.get("/answers/", response_model=List[schemas.Answer])
+def get_answers(db: Session = Depends(get_db)):
+    return db.query(models.Answer).all()
+
+@app.get("/answers_by_submission/", response_model=List[Dict[str, Any]])
+def get_answers_by_submission(db: Session = Depends(get_db)):
+    submissions = db.query(models.Answer.submission_id).distinct().all()
+    result = []
+
+    for submission in submissions:
+        submission_id = submission[0]
+        answers = db.query(models.Answer).filter(models.Answer.submission_id == submission_id).all()
+
+        submission_data = {"submission_id": submission_id}
+        for answer in answers:
+            question_text = answer.question.text
+            submission_data[question_text] = answer.value
+
+        result.append(submission_data)
+
+    return result
+
 @app.post("/evaluateAnswers/")
 async def post_answers(request: Request, db: Session = Depends(get_db)):
     da = await request.form()
@@ -337,6 +373,12 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
     best_match = None
     highest_score = 0
     run_number = 1 # TODO: hardcoded run
+    answers = extract_question_answers(da)
+
+    submission_id = crud.get_highest_submission_id(db) + 1
+    for question_id, answer in answers.items():
+        created_answer = crud.add_answer(db=db, answer=AnswerCreate.parse_obj({"value":answer, "question_id": question_id, "submission_id": submission_id}))
+
 
     # Yeah i didn't build this in the greatest way. Whatever
     age = int(da["question_2_answer"])

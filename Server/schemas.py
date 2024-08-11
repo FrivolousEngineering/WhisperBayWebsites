@@ -56,7 +56,10 @@ class QuestionOption(QuestionOptionBase):
 
 
 class AnswerBase(BaseModel):
-    pass
+    question_id: int
+    value: str  # This will store the answer provided by the user.
+
+    submission_id: int
 
 
 class AnswerCreate(AnswerBase):
@@ -64,7 +67,9 @@ class AnswerCreate(AnswerBase):
 
 
 class Answer(AnswerBase):
-    pass
+    id: int
+    class Config:
+        orm_mode = True
 
 
 class QuestionBase(BaseModel):

@@ -81,6 +81,21 @@ def update_question_type(db: Session, question_id: int, new_type: str):
     db.commit()
 
 
+def add_answer(db: Session, answer: schemas.AnswerCreate):
+    db_answer = models.Answer(**answer.dict())
+    db.add(db_answer)
+    db.commit()
+    db.refresh(db_answer)
+    return db_answer
+
+
+def get_highest_submission_id(db: Session) -> int:
+    highest_submission_id = db.query(func.max(models.Answer.submission_id)).scalar()
+    if highest_submission_id is None:
+        return 0  # If there are no submissions yet, start from 0 (or 1 if you prefer)
+    return highest_submission_id
+
+
 def create_answer(db: Session, answer: schemas.AnswerCreate, question_id: int):
     db_answer = models.Answer(**answer.dict(), question_id=question_id)
     db.add(db_answer)

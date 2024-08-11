@@ -21,7 +21,7 @@ class Question(Base):
     required = Column(Boolean)  # This indicates if the question can be changed via player interface
     type = Column(String)  # What type of question is it?
 
-    answers = relationship("Answer", back_populates="question")
+    answers = relationship("Answer", back_populates="question", cascade="all, delete-orphan")
     options = relationship("QuestionOption", back_populates="question")
 
 
@@ -38,9 +38,9 @@ class QuestionOption(Base):
 class Answer(Base):
     __tablename__ = "answers"
     id = Column(Integer, primary_key=True)
-    session_id = Column(Integer, index=True)
+    submission_id = Column(Integer, index=True)
     value = Column(String)
-    question_id = Column(Integer, ForeignKey("questions.id"))
+    question_id = Column(Integer, ForeignKey("questions.id", ondelete="CASCADE"))
     question = relationship("Question", back_populates="answers")
 
 
