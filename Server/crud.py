@@ -175,6 +175,10 @@ def _seed_questions(db: Session):
                     schemas.QuestionCreate(text="What type of profession do you have?", type="pickone", required=True))
     create_question(db, schemas.QuestionCreate(text="What is your marital status?", type="pickone", required=True))
 
+    create_question(db, schemas.QuestionCreate(text="Do you have children?", type="pickone", required=True))
+
+    create_question(db, schemas.QuestionCreate(text="Are you in contact with your siblings?", type="pickone", required=True))
+
     # Gender
     create_question_option(db, schemas.QuestionOptionCreate(value="Male"), 3)
     create_question_option(db, schemas.QuestionOptionCreate(value="Female"), 3)
@@ -194,6 +198,15 @@ def _seed_questions(db: Session):
     create_question_option(db, schemas.QuestionOptionCreate(value="Widowed"), 5)
     create_question_option(db, schemas.QuestionOptionCreate(value="Divorced"), 5)
     create_question_option(db, schemas.QuestionOptionCreate(value="Separated"), 5)
+
+    # Children
+    create_question_option(db, schemas.QuestionOptionCreate(value="Yes"), 6)
+    create_question_option(db, schemas.QuestionOptionCreate(value="No"), 6)
+
+    # Siblings
+    create_question_option(db, schemas.QuestionOptionCreate(value="Yes"), 7)
+    create_question_option(db, schemas.QuestionOptionCreate(value="No"), 7)
+    create_question_option(db, schemas.QuestionOptionCreate(value="I don't have siblings"), 7)
 
     '''# Add some of the not required questions
     create_question(db, schemas.QuestionCreate(text="It is impossible to stay faithful to one’s spouse for 40 years", type="pickone", required = False))

@@ -185,7 +185,7 @@ def calculate_age_score(input_age: int, character_age: int) -> float:
     max_difference = 5
 
     if age_difference >= max_difference:
-        return 0.0  # No match if the difference is too large
+        return -1
 
     return (1 - (age_difference / max_difference))
 
@@ -343,40 +343,57 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
     gender = da["question_3_answer"]
     profession = da["question_4_answer"]
     relation_status = da["question_5_answer"]
+    has_children = da["question_6_answer"] == "Yes"
+    siblings = da["question_7_answer"]
+
+    # 3 for macthing the age, 6 for matching the gender, and 1 for children, 2 for profession, 2 for relation, 1 for siblings
+    highest_score_possible = 3 + 6 + 2 + 2 + 1 + 1
 
     # Loop over all characters and figure out wich of them match the best
     for character in characters:
-        age_score = calculate_age_score(age, character.age)
+        age_score = calculate_age_score(age, character.age) * 3
+
         if run_number == 1:
             gender_score = int(gender == character.gender_run1)
         else:
             gender_score = int(gender == character.gender_run2)
 
+        children_score = int(has_children == character.children)
+
         # Since gender isn't something that the players will fuck up, i'm giving that a lot more weight.
-        gender_score *= 3
+        gender_score *= 6
 
         # Relationship has a bit more of a fuzzy match as it can change.
-        relationship_score = calc_relationship_status_score(relation_status, character.relationship_status)
+        relationship_score = calc_relationship_status_score(relation_status, character.relationship_status) * 2
 
         # Profession also has a bit of fuzzy matching going on
-        profession_score = calc_profession_score(profession, character.profession)
+        profession_score = calc_profession_score(profession, character.profession) * 2
 
-        total_score = (gender_score + age_score + profession_score + relationship_score)
+        siblings_score = int(siblings == character.contact_with_siblings)
+
+        # We count the children score as less, as it has fewer options (and is thus less indicative)
+        total_score = (gender_score + age_score + profession_score + relationship_score + children_score + siblings_score)
 
         if total_score > highest_score:
             highest_score = total_score
             best_match = character
 
+            found_scores = (gender_score, age_score, profession_score, relationship_score, children_score)
+
     print(da)
     print(age, gender)
 
-    print(f"The best match is {best_match.first_name} {best_match.last_name} with a score of {highest_score}")
+    print(f"The best match is {best_match.first_name} {best_match.last_name} with a score of {highest_score}, [{found_scores}]")
 
     individual_vs_collectivist = "neutral"
     agnostic_vs_spiritual = "neutral"
     progressive_vs_conservative = "neutral"
 
-    result = "There is a bright future for you! You are so amazing!"
+    if highest_score < highest_score_possible / 4 * 3:
+        result = "Although we were able to generate some advice for you, it is not as good as we would like it to be!"
+    else:
+        result = "Here is your personalized advice!"
+
     extra_advice = []
     relation_advice = generate_relation_advice(relation_status, individual_vs_collectivist, agnostic_vs_spiritual,
                                                      progressive_vs_conservative)
