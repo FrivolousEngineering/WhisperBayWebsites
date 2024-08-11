@@ -1,165 +1,245 @@
 <html>
 <style>
     * {
-      font-size: 16px;
-      font-family: Monospace;
+        font-size: 16px;
+        font-family: Monospace;
     }
 </style>
 <head>
     <script src="jquery-3.7.1.min.js"></script>
 </head>
 
-<div id="questionsContainer">
+<body>
+    <div id="login-form">
+        <h2>Login</h2>
+        <form id="login">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
 
-</div>
+    <div id="admin-content" style="display: none;">
+        <div id="questionsContainer"></div>
+        <div id="message"></div>
+        <button id="logout-button">Logout</button>
+    </div>
 
-<div id="message"></div>
-<script>
+    <script>
+        // Function to get a cookie by name
+        function getCookie(name) {
+            let cookieArr = document.cookie.split(";");
 
-    $(document).on("submit", "form", function(event)
-    {
-        event.preventDefault();
+            for (let i = 0; i < cookieArr.length; i++) {
+                let cookiePair = cookieArr[i].split("=");
 
-        var url=$(this).attr("action");
-        $.ajax({
-            url: url,
-            type: $(this).attr("method"),
-            dataType: "JSON",
-            data: new FormData(this),
-            processData: false,
-            contentType: false,
-            beforeSend: function()
-            {
-                $("#message").html("sending...");
-                console.log("SENDING");
-            },
-            success: function(data)
-            {
-                $("#message").html("");
-                getAllQuestions(); // Refresh all the data (yeah, inefficient AF, sue me)
-            },
-            error: function (xhr, description, error)
-            {
-                $("#message").html(xhr.responseText);
-                $([document.documentElement, document.body]).animate({scrollTop: $("#message").offset().top}, 500);
+                if (name == cookiePair[0].trim()) {
+                    return decodeURIComponent(cookiePair[1]);
+                }
+            }
+
+            return null;
+        }
+
+        // Function to set a cookie
+        function setCookie(name, value, days) {
+            let date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            let expires = "; expires=" + date.toUTCString();
+
+            document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
+        }
+
+        // Function to check if the user is logged in
+        function checkLogin() {
+            return getCookie("loggedIn") === "true";
+        }
+
+        // Function to log out the user
+        function logout() {
+            document.cookie = "loggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            location.reload();
+        }
+
+        // Function to handle login
+        $("#login").submit(function(event) {
+            event.preventDefault();
+
+            // Simple check, replace with any condition you want
+            let username = $("#username").val();
+            let password = $("#password").val();
+
+            if (username === "admin" && password === "thekeytoeverything") {
+                setCookie("loggedIn", "true", 1);
+                location.reload();
+            } else {
+                alert("Invalid login credentials");
             }
         });
-    });
 
-    function getAllQuestions() {
-        $.get("http://localhost:8000/questions/", function (data) {
-            updateTable(data);
+        // If the user is logged in, show the admin content
+        $(document).ready(function () {
+            if (checkLogin()) {
+                $("#login-form").hide();
+                $("#admin-content").show();
+                getAllQuestions();
+
+                // Handle logout
+                $("#logout-button").click(function() {
+                    logout();
+                });
+            } else {
+                $("#login-form").show();
+                $("#admin-content").hide();
+            }
         });
-    }
 
-    function updateTable(response) {
-        // Clear the old data (if any!)
-        $('#questionsContainer').empty();
+        $(document).on("submit", "form", function(event)
+        {
+            event.preventDefault();
 
-        // Go over all the questions
-        $.each(response, function (i, question) {
-            var form = $("<form/>", {
-                action: "http://localhost:8000/questions/" + question.id,
-                method: "put"
+            var url=$(this).attr("action");
+            $.ajax({
+                url: url,
+                type: $(this).attr("method"),
+                dataType: "JSON",
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                beforeSend: function()
+                {
+                    $("#message").html("sending...");
+                    console.log("SENDING");
+                },
+                success: function(data)
+                {
+                    $("#message").html("");
+                    getAllQuestions(); // Refresh all the data (yeah, inefficient AF, sue me)
+                },
+                error: function (xhr, description, error)
+                {
+                    $("#message").html(xhr.responseText);
+                    $([document.documentElement, document.body]).animate({scrollTop: $("#message").offset().top}, 500);
+                }
             });
+        });
 
-            // Change the text of the question
-            form.append($("<label>", {}).text("Question text: "));
-            form.append($("<input>", {
-                type: "text",
-                name: "text",
-                value: question.text,
-                disabled: question.required
-            }));
-            form.append($("<br>"))
-            // Change the type of the question
-            form.append($("<label>").text("Question Type: "));
-            var select = $("<select>", {name:"type", disabled: question.required});
+        function getAllQuestions() {
+            $.get("http://localhost:8000/questions/", function (data) {
+                updateTable(data);
+            });
+        }
 
-            select.append($("<option>", {value:"pickone", selected: question.type === "pickone"}).text("Pick one"));
-            select.append($("<option>", {value:"freeform", selected: question.type === "freeform"}).text("Text"));
-            form.append(select);
+        function updateTable(response) {
+            // Clear the old data (if any!)
+            $('#questionsContainer').empty();
 
-            // Allow the multiple choice options to be changed
-            if (question.type === "pickone") {
-                var table = $("<table/>");
-                var tr = $("<tr/>");
-                var optionsHeader = $("<th>").text("options");
-                if(!question.required){
-                    // Allow for new questions to be added!
-                    var addOptionButton = $("<button/>").text("Add Option");
+            // Go over all the questions
+            $.each(response, function (i, question) {
+                var form = $("<form/>", {
+                    action: "http://localhost:8000/questions/" + question.id,
+                    method: "put"
+                });
 
-                    addOptionButton.click(function(e){
-                        e.preventDefault();
-                        $.ajax({
-                            url: "http://localhost:8000/questions/" + question.id + "/options/empty/",
-                            type: "POST",
-                            success: function(result) {
-                                getAllQuestions(); // Refresh all the data (yeah, inefficient AF, sue me)
-                            },
+                // Change the text of the question
+                form.append($("<label>", {}).text("Question text: "));
+                form.append($("<input>", {
+                    type: "text",
+                    name: "text",
+                    value: question.text,
+                    disabled: question.required
+                }));
+                form.append($("<br>"))
+                // Change the type of the question
+                form.append($("<label>").text("Question Type: "));
+                var select = $("<select>", {name:"type", disabled: question.required});
+
+                select.append($("<option>", {value:"pickone", selected: question.type === "pickone"}).text("Pick one"));
+                select.append($("<option>", {value:"freeform", selected: question.type === "freeform"}).text("Text"));
+                form.append(select);
+
+                // Allow the multiple choice options to be changed
+                if (question.type === "pickone") {
+                    var table = $("<table/>");
+                    var tr = $("<tr/>");
+                    var optionsHeader = $("<th>").text("options");
+                    if(!question.required){
+                        // Allow for new questions to be added!
+                        var addOptionButton = $("<button/>").text("Add Option");
+
+                        addOptionButton.click(function(e){
+                            e.preventDefault();
+                            $.ajax({
+                                url: "http://localhost:8000/questions/" + question.id + "/options/empty/",
+                                type: "POST",
+                                success: function(result) {
+                                    getAllQuestions(); // Refresh all the data (yeah, inefficient AF, sue me)
+                                },
+                            });
                         });
+                        optionsHeader.append($("<br>"));
+                        optionsHeader.append(addOptionButton);
+                    }
+
+                    tr.append(optionsHeader);
+                    var th = $("<th>");
+
+                    $.each(question.options, function (j, option) {
+                        // Actually add the textfields to change the options!
+                        th.append($("<input/>", {type:"text", name: "option_" + option.id, value: option.value, disabled: question.required}));
+                        // Add a button that deletes the option
+                        var deleteOptionButton = $("<button/>", {disabled: question.required}).text("X");
+                        deleteOptionButton.click(function(e){
+                            e.preventDefault();
+                            $.ajax({
+                                url: "http://localhost:8000/options/" + option.id + "/",
+                                type: "DELETE",
+                                success: function(result) {
+                                    getAllQuestions(); // Refresh all the data (yeah, inefficient AF, sue me)
+                                },
+                            });
+                        });
+                        th.append(deleteOptionButton);
+                        th.append($("<br>"));
                     });
-                    optionsHeader.append($("<br>"));
-                    optionsHeader.append(addOptionButton);
+
+                    tr.append(th);
+                    table.append(tr);
+                    form.append(table);
+                } else {
+                    form.append($("<br>"));
                 }
 
-                tr.append(optionsHeader);
-                var th = $("<th>");
+                if(!question.required) {
+                    form.append($("<input>", {type: "submit", value: "save"}))
+                }
 
-                $.each(question.options, function (j, option) {
-                    // Actually add the textfields to change the options!
-                    th.append($("<input/>", {type:"text", name: "option_" + option.id, value: option.value, disabled: question.required}));
-                    // Add a button that deletes the option
-                    var deleteOptionButton = $("<button/>", {disabled: question.required}).text("X");
-                    deleteOptionButton.click(function(e){
-                        e.preventDefault();
-                        $.ajax({
-                            url: "http://localhost:8000/options/" + option.id + "/",
-                            type: "DELETE",
-                            success: function(result) {
-                                getAllQuestions(); // Refresh all the data (yeah, inefficient AF, sue me)
-                            },
-                        });
+                form.appendTo("#questionsContainer");
+
+                // Form to delete the question
+                if(!question.required) {
+                    var deleteQuestionForm = $("<form/>", {
+                        action: "http://localhost:8000/questions/" + question.id,
+                        method: "delete"
                     });
-                    th.append(deleteOptionButton);
-                    th.append($("<br>"));
-                });
+                    deleteQuestionForm.append($("<input>", {type: "submit", value: "Delete Question"}))
+                    deleteQuestionForm.appendTo("#questionsContainer");
+                }
+                $("<hr>").appendTo("#questionsContainer");
+            });
 
-                tr.append(th);
-                table.append(tr);
-                form.append(table);
-            } else {
-                form.append($("<br>"));
-            }
+            // Button to add a new question that is at the bottom of the form!
+            var newQuestionForm = $("<form/>", {
+                action: "http://localhost:8000/questions/empty/",
+                method: "post"
+            });
+            newQuestionForm.append($("<input>", {type: "submit", value: "addQuestion"}))
+            newQuestionForm.appendTo("#questionsContainer");
+        }
 
-            if(!question.required) {
-                form.append($("<input>", {type: "submit", value: "save"}))
-            }
-
-            form.appendTo("#questionsContainer");
-
-            // Form to delete the question
-            if(!question.required) {
-                var deleteQuestionForm = $("<form/>", {
-                    action: "http://localhost:8000/questions/" + question.id,
-                    method: "delete"
-                });
-                deleteQuestionForm.append($("<input>", {type: "submit", value: "Delete Question"}))
-                deleteQuestionForm.appendTo("#questionsContainer");
-            }
-            $("<hr>").appendTo("#questionsContainer");
-        });
-
-        // Button to add a new question that is at the bottom of the form!
-        var newQuestionForm = $("<form/>", {
-            action: "http://localhost:8000/questions/empty/",
-            method: "post"
-        });
-        newQuestionForm.append($("<input>", {type: "submit", value: "addQuestion"}))
-        newQuestionForm.appendTo("#questionsContainer");
-    }
-
-    getAllQuestions();
-
-</script>
+        getAllQuestions();
+    </script>
+</body>
 </html>
