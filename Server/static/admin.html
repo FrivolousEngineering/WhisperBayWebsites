@@ -78,7 +78,6 @@
 
             select.append($("<option>", {value:"pickone", selected: question.type === "pickone"}).text("Pick one"));
             select.append($("<option>", {value:"freeform", selected: question.type === "freeform"}).text("Text"));
-            select.append($("<option>", {value:"boolean", selected: question.type === "boolean"}).text("Boolean"));
             form.append(select);
 
             // Allow the multiple choice options to be changed
