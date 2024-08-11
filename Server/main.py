@@ -19,7 +19,7 @@ from fastapi.openapi.docs import (
 )
 from fastapi.staticfiles import StaticFiles
 
-from .advice import generate_relation_advice, generate_professional_advice, generate_creepy_professional_advice, generate_creepy_relation_advice, generate_unhinged_professional_advice, generate_unhinged_relation_advice
+from .advice import generate_relation_advice, generate_professional_advice
 
 app = FastAPI(docs_url=None, redoc_url=None)
 
@@ -245,9 +245,9 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
 
     result = "There is a bright future for you! You are so amazing!"
     extra_advice = []
-    relation_advice = generate_creepy_relation_advice(relation_status, individual_vs_collectivist, agnostic_vs_spiritual,
+    relation_advice = generate_relation_advice(relation_status, individual_vs_collectivist, agnostic_vs_spiritual,
                                                      progressive_vs_conservative)
-    professional_advice = generate_creepy_professional_advice(profession, individual_vs_collectivist, agnostic_vs_spiritual, progressive_vs_conservative)
+    professional_advice = generate_professional_advice(profession, individual_vs_collectivist, agnostic_vs_spiritual, progressive_vs_conservative)
 
     if relation_advice:
         extra_advice.append("<h1>Relation advice</h1>")
