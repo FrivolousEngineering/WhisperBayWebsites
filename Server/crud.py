@@ -167,15 +167,13 @@ def create_news_article(db: Session, username: str, article_text: str, article_s
     db.commit()
 
 
-
-def seed_database(db: Session):
-    # Add the default stuff in the datbase
+def _seed_questions(db: Session):
     create_question(db, schemas.QuestionCreate(text="What is your name?", type="freeform", required=True))
     create_question(db, schemas.QuestionCreate(text="What is your age?", type="integer", required=True))
     create_question(db, schemas.QuestionCreate(text="What is your gender?", type="pickone", required=True))
-    create_question(db, schemas.QuestionCreate(text="What type of profession do you have?", type="pickone", required=True))
+    create_question(db,
+                    schemas.QuestionCreate(text="What type of profession do you have?", type="pickone", required=True))
     create_question(db, schemas.QuestionCreate(text="What is your marital status?", type="pickone", required=True))
-
 
     # Gender
     create_question_option(db, schemas.QuestionOptionCreate(value="Male"), 3)
@@ -197,8 +195,7 @@ def seed_database(db: Session):
     create_question_option(db, schemas.QuestionOptionCreate(value="Divorced"), 5)
     create_question_option(db, schemas.QuestionOptionCreate(value="Separated"), 5)
 
-
-    # Add some of the not required questions
+    '''# Add some of the not required questions
     create_question(db, schemas.QuestionCreate(text="It is impossible to stay faithful to one’s spouse for 40 years", type="pickone", required = False))
     create_question_option(db, schemas.QuestionOptionCreate(value="Strongly Disagree"), 6)
     create_question_option(db, schemas.QuestionOptionCreate(value="Slightly Disagree"), 6)
@@ -236,9 +233,10 @@ def seed_database(db: Session):
     create_question_option(db, schemas.QuestionOptionCreate(value="60 km/h"), 12)
     create_question_option(db, schemas.QuestionOptionCreate(value="66 km/h"), 12)
     create_question_option(db, schemas.QuestionOptionCreate(value="50 km/h"), 12)
-    create_question_option(db, schemas.QuestionOptionCreate(value="55 km/h"), 12)
+    create_question_option(db, schemas.QuestionOptionCreate(value="55 km/h"), 12)'''
 
 
+def _seed_recipe_messages(db: Session):
     # Recipes messages
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="John Smith",
                                                                             message="Absolutely loved the recipe for Cornish pasties! Reminds me of my grandmother's cooking. Keep up the great work!",
@@ -302,6 +300,8 @@ def seed_database(db: Session):
                                          custom_time="1991-07-20 17:20")
 
 
+
+def _seed_alien_messages(db):
     ####### ALIEN MESSAGES
 
     create_guestbook_message_custom_time(db, schemas.GuestbookMessageCreate(author_name="John",
@@ -658,6 +658,14 @@ def seed_database(db: Session):
                                                                             message="I've been following this discussion closely, and I have to say, it's the most exciting theory I've heard in a long time. I'll try to find someone who can help us translate these patterns somehow. But keep in mind that we might be barking up the wrong tree...",
                                                                             target_board="alien"),
                                          custom_time="1991-07-28 06:30")
+
+
+def seed_database(db: Session):
+    # Add the default stuff in the datbase
+
+    _seed_questions(db)
+    _seed_recipe_messages(db)
+    _seed_alien_messages(db)
 
     # Authors
     create_author(db, "Jaime", "Test")
