@@ -7,6 +7,7 @@
             font-family: "Courier New", Courier, monospace;
             background-color: #f0f0f0;
             color: #000;
+            overflow-x: auto; /* Enable horizontal scrolling for the entire page */
         }
 
         h1 {
@@ -14,20 +15,11 @@
             text-align: center;
         }
 
-        /* Container for the table to enable horizontal scrolling */
-        #answersContainer {
-            overflow-x: auto;
-            white-space: nowrap;
-            max-width: 100%;
-            margin: 20px;
-            border: 1px solid #000;
-        }
-
         table {
-            width: 100%;
             border-collapse: collapse;
-            table-layout: auto;
-            min-width: 1000px; /* Set a minimum width to trigger horizontal scrolling */
+            width: auto;
+            table-layout: fixed; /* Fixed layout to allow column resizing */
+            min-width: 1000px; /* Ensure table stretches enough to allow horizontal scrolling */
         }
 
         th, td {
@@ -35,45 +27,38 @@
             padding: 5px;
             text-align: left;
             background-color: #e0e0e0;
+            position: relative;
         }
 
         th {
             background-color: #c0c0c0;
             color: #000;
-            cursor: ew-resize; /* Cursor indicating that the header can be resized */
-        }
-
-        /* Add styling for a resizable header */
-        th.resizable {
             position: relative;
+            cursor: ew-resize; /* Cursor indicates that the header can be resized */
         }
 
-        th.resizable::after {
-            content: "";
+        /* Resizer styling */
+        th .resizer {
             position: absolute;
             top: 0;
             right: 0;
             width: 5px;
             height: 100%;
             cursor: ew-resize;
-            background-color: #ddd;
+            user-select: none;
+            z-index: 10;
         }
 
-        th.resizable:hover::after {
-            background-color: #aaa;
-        }
-
-        td {
-            background-color: #fff;
-            color: #000;
+        th.resizing {
+            opacity: 0.5;
         }
     </style>
 </head>
 <body>
     <h1>Survey Results</h1>
-    <div id="answersContainer">
+    <table>
         <!-- Table will be inserted here -->
-    </div>
+    </table>
 
     <script>
         // Load all questions and their corresponding answers
@@ -87,13 +72,15 @@
 
         // Function to display the survey results in a table format
         function displayAnswers(questions, answers) {
-            var table = $("<table/>");
+            var table = $("table");
 
             // Create the header row with questions as column headers
             var headerRow = $("<tr/>");
-            headerRow.append($("<th/>").text("Response ID"));
             $.each(questions, function (i, question) {
-                headerRow.append($("<th class='resizable'/>").text(question.text));
+                var th = $("<th/>").text(question.text);
+                var resizer = $("<div class='resizer'/>");
+                th.append(resizer); // Add resizer div to header
+                headerRow.append(th);
             });
             table.append(headerRow);
 
@@ -109,7 +96,6 @@
             // Create a row for each set of responses
             $.each(groupedAnswers, function (responseId, responseAnswers) {
                 var row = $("<tr/>");
-                row.append($("<td/>").text(responseId));
                 $.each(questions, function (i, question) {
                     var answerText = responseAnswers[question.id] || "No response";
                     row.append($("<td/>").text(answerText));
@@ -117,28 +103,42 @@
                 table.append(row);
             });
 
-            $('#answersContainer').html(table);
-
             // Enable resizing columns
             enableColumnResizing();
         }
 
         function enableColumnResizing() {
-            $('th.resizable').each(function () {
-                var th = $(this);
-                th.on('mousedown', function (e) {
-                    var startX = e.pageX;
-                    var startWidth = th.width();
+            const thElements = document.querySelectorAll('th');
 
-                    $(document).on('mousemove', function (e) {
-                        var newWidth = startWidth + (e.pageX - startX);
-                        th.width(newWidth);
-                        th.css('max-width', newWidth);
-                    });
+            thElements.forEach(th => {
+                const resizer = th.querySelector('.resizer');
 
-                    $(document).on('mouseup', function () {
-                        $(document).off('mousemove');
-                    });
+                resizer.addEventListener('mousedown', function (e) {
+                    const startX = e.pageX;
+                    const startWidth = th.offsetWidth;
+
+                    const resizeColumn = (e) => {
+                        const newWidth = startWidth + (e.pageX - startX);
+                        th.style.minWidth = `${newWidth}px`;
+                        console.log("resizing!");
+                    };
+
+                    const stopResize = () => {
+                        document.removeEventListener('mousemove', resizeColumn);
+                        document.removeEventListener('mouseup', stopResize);
+                        th.classList.remove('resizing');
+                        document.body.style.cursor = 'default';
+                        document.body.style.userSelect = 'auto';
+                    };
+
+                    document.addEventListener('mousemove', resizeColumn);
+                    document.addEventListener('mouseup', stopResize);
+
+                    // Prevent text selection during resize
+                    document.body.style.cursor = 'ew-resize';
+                    document.body.style.userSelect = 'none';
+
+                    th.classList.add('resizing');
                 });
             });
         }
