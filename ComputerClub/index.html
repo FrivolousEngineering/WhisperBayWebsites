@@ -65,7 +65,7 @@ function updateNews(response) {
     var articleDiv = $("<div>", {class: "news-article"});
     var title = $("<h3>").text(article.title);
     var authorInfo = $("<p>").append($("<i>").html("Posted on " + article.time + " by <b>" + article.author.name + "</b>"));
-    var bodyText = $("<p>").text(article.text);
+    var bodyText = $("<p>").html(article.text);
     
     articleDiv.append(title);
     articleDiv.append(authorInfo);
