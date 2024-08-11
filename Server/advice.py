@@ -24,8 +24,6 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
         elif relationship_status == "Engaged":
             advice.append(
                 "Work together with your partner to build a strong network of shared friends and family before marriage.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
 
     elif collectivist_individualist == "individualist":
         if relationship_status == "Married":
@@ -46,9 +44,6 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
         elif relationship_status == "Engaged":
             advice.append(
                 "While planning your future together, remember to maintain your individuality and personal goals.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
-
     else:  # Neutral position
         if relationship_status == "Married":
             advice.append("Continue to support each other in your marriage, balancing your personal and shared goals.")
@@ -67,8 +62,6 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
                 "Focus on moving forward by cherishing the memories of the past while remaining open to new experiences and opportunities.")
         elif relationship_status == "Engaged":
             advice.append("Focus on planning a wedding that reflects both of your personalities and shared dreams.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
 
     # Agnostic -- Spiritual advice
     if agnostic_spiritual == "agnostic":
@@ -92,9 +85,6 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
         elif relationship_status == "Engaged":
             advice.append(
                 "Discuss your views on spirituality with your partner to ensure a mutual understanding before marriage.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
-
     elif agnostic_spiritual == "spiritual":
         if relationship_status == "Married":
             advice.append(
@@ -116,8 +106,6 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
         elif relationship_status == "Engaged":
             advice.append(
                 "Incorporate your spiritual beliefs into your wedding plans. Building a marriage on shared spiritual values can bring lasting happiness.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
 
     else:  # Neutral position
         if relationship_status == "Married":
@@ -138,8 +126,7 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
         elif relationship_status == "Engaged":
             advice.append(
                 "Ensure that you and your partner are on the same page regarding spiritual matters before marriage.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
+
 
     # Progressive -- Conservative advice
     if progressive_conservative == "progressive":
@@ -162,8 +149,7 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
                 "Embrace this as a chance to start anew, exploring new ways to find happiness and fulfillment.")
         elif relationship_status == "Engaged":
             advice.append("Plan a non-traditional wedding that reflects your shared progressive values and ideas.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
+
 
     elif progressive_conservative == "conservative":
         if relationship_status == "Married":
@@ -185,8 +171,7 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
         elif relationship_status == "Engaged":
             advice.append(
                 "Plan a traditional wedding that honors your shared values and sets the foundation for a stable marriage.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
+
 
     else:  # Neutral position
         if relationship_status == "Married":
@@ -208,8 +193,7 @@ def generate_relation_advice(relationship_status: str, collectivist_individualis
         elif relationship_status == "Engaged":
             advice.append(
                 "Incorporate both traditional and modern elements into your wedding planning, reflecting your shared values.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
+
 
     return advice
 
@@ -240,8 +224,6 @@ def generate_creepy_relation_advice(relationship_status: str, collectivist_indiv
         elif relationship_status == "Engaged":
             advice.append(
                 "Work together with your partner to build a strong network of shared friends and family before marriage. Some bonds formed in the dark are not easily unraveled.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
 
     elif collectivist_individualist == "individualist":
         if relationship_status == "Married":
@@ -265,8 +247,7 @@ def generate_creepy_relation_advice(relationship_status: str, collectivist_indiv
         elif relationship_status == "Engaged":
             advice.append(
                 "While planning your future together, remember to maintain your individuality and personal goals. The future may hold surprises that no one expects.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
+
 
     else:  # Neutral position
         if relationship_status == "Married":
@@ -290,8 +271,6 @@ def generate_creepy_relation_advice(relationship_status: str, collectivist_indiv
         elif relationship_status == "Engaged":
             advice.append(
                 "Focus on planning a wedding that reflects both of your personalities and shared dreams. Some dreams carry hidden costs that demand payment.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
 
     # Agnostic -- Spiritual advice
     if agnostic_spiritual == "agnostic":
@@ -316,8 +295,7 @@ def generate_creepy_relation_advice(relationship_status: str, collectivist_indiv
         elif relationship_status == "Engaged":
             advice.append(
                 "Discuss your views on spirituality with your partner to ensure a mutual understanding before marriage. Not all understandings are mutual in the eyes of the unseen.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
+
 
     elif agnostic_spiritual == "spiritual":
         if relationship_status == "Married":
@@ -341,8 +319,7 @@ def generate_creepy_relation_advice(relationship_status: str, collectivist_indiv
         elif relationship_status == "Engaged":
             advice.append(
                 "Incorporate your spiritual beliefs into your wedding plans. Building a marriage on shared spiritual values can bring lasting happiness. Happiness often comes with a price.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
+
 
     else:  # Neutral position
         if relationship_status == "Married":
@@ -366,8 +343,6 @@ def generate_creepy_relation_advice(relationship_status: str, collectivist_indiv
         elif relationship_status == "Engaged":
             advice.append(
                 "Ensure that you and your partner are on the same page regarding spiritual matters before marriage. The pages often turn by themselves.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
 
     # Progressive -- Conservative advice
     if progressive_conservative == "progressive":
@@ -392,9 +367,6 @@ def generate_creepy_relation_advice(relationship_status: str, collectivist_indiv
         elif relationship_status == "Engaged":
             advice.append(
                 "Plan a non-traditional wedding that reflects your shared progressive values and ideas. Traditions have a way of returning unexpectedly.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
-
     elif progressive_conservative == "conservative":
         if relationship_status == "Married":
             advice.append(
@@ -417,8 +389,7 @@ def generate_creepy_relation_advice(relationship_status: str, collectivist_indiv
         elif relationship_status == "Engaged":
             advice.append(
                 "Plan a traditional wedding that honors your shared values and sets the foundation for a stable marriage. Foundations are not always as firm as they seem.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
+
 
     else:  # Neutral position
         if relationship_status == "Married":
@@ -442,8 +413,7 @@ def generate_creepy_relation_advice(relationship_status: str, collectivist_indiv
         elif relationship_status == "Engaged":
             advice.append(
                 "Incorporate both traditional and modern elements into your wedding planning, reflecting your shared values. Values can shift like the wind.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
+
 
     return advice
 
@@ -475,8 +445,6 @@ def generate_creepy_professional_advice(profession, collectivist_individualist: 
         elif profession == "Student":
             advice.append(
                 "Participate in study groups and campus activities to build a strong social network during your academic journey. Knowledge acquired in unity often leads to revelations that cannot be unlearned.")
-        else:
-            print(f"Could not find profession type [{profession}]")
 
     elif collectivist_individualist == "individualist":
         if profession == "Professional":
@@ -500,8 +468,6 @@ def generate_creepy_professional_advice(profession, collectivist_individualist: 
         elif profession == "Student":
             advice.append(
                 "Focus on your individual academic goals and explore areas of study that truly interest you. Curiosity can lead you down paths that twist and turn in ways you never intended.")
-        else:
-            print(f"Could not find profession type [{profession}]")
 
     else:  # Neutral position
         if profession == "Professional":
@@ -525,8 +491,6 @@ def generate_creepy_professional_advice(profession, collectivist_individualist: 
         elif profession == "Student":
             advice.append(
                 "Balance personal academic goals with group study and campus activities for a well-rounded experience. Not all knowledge is meant to be shared, or understood.")
-        else:
-            print(f"Could not find profession type [{profession}]")
 
     # Agnostic -- Spiritual advice
     if agnostic_spiritual == "agnostic":
@@ -551,8 +515,7 @@ def generate_creepy_professional_advice(profession, collectivist_individualist: 
         elif profession == "Student":
             advice.append(
                 "Engage in critical thinking and encourage debate. Explore a variety of viewpoints in your studies. Exploration can lead to discoveries that are best left undiscovered.")
-        else:
-            print(f"Could not find profession type [{profession}]")
+
 
     elif agnostic_spiritual == "spiritual":
         if profession == "Professional":
@@ -576,8 +539,6 @@ def generate_creepy_professional_advice(profession, collectivist_individualist: 
         elif profession == "Student":
             advice.append(
                 "Seek to understand the spiritual dimensions of your studies. Explore how your academic work can align with your beliefs. Some dimensions are best left unexplored, for they gaze into you.")
-        else:
-            print(f"Could not find profession type [{profession}]")
 
     else:  # Neutral position
         if profession == "Professional":
@@ -601,8 +562,6 @@ def generate_creepy_professional_advice(profession, collectivist_individualist: 
         elif profession == "Student":
             advice.append(
                 "Balance analytical thinking with exploring the deeper meaning behind your studies. Deeper meaning often pulls you into the depths, where reality blurs.")
-        else:
-            print(f"Could not find profession type [{profession}]")
 
     # Progressive -- Conservative advice
     if progressive_conservative == "progressive":
@@ -627,8 +586,7 @@ def generate_creepy_professional_advice(profession, collectivist_individualist: 
         elif profession == "Student":
             advice.append(
                 "Engage in studies that promote social change and innovation. Focus on areas where you can make a difference. Making a difference can ripple through lives, in ways unseen.")
-        else:
-            print(f"Could not find profession type [{profession}]")
+
 
     elif progressive_conservative == "conservative":
         if profession == "Professional":
@@ -652,8 +610,7 @@ def generate_creepy_professional_advice(profession, collectivist_individualist: 
         elif profession == "Student":
             advice.append(
                 "Engage in studies that deepen your understanding of traditional values and practices. Focus on areas that uphold continuity and stability. Stability can be a fleeting illusion, vanishing when least expected.")
-        else:
-            print(f"Could not find profession type [{profession}]")
+
 
     else:  # Neutral position
         if profession == "Professional":
@@ -677,8 +634,7 @@ def generate_creepy_professional_advice(profession, collectivist_individualist: 
         elif profession == "Student":
             advice.append(
                 "Explore both traditional and innovative approaches in your studies for a well-rounded education. Be mindful—what you learn might not be what you expect.")
-        else:
-            print(f"Could not find profession type [{profession}]")
+
 
     return advice
 
@@ -710,8 +666,7 @@ def generate_professional_advice(profession, collectivist_individualist: str, ag
         elif profession == "Student":
             advice.append(
                 "Participate in study groups and campus activities to build a strong social network during your academic journey.")
-        else:
-            print(f"Could not find profession type [{profession}]")
+
 
     elif collectivist_individualist == "individualist":
         if profession == "Professional":
@@ -734,8 +689,7 @@ def generate_professional_advice(profession, collectivist_individualist: str, ag
                 "Embrace your unique style and voice. Let your individuality shine in your creative projects.")
         elif profession == "Student":
             advice.append("Focus on your individual academic goals and explore areas of study that truly interest you.")
-        else:
-            print(f"Could not find profession type [{profession}]")
+
 
     else:  # Neutral position
         if profession == "Professional":
@@ -756,8 +710,6 @@ def generate_professional_advice(profession, collectivist_individualist: str, ag
         elif profession == "Student":
             advice.append(
                 "Balance personal academic goals with group study and campus activities for a well-rounded experience.")
-        else:
-            print(f"Could not find profession type [{profession}]")
 
     # Agnostic -- Spiritual advice
     if agnostic_spiritual == "agnostic":
@@ -782,8 +734,6 @@ def generate_professional_advice(profession, collectivist_individualist: str, ag
         elif profession == "Student":
             advice.append(
                 "Engage in critical thinking and encourage debate. Explore a variety of viewpoints in your studies.")
-        else:
-            print(f"Could not find profession type [{profession}]")
 
     elif agnostic_spiritual == "spiritual":
         if profession == "Professional":
@@ -807,8 +757,7 @@ def generate_professional_advice(profession, collectivist_individualist: str, ag
         elif profession == "Student":
             advice.append(
                 "Seek to understand the spiritual dimensions of your studies. Explore how your academic work can align with your beliefs.")
-        else:
-            print(f"Could not find profession type [{profession}]")
+
 
     else:  # Neutral position
         if profession == "Professional":
@@ -826,8 +775,7 @@ def generate_professional_advice(profession, collectivist_individualist: str, ag
             advice.append("Blend logical structure with spiritual inspiration in your creative projects.")
         elif profession == "Student":
             advice.append("Balance analytical thinking with exploring the deeper meaning behind your studies.")
-        else:
-            print(f"Could not find profession type [{profession}]")
+
 
     # Progressive -- Conservative advice
     if progressive_conservative == "progressive":
@@ -852,8 +800,6 @@ def generate_professional_advice(profession, collectivist_individualist: str, ag
         elif profession == "Student":
             advice.append(
                 "Engage in studies that promote social change and innovation. Focus on areas where you can make a difference.")
-        else:
-            print(f"Could not find profession type [{profession}]")
 
     elif progressive_conservative == "conservative":
         if profession == "Professional":
@@ -877,8 +823,6 @@ def generate_professional_advice(profession, collectivist_individualist: str, ag
         elif profession == "Student":
             advice.append(
                 "Engage in studies that deepen your understanding of traditional values and practices. Focus on areas that uphold continuity and stability.")
-        else:
-            print(f"Could not find profession type [{profession}]")
 
     else:  # Neutral position
         if profession == "Professional":
@@ -897,8 +841,7 @@ def generate_professional_advice(profession, collectivist_individualist: str, ag
         elif profession == "Student":
             advice.append(
                 "Explore both traditional and innovative approaches in your studies for a well-rounded education.")
-        else:
-            print(f"Could not find profession type [{profession}]")
+
 
     return advice
 
@@ -930,8 +873,7 @@ def generate_unhinged_professional_advice(profession, collectivist_individualist
         elif profession == "Student":
             advice.append(
                 "Study with others, let their knowledge fill your mind until you cannot tell where their thoughts end and yours begin. Embrace the power of the collective, where individual ideas dissolve into a shared consciousness. Allow the strength of the group to guide your learning, as each mind connects and intertwines, creating a tapestry of understanding that none could weave alone.")
-        else:
-            print(f"Could not find profession type [{profession}]")
+
 
     elif collectivist_individualist == "individualist":
         if profession == "Professional":
@@ -955,8 +897,7 @@ def generate_unhinged_professional_advice(profession, collectivist_individualist
         elif profession == "Student":
             advice.append(
                 "Study in solitude, let the silence fill your mind with knowledge. In the quiet stillness, where distractions fade away, allow the depth of your thoughts to deepen and expand. The world outside may clamor for attention, but within the sanctuary of your solitude, your mind becomes a vast, untapped reservoir of understanding. Let the silence speak to you, revealing insights and truths that only the quiet can unveil. In this solitude, your mind will sharpen, your focus intensify, and knowledge will flow untainted by the noise of others")
-        else:
-            print(f"Could not find profession type [{profession}]")
+
 
     else:  # Neutral position
         if profession == "Professional":
@@ -980,8 +921,6 @@ def generate_unhinged_professional_advice(profession, collectivist_individualist
         elif profession == "Student":
             advice.append(
                 "Study alongside others when the time calls for it, but safeguard your thoughts—let them remain uniquely yours. Knowledge is power, but its true strength lies in your ability to keep it under your control, free from the influence of those who might seek to bend it to their will.")
-        else:
-            print(f"Could not find profession type [{profession}]")
 
     # Agnostic -- Spiritual advice
     if agnostic_spiritual == "agnostic":
@@ -1006,8 +945,6 @@ def generate_unhinged_professional_advice(profession, collectivist_individualist
         elif profession == "Student":
             advice.append(
                 "Study with a ruthless eye, leaving no assumption unchallenged. But brace yourself—some assumptions, when torn apart, will reveal truths far darker and more unsettling than you ever imagined. Once uncovered, there's no turning back from the shadows they cast. Yet, in those moments of revelation, ask yourself: Do you wish to dwell in a world of shadows, where the light of certainty is forever dimmed?")
-        else:
-            print(f"Could not find profession type [{profession}]")
 
     elif agnostic_spiritual == "spiritual":
         if profession == "Professional":
@@ -1031,11 +968,6 @@ def generate_unhinged_professional_advice(profession, collectivist_individualist
         elif profession == "Student":
             advice.append(
                 "Let your studies be guided by ancient knowledge that echoes through the corridors of time, resonating deep within your soul. Some knowledge carries the heavy burden of ages past, but you will be strong enough to shoulder it.")
-        else:
-            print(f"Could not find profession type [{profession}]")
-
-
-
     else:  # Neutral position
         if profession == "Professional":
             advice.append(
@@ -1058,8 +990,6 @@ def generate_unhinged_professional_advice(profession, collectivist_individualist
         elif profession == "Student":
             advice.append(
                 "Study both the seen and the unseen with relentless intensity, for not all is meant to be understood, just as not all is meant to be believed. Let your knowledge be the arbiter between them, navigating the thin line where reality and the unknown collide, wielding the power to discern what others fear to comprehend.")
-        else:
-            print(f"Could not find profession type [{profession}]")
 
     # Progressive -- Conservative advice
     if progressive_conservative == "progressive":
@@ -1084,8 +1014,6 @@ def generate_unhinged_professional_advice(profession, collectivist_individualist
         elif profession == "Student":
             advice.append(
                 "Shatter the paradigms of old, leaving them in ruins. Fearlessly embrace the study of the new, for within it lies the key to the future.")
-        else:
-            print(f"Could not find profession type [{profession}]")
 
     elif progressive_conservative == "conservative":
         if profession == "Professional":
@@ -1110,8 +1038,6 @@ def generate_unhinged_professional_advice(profession, collectivist_individualist
         elif profession == "Student":
             advice.append(
                 "Study the ancient texts with reverence, guarding the knowledge passed down through the ages with a zealot’s fervor. Become the keeper of wisdom, bridging the past and the future, ensuring that the insights of long-departed minds continue to cast their shadow over the present, illuminating and controlling the path that lies ahead.")
-        else:
-            print(f"Could not find profession type [{profession}]")
 
     else:  # Neutral position
         if profession == "Professional":
@@ -1135,8 +1061,6 @@ def generate_unhinged_professional_advice(profession, collectivist_individualist
         elif profession == "Student":
             advice.append(
                 "Study the lessons of both the past and the future. Become the scholar who sees the unbroken continuity in time, where the wisdom of the ages forges the path ahead, shaping a future that is inextricably linked to the enduring truths of the past.")
-        else:
-            print(f"Could not find profession type [{profession}]")
 
     return advice
 
@@ -1168,8 +1092,6 @@ def generate_unhinged_relation_advice(relationship_status: str, collectivist_ind
         elif relationship_status == "Engaged":
             advice.append(
                 "Forge your union in the fires of public gaze, where every vow and promise is tempered by the scrutiny of those who watch. Let the intensity of their gaze strengthen your bond, forging a connection that is both undeniable and unbreakable under the weight of collective eyes.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
 
     elif collectivist_individualist == "individualist":
         if relationship_status == "Married":
@@ -1193,8 +1115,6 @@ def generate_unhinged_relation_advice(relationship_status: str, collectivist_ind
         elif relationship_status == "Engaged":
             advice.append(
                 "Even as you prepare to merge your life with another, hold fast to the core of who you are. Let your individuality be the unwavering foundation upon which your union is built. In the blending of two lives, ensure that your unique essence remains intact, a beacon of strength and identity within the shared journey.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
 
     else:  # Neutral position
         if relationship_status == "Married":
@@ -1218,8 +1138,7 @@ def generate_unhinged_relation_advice(relationship_status: str, collectivist_ind
         elif relationship_status == "Engaged":
             advice.append(
                 "Prepare for the convergence of your lives with the solemnity of a ritual. The fusion of two souls is a sacred act, one that reshapes the very fabric of reality.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
+
 
     # Agnostic -- Spiritual advice
     if agnostic_spiritual == "agnostic":
@@ -1244,8 +1163,7 @@ def generate_unhinged_relation_advice(relationship_status: str, collectivist_ind
         elif relationship_status == "Engaged":
             advice.append(
                 "Let your engagement be a crucible where beliefs are tested and reforged. In this intense fire, your bond will either emerge unbreakable, strengthened by the trials you face together, or it will crumble into ash, revealing what could not withstand the heat. Embrace the process, for only through this trial by fire will the true nature of your commitment be revealed.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
+
     # TODO: Left off here
     elif agnostic_spiritual == "spiritual":
         if relationship_status == "Married":
@@ -1269,8 +1187,7 @@ def generate_unhinged_relation_advice(relationship_status: str, collectivist_ind
         elif relationship_status == "Engaged":
             advice.append(
                 "Prepare your spirit for the union to come, for when two souls merge, they create a force that can reshape the very fabric of existence.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
+
 
     else:  # Neutral position
         if relationship_status == "Married":
@@ -1294,8 +1211,6 @@ def generate_unhinged_relation_advice(relationship_status: str, collectivist_ind
         elif relationship_status == "Engaged":
             advice.append(
                 "Prepare your union to be a melding of both mind and spirit, for only through the harmony of the two can the bond endure the trials to come.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
 
     # Progressive -- Conservative advice
     if progressive_conservative == "progressive":
@@ -1320,9 +1235,6 @@ def generate_unhinged_relation_advice(relationship_status: str, collectivist_ind
         elif relationship_status == "Engaged":
             advice.append(
                 "Let your union be a beacon of change, a defiance against the forces that would hold you to the past. Together, you will forge a new path through the wilderness.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
-
     elif progressive_conservative == "conservative":
         if relationship_status == "Married":
             advice.append(
@@ -1345,9 +1257,6 @@ def generate_unhinged_relation_advice(relationship_status: str, collectivist_ind
         elif relationship_status == "Engaged":
             advice.append(
                 "Prepare for your union with the reverence and solemnity of ages past. In the traditions of your ancestors, you will find the strength to forge a future together.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
-
     else:  # Neutral position
         if relationship_status == "Married":
             advice.append(
@@ -1370,7 +1279,5 @@ def generate_unhinged_relation_advice(relationship_status: str, collectivist_ind
         elif relationship_status == "Engaged":
             advice.append(
                 "Prepare your future together by honoring the past and embracing the new, for in the confluence of these forces, your union will be forged unbreakable.")
-        else:
-            print(f"Could not find relationship type [{relationship_status}]")
 
     return advice
