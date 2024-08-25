@@ -380,11 +380,11 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
         created_answer = crud.add_answer(db=db, answer=AnswerCreate.parse_obj({"value":answer, "question_id": question_id, "submission_id": submission_id}))
 
     # Yeah i didn't build this in the greatest way. Whatever
-    age = int(da["question_2_answer"])
-    gender = da["question_3_answer"]
-    profession = da["question_4_answer"]
-    relation_status = da["question_5_answer"]
-    starsign = da["question_6_answer"]
+    age = int(da["question_1_answer"])
+    gender = da["question_2_answer"]
+    profession = da["question_3_answer"]
+    relation_status = da["question_4_answer"]
+    starsign = da["question_5_answer"]
 
     weights = {"age": 3, "gender": 6, "profession": 2, "relation_status": 2, "starsign": 5}
 

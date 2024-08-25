@@ -17,19 +17,19 @@ def test_character_matching(character):
 
     # Create the simulated form data for the character
     form_data = {
-        "question_2_answer": str(age),
-        "question_3_answer": gender,
-        "question_4_answer": profession,
-        "question_5_answer": relation_status,
-        "question_6_answer": starsign
+        "question_1_answer": str(age),
+        "question_2_answer": gender,
+        "question_3_answer": profession,
+        "question_4_answer": relation_status,
+        "question_5_answer": starsign
     }
 
     form_data = {
-        "question_2_answer": str(age),
-        "question_3_answer": gender,
+        "question_1_answer": str(age),
+        "question_2_answer": gender,
+        "question_3_answer": "",
         "question_4_answer": "",
-        "question_5_answer": "",
-        "question_6_answer": starsign
+        "question_5_answer": starsign
     }
 
     # Send the request to the endpoint

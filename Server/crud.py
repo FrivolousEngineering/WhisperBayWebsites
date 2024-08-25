@@ -190,7 +190,6 @@ def create_news_article(db: Session, username: str, article_text: str, article_s
 
 
 def _seed_questions(db: Session):
-    create_question(db, schemas.QuestionCreate(text="What is your name?", type="freeform", required=True))
     create_question(db, schemas.QuestionCreate(text="What is your age?", type="integer", required=True))
     create_question(db, schemas.QuestionCreate(text="What is your gender?", type="pickone", required=True))
     create_question(db,
@@ -200,39 +199,40 @@ def _seed_questions(db: Session):
 
     create_question(db, schemas.QuestionCreate(text="What is your starsignt?", type="pickone", required=True))
 
+
     # Gender
-    create_question_option(db, schemas.QuestionOptionCreate(value="Male"), 3)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Female"), 3)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Male"), 2)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Female"), 2)
 
     # Profession
-    create_question_option(db, schemas.QuestionOptionCreate(value="Professional"), 4)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Business owner"), 4)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Unemployed"), 4)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Public services"), 4)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Student"), 4)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Creative"), 4)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Professional"), 3)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Business owner"), 3)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Unemployed"), 3)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Public services"), 3)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Student"), 3)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Creative"), 3)
 
     # Marital status
-    create_question_option(db, schemas.QuestionOptionCreate(value="Single"), 5)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Engaged"), 5)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Married"), 5)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Widowed"), 5)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Divorced"), 5)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Separated"), 5)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Single"), 4)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Engaged"), 4)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Married"), 4)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Widowed"), 4)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Divorced"), 4)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Separated"), 4)
 
     # Starsign
-    create_question_option(db, schemas.QuestionOptionCreate(value="Aries"), 6)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Taurus"), 6)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Gemini"), 6)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Cancer"), 6)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Leo"), 6)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Virgo"), 6)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Libra"), 6)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Scorpio"), 6)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Sagittarius"), 6)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Capricorn"), 6)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Aquarius"), 6)
-    create_question_option(db, schemas.QuestionOptionCreate(value="Pisces"), 6)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Aries"), 5)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Taurus"), 5)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Gemini"), 5)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Cancer"), 5)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Leo"), 5)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Virgo"), 5)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Libra"), 5)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Scorpio"), 5)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Sagittarius"), 5)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Capricorn"), 5)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Aquarius"), 5)
+    create_question_option(db, schemas.QuestionOptionCreate(value="Pisces"), 5)
 
     '''# Add some of the not required questions
     create_question(db, schemas.QuestionCreate(text="It is impossible to stay faithful to one’s spouse for 40 years", type="pickone", required = False))
