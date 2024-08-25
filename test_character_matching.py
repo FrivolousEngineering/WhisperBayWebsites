@@ -15,6 +15,7 @@ def test_character_matching(character):
     relation_status = character.relationship_status
     has_children = "Yes" if character.children else "No"
     siblings = character.contact_with_siblings
+    starsign = character.star_sign
 
     # Create the simulated form data for the character
     form_data = {
@@ -23,16 +24,18 @@ def test_character_matching(character):
         "question_4_answer": profession,
         "question_5_answer": relation_status,
         "question_6_answer": has_children,
-        "question_7_answer": siblings
+        "question_7_answer": siblings,
+        "question_8_answer": starsign
     }
 
     form_data = {
         "question_2_answer": str(age),
         "question_3_answer": gender,
-        "question_4_answer": profession,
-        "question_5_answer": relation_status,
-        "question_6_answer": has_children,
-        "question_7_answer": ""
+        "question_4_answer": "",
+        "question_5_answer": "",
+        "question_6_answer": "",
+        "question_7_answer": "",
+        "question_8_answer": starsign
     }
 
     # Send the request to the endpoint
