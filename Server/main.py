@@ -372,13 +372,12 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
 
     best_match = None
     highest_score = 0
-    run_number = 1 # TODO: hardcoded run
+    run_number = 2 # TODO: hardcoded run
     answers = extract_question_answers(da)
 
     submission_id = crud.get_highest_submission_id(db) + 1
     for question_id, answer in answers.items():
         created_answer = crud.add_answer(db=db, answer=AnswerCreate.parse_obj({"value":answer, "question_id": question_id, "submission_id": submission_id}))
-
 
     # Yeah i didn't build this in the greatest way. Whatever
     age = int(da["question_2_answer"])
@@ -388,30 +387,33 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
     has_children = da["question_6_answer"] == "Yes"
     siblings = da["question_7_answer"]
 
+    weights = {"age": 3, "gender": 6, "profession": 2 , "relation_status": 2, "has_children":1, "siblings": 1}
+
+
     # 3 for macthing the age, 6 for matching the gender, and 1 for children, 2 for profession, 2 for relation, 1 for siblings
     highest_score_possible = 3 + 6 + 2 + 2 + 1 + 1
 
     # Loop over all characters and figure out wich of them match the best
     for character in characters:
-        age_score = calculate_age_score(age, character.age) * 3
+        age_score = calculate_age_score(age, character.age) * weights["age"]
 
         if run_number == 1:
             gender_score = int(gender == character.gender_run1)
         else:
             gender_score = int(gender == character.gender_run2)
 
-        children_score = int(has_children == character.children)
+        children_score = int(has_children == character.children) * weights["has_children"]
 
         # Since gender isn't something that the players will fuck up, i'm giving that a lot more weight.
-        gender_score *= 6
+        gender_score *= weights["gender"]
 
         # Relationship has a bit more of a fuzzy match as it can change.
-        relationship_score = calc_relationship_status_score(relation_status, character.relationship_status) * 2
+        relationship_score = calc_relationship_status_score(relation_status, character.relationship_status) * weights["relation_status"]
 
         # Profession also has a bit of fuzzy matching going on
-        profession_score = calc_profession_score(profession, character.profession) * 2
+        profession_score = calc_profession_score(profession, character.profession) * weights["profession"]
 
-        siblings_score = int(siblings == character.contact_with_siblings)
+        siblings_score = int(siblings == character.contact_with_siblings) * weights["siblings"]
 
         # We count the children score as less, as it has fewer options (and is thus less indicative)
         total_score = (gender_score + age_score + profession_score + relationship_score + children_score + siblings_score)
@@ -450,7 +452,7 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
 
     for line in extra_advice:
         result += f"</br> {line}"
-    return {"answer": result}
+    return {"answer": result, "match": f"{best_match.first_name} {best_match.last_name}", "score": highest_score}
     pass
 
 
