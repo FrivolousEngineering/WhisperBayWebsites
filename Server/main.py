@@ -248,7 +248,7 @@ characters = [
     Character(first_name="Chessen", last_name="Angwin", gender_run1="Female", gender_run2="Female", age=35, profession="Public services", relationship_status="???", children=True, contact_with_siblings="Yes", star_sign="Gemini"),
     Character(first_name="Willym", last_name="Enys", gender_run1="Male", gender_run2="Male", age=30, profession="Public services", relationship_status="In a relationship", children=False, contact_with_siblings="Yes", star_sign="Cancer"),
     Character(first_name="Androw", last_name="Redruth", gender_run1="Male", gender_run2="Male", age=20, profession="Public services", relationship_status="Engaged", children=False, contact_with_siblings="Yes", star_sign="Leo"),
-    Character(first_name="Dorian", last_name="Carter", gender_run1="Male", gender_run2="Male", age=39, profession="Public services", relationship_status="Single", children=False, contact_with_siblings="No", star_sign="Virgo"),
+    Character(first_name="Dorian", last_name="Carter", gender_run1="Male", gender_run2="Male", age=39, profession="Public services", relationship_status="Single", children=False, contact_with_siblings="No", star_sign="Sagittarius"),
     Character(first_name="Freya", last_name="Mully", gender_run1="Female", gender_run2="Female", age=34, profession="Public services", relationship_status="Single", children=False, contact_with_siblings="No", star_sign="Libra"),
     Character(first_name="Thomas", last_name="Hammond", gender_run1="Male", gender_run2="Male", age=40, profession="Professional", relationship_status="In a relationship", children=False, contact_with_siblings="No", star_sign="Scorpio"),
     Character(first_name="Selina", last_name="Blair", gender_run1="Female", gender_run2="Female", age=39, profession="Professional", relationship_status="???", children=False, contact_with_siblings="No", star_sign="Sagittarius"),
@@ -372,7 +372,7 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
 
     best_match = None
     highest_score = 0
-    run_number = 2 # TODO: hardcoded run
+    run_number = 1 # TODO: hardcoded run
     answers = extract_question_answers(da)
 
     submission_id = crud.get_highest_submission_id(db) + 1

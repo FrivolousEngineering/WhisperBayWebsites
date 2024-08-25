@@ -9,7 +9,7 @@ client = TestClient(app)
 @pytest.mark.parametrize("character", characters)
 def test_character_matching(character):
     # Extract the character attributes for the test
-    gender = character.gender_run2
+    gender = character.gender_run1
     age = character.age
     profession = character.profession
     relation_status = character.relationship_status
