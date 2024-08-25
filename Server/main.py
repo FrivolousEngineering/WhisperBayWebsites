@@ -384,12 +384,9 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
     gender = da["question_3_answer"]
     profession = da["question_4_answer"]
     relation_status = da["question_5_answer"]
-    has_children = da["question_6_answer"] == "Yes"
-    siblings = da["question_7_answer"]
-    starsign = da["question_8_answer"]
+    starsign = da["question_6_answer"]
 
-    weights = {"age": 3, "gender": 6, "profession": 2 , "relation_status": 2, "has_children": 1, "siblings": 1, "starsign": 5}
-
+    weights = {"age": 3, "gender": 6, "profession": 2, "relation_status": 2, "starsign": 5}
 
     # 3 for macthing the age, 6 for matching the gender, and 1 for children, 2 for profession, 2 for relation, 1 for siblings
     highest_score_possible = 3 + 6 + 2 + 2 + 1 + 1 + 5
@@ -403,8 +400,6 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
         else:
             gender_score = int(gender == character.gender_run2)
 
-        children_score = int(has_children == character.children) * weights["has_children"]
-
         # Since gender isn't something that the players will fuck up, i'm giving that a lot more weight.
         gender_score *= weights["gender"]
 
@@ -414,17 +409,15 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
         # Profession also has a bit of fuzzy matching going on
         profession_score = calc_profession_score(profession, character.profession) * weights["profession"]
 
-        siblings_score = int(siblings == character.contact_with_siblings) * weights["siblings"]
-
         starsign_score = int(starsign == character.star_sign) * weights["starsign"]
         # We count the children score as less, as it has fewer options (and is thus less indicative)
-        total_score = (gender_score + age_score + profession_score + relationship_score + children_score + siblings_score + starsign_score)
+        total_score = (gender_score + age_score + profession_score + relationship_score + starsign_score)
 
         if total_score > highest_score:
             highest_score = total_score
             best_match = character
 
-            found_scores = (gender_score, age_score, profession_score, relationship_score, children_score)
+            found_scores = (gender_score, age_score, profession_score, relationship_score, starsign_score)
 
     print(da)
     print(age, gender)
