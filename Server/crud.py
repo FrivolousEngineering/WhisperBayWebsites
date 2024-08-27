@@ -138,6 +138,9 @@ def reset_database(db: Session):
     db.commit()
 
 
+def update_escalation_state(db: Session, new_escalation_state:int):
+    pass
+
 def get_all_club_members_by_club(db: Session, club_name: str, run: int = 1):
     result = []
     if run == 1:
@@ -816,7 +819,9 @@ def _seed_news_articles(db):
 
 
 def seed_database(db: Session):
-    # Add the default stuff in the datbase
+    # Add the default stuff in the database
+    db_state = models.RunState()
+    db.add(db_state)
 
     _seed_questions(db)
     _seed_recipe_messages(db)

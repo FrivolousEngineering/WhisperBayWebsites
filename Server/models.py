@@ -35,6 +35,12 @@ class QuestionOption(Base):
     question = relationship("Question", back_populates="options")
 
 
+class RunState(Base):
+    __tablename__ = "run_state"
+    id = Column(Integer, primary_key=True)
+    escalation_level = Column(Integer, default = 0)
+
+
 class Answer(Base):
     __tablename__ = "answers"
     id = Column(Integer, primary_key=True)
