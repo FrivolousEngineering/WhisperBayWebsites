@@ -49,7 +49,7 @@
 
 <script>
     function getAllMembers() {
-        $.get("http://localhost:8000/clubmemberships/?club=forest", function (data) {
+        $.get("http://localhost:8000/clubmemberships/?club=forrest", function (data) {
             updateMembers(data);
         });
     }
@@ -60,7 +60,7 @@
 
 	    $.each(response, function (i, member) {
 		var listItem = $("<li>", {});
-		var nicnameText = "";
+		var nicknameText = "";
 		if(member.nickname !== ""){
 			nicknameText = "\"" + member.nickname + "\" ";
 		}

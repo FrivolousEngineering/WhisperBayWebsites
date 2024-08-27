@@ -817,6 +817,84 @@ def _seed_news_articles(db):
                                     time_to_use="1991-09-14 12:00")
 
 
+def _seed_club_memberships(db):
+    create_club_membership(db, "Aswen", "Pengelly", "", club_run_1="bowls", club_run_2="bowls")
+    create_club_membership(db, "Merryn", "Pengelly", "", club_run_1="parish", club_run_2="parish")
+    create_club_membership(db, "Benesek", "Tredinnick", "Ben", club_run_1="bowls", club_run_2="forrest")
+    create_club_membership(db, "Enigoe", "Tredinnick", "Gogo", club_run_1="forrest", club_run_2="forrest")
+    create_club_membership(db, "Rosenwyn", "Jelbert", "Roz", club_run_1="wi", club_run_2="wi")
+    create_club_membership(db, "Gwynnever (Gwynnie) Roseveare", "(nee Chenoweth)", "", club_run_1="wi", club_run_2="wi")
+    create_club_membership(db, "Locryn", "Chenoweth", "Lock", club_run_1="parish", club_run_2="parish")
+    create_club_membership(db, "Oscar", "Fitzwilliam", "", club_run_1="bowls", club_run_2="parish")
+    create_club_membership(db, "Sevi", "Jelbert", "", club_run_1="parish", club_run_2="parish")
+    create_club_membership(db, "Tegen", "Chenoweth", "", club_run_1="bowls", club_run_2="wi")
+    create_club_membership(db, "Caradoc/Carenza", "Grose", "Carry", club_run_1="forrest", club_run_2="bowls")
+    create_club_membership(db, "Demelza", "Jelbert", "Demi", club_run_1="computer", club_run_2="computer")
+    create_club_membership(db, "Paul", "Smith", "", club_run_1="forrest", club_run_2="forrest")
+    create_club_membership(db, "Faythely", "Pengelly", "Fayth", club_run_1="wi", club_run_2="forrest")
+    create_club_membership(db, "Wendy", "Kempthorne", "", club_run_1="bowls", club_run_2="computer")
+    create_club_membership(db, "Noah", "Angwin", "", club_run_1="forrest", club_run_2="bowls")
+    create_club_membership(db, "Kenwyn", "Boscawen", "Kenny", club_run_1="computer", club_run_2="computer")
+    create_club_membership(db, "John", "Smith", "", club_run_1="parish", club_run_2="parish")
+    create_club_membership(db, "Linda", "Smith", "", club_run_1="wi", club_run_2="wi")
+    create_club_membership(db, "Henry", "Kempthorne", "", club_run_1="bowls", club_run_2="bowls", title_run_1="captain",
+                           title_run_2="captain")
+    create_club_membership(db, "Ursilla", "Chenoweth", "Silla", club_run_1="parish",
+                           club_run_2="wi", title_run_1="aspirant")
+    create_club_membership(db, "Yannick", "Berkowitz", "Yann", club_run_1="forrest", club_run_2="bowls",
+                           title_run_1="aspirant")
+    create_club_membership(db, "Veronica", "Kempthorne", "", club_run_1="wi", club_run_2="wi")
+    create_club_membership(db, "Zachary", "Angwin", "", club_run_1="forrest", club_run_2="bowls",
+                           title_run_1="aspirant")
+    create_club_membership(db, "Iger", "Moon", "", club_run_1="computer", club_run_2="computer")
+    create_club_membership(db, "Xenara", "Moon", "", club_run_1="wi", club_run_2="wi")
+    create_club_membership(db, "Josep", "Boscawen", "Jo", club_run_1="forrest", club_run_2="forrest")
+    create_club_membership(db, "Davydh", "Roseveare", "", club_run_1="parish", club_run_2="parish")
+    create_club_membership(db, "Anneth", "Enys", "", club_run_1="forrest", club_run_2="forrest")
+    create_club_membership(db, "Stefan", "Roseveare", "Stef", club_run_1="bowls", club_run_2="bowls")
+    create_club_membership(db, "Felicity", "Kempthorne", "", club_run_1="wi", club_run_2="wi", title_run_1="chairwoman",
+                           title_run_2="chairwoman")
+    create_club_membership(db, "Georgina", "Czerny", "", club_run_1="computer", club_run_2="wi")
+    create_club_membership(db, "Ross", "Thomas", "", club_run_1="parish", club_run_2 = "")
+    create_club_membership(db, "Tressa", "Moon", "", club_run_1="computer", club_run_2="computer")
+    create_club_membership(db, "Philippa", "Tredinnick", "Pippa", club_run_1="computer", club_run_2="computer")
+    create_club_membership(db, "Lowen", "Grose", "", club_run_1="parish", club_run_2="parish")
+    create_club_membership(db, "Blake", "Fitzwilliam", "", club_run_1="bowls", club_run_2="forrest",
+                           title_run_1="aspirant")
+    create_club_membership(db, "Ollie", "Moon", "Ollie", club_run_1="computer", club_run_2="forrest",
+                           title_run_1="aspirant")
+    create_club_membership(db, "Nathan", "Foxton", "Nate", club_run_1="computer", club_run_2="forrest",
+                           title_run_1="aspirant")
+    create_club_membership(db, "Eric", "McCormick", "", club_run_1="bowls", club_run_2="computer",
+                           title_run_1="aspirant")
+    create_club_membership(db, "Hedra", "Tredinnick", "", club_run_1="computer", club_run_2="computer")
+    create_club_membership(db, "Chessen", "Angwin", "", club_run_1="wi", club_run_2="parish")
+    create_club_membership(db, "Willym", "Enys", "", club_run_1="parish", club_run_2="computer")
+    create_club_membership(db, "Androw", "Redruth", "", club_run_1="bowls",
+                           club_run_2="forrest")
+    create_club_membership(db, "Dorian", "Carter", "", club_run_1="forrest", club_run_2="")
+    create_club_membership(db, "Freya", "Mully", "", club_run_1="forrest", club_run_2="forrest")
+    create_club_membership(db, "Thomas", "Hammond", "", club_run_1="parish", club_run_2="parish",
+                           title_run_1="aspirant", title_run_2="aspirant")
+    create_club_membership(db, "Selina", "Blair", "", club_run_1="wi", club_run_2="bowls", title_run_2="aspirant")
+    create_club_membership(db, "Maren", "Nilsen", "", club_run_1="wi", club_run_2="wi")
+    create_club_membership(db, "Isette", "Redruth", "", club_run_1="forrest", club_run_2="forrest",
+                           title_run_1="leader", title_run_2="leader")
+    create_club_membership(db, "Ales", "Thomas", "", club_run_1="parish", club_run_2="parish", title_run_1="chairwoman",
+                           title_run_2="chairwoman")
+    create_club_membership(db, "Hykka", "Jelbert", "", club_run_1="bowls", club_run_2="forrest")
+    create_club_membership(db, "Newlyn", "Czerny", "Noo", club_run_1="computer", club_run_2="bowls",
+                           title_run_2="aspirant")
+    create_club_membership(db, "Jorun", "Nilsen", "", club_run_1="parish", club_run_2="parish", title_run_1="aspirant",
+                           title_run_2="aspirant")
+    create_club_membership(db, "Victor", "Czerny", "", club_run_1="forrest", club_run_2="computer",
+                           title_run_1="aspirant")
+    create_club_membership(db, "Remi", "Grigorio", "", club_run_1="computer",
+                           club_run_2="forrest", title_run_1="aspirant", title_run_2="aspirant")
+    create_club_membership(db, "Kate", "Astell", "", club_run_1="wi", club_run_2="wi")
+    create_club_membership(db, "Greg", "Borromead", "", club_run_1="bowls", club_run_2="bowls")
+    create_club_membership(db, "Fenella", "Borromead", "", club_run_1="computer", club_run_2="computer")
+
 
 def seed_database(db: Session):
     # Add the default stuff in the database
@@ -826,6 +904,7 @@ def seed_database(db: Session):
     _seed_questions(db)
     _seed_recipe_messages(db)
     _seed_alien_messages(db)
+    _seed_club_memberships(db)
 
     # Authors
     create_author(db, "Jaime", "Test")
