@@ -1,0 +1,15 @@
+[Unit]
+Description=LibraryServer
+After=network.target
+
+[Service]
+Type=simple
+User=jaime
+WorkingDirectory=/home/jaime/WhisperBayWebsites/
+ExecStart=uvicorn Server.main:app --host 0.0.0.0
+ExecReload=/bin/kill -HUP ${MAINPID}
+RestartSec=1
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
