@@ -135,11 +135,25 @@ def reset_database(db: Session):
     db.query(models.GuestbookMessage).delete()
     db.query(models.ClubMembership).delete()
     db.query(models.NewsArticle).delete()
+    db.query(models.Prediction).delete()
     db.commit()
 
 
-def update_escalation_state(db: Session, new_escalation_state:int):
+def create_prediction(db: Session, name: str, severity: int, text: str):
+    db_prediction = models.Prediction(name=name, severity=severity, text = text)
+    db.add(db_prediction)
+    db.commit()
+
+
+def _seed_predictions(db: Session):
+    # TODO; Add this (depending on the actual predicitions!)
     pass
+
+
+def update_escalation_state(db: Session, new_escalation_state:int):
+    # Change the escalation state
+    pass
+
 
 def get_all_club_members_by_club(db: Session, club_name: str, run: int = 1):
     result = []
@@ -900,7 +914,7 @@ def seed_database(db: Session):
     # Add the default stuff in the database
     db_state = models.RunState()
     db.add(db_state)
-
+    _seed_predictions(db)
     _seed_questions(db)
     _seed_recipe_messages(db)
     _seed_alien_messages(db)
@@ -911,9 +925,6 @@ def seed_database(db: Session):
 
     create_author(db, "admin", "somepassword")
     _seed_news_articles(db)
-
-
-
 
     # TEST USER
     create_club_membership(db, "Jaime", "van Kessel", "Nallath", club_run_1="FrivolousEngineering", club_run_2="FrivolousEngineering", title_run_1="Chief untouchable engineering", title_run_2="Chief untouchable engineering")

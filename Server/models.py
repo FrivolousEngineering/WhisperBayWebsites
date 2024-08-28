@@ -4,6 +4,18 @@ from sqlalchemy.orm import relationship
 from .database import Base
 
 
+class Prediction(Base):
+    __tablename__ = 'predicitions'
+    id = Column(Integer, primary_key=True)
+    severity = Column(Integer)
+    text = Column(String)
+    # TODO; I should probably not have cut certain corners that I did, but here we are. I didn't put characters in the DB
+    # Correctly, so now it's just linking em via firstname, which is also unique, but far from elegant
+    first_name = Column(String)
+
+
+
+
 class GuestbookMessage(Base):
     __tablename__ = "guestbook_messages"
     id = Column(Integer, primary_key=True)
