@@ -439,14 +439,23 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
     agnostic_vs_spiritual = "neutral"
     progressive_vs_conservative = "neutral"
 
+    escalation_level = db.query(models.RunState).first().escalation_level
+    advice_type = "normal"
+    if escalation_level == 0:
+        advice_type = "normal"
+    elif escalation_level == 1:
+        advice_type = "creepy"
+    elif escalation_level == 2:
+        advice_type = "unhinged"
+
     if highest_score < highest_score_possible / 4 * 3:
         result = "Although we were able to generate some advice for you, it is not as good as we would like it to be!"
     else:
         result = prediction
     extra_advice = []
     relation_advice = generate_relation_advice(relation_status, individual_vs_collectivist, agnostic_vs_spiritual,
-                                                     progressive_vs_conservative)
-    professional_advice = generate_professional_advice(profession, individual_vs_collectivist, agnostic_vs_spiritual, progressive_vs_conservative)
+                                                     progressive_vs_conservative, advice_type)
+    professional_advice = generate_professional_advice(profession, individual_vs_collectivist, agnostic_vs_spiritual, progressive_vs_conservative, advice_type)
 
     if relation_advice:
         extra_advice.append("<h1>Relation advice</h1>")
