@@ -1055,12 +1055,12 @@ def _seed_club_memberships(db):
     create_club_membership(db, "Benesek", "Tredinnick", "Ben", club_run_1="bowls", club_run_2="forrest")
     create_club_membership(db, "Enigoe", "Tredinnick", "Gogo", club_run_1="forrest", club_run_2="forrest")
     create_club_membership(db, "Rosenwyn", "Jelbert", "Roz", club_run_1="wi", club_run_2="wi")
-    create_club_membership(db, "Gwynnever (Gwynnie) Roseveare", "(nee Chenoweth)", "", club_run_1="wi", club_run_2="wi")
+    create_club_membership(db, "Gwynnever", "Roseveare", "", club_run_1="wi", club_run_2="wi")
     create_club_membership(db, "Locryn", "Chenoweth", "Lock", club_run_1="parish", club_run_2="parish")
     create_club_membership(db, "Oscar", "Fitzwilliam", "", club_run_1="bowls", club_run_2="parish")
     create_club_membership(db, "Sevi", "Jelbert", "", club_run_1="parish", club_run_2="parish")
     create_club_membership(db, "Tegen", "Chenoweth", "", club_run_1="bowls", club_run_2="wi")
-    create_club_membership(db, "Caradoc/Carenza", "Grose", "Carry", club_run_1="forrest", club_run_2="bowls")
+    create_club_membership(db, "Caradoc", "Grose", "Carry", club_run_1="forrest", club_run_2="bowls")
     create_club_membership(db, "Demelza", "Jelbert", "Demi", club_run_1="computer", club_run_2="computer")
     create_club_membership(db, "Paul", "Smith", "", club_run_1="forrest", club_run_2="forrest")
     create_club_membership(db, "Faythely", "Pengelly", "Fayth", club_run_1="wi", club_run_2="forrest")
@@ -1142,14 +1142,20 @@ def seed_database(db: Session):
     create_author(db, "Jaime", "Test")
 
     create_author(db, "admin", "somepassword")
+
+    create_author(db, "admin", "somepassword")
     _seed_news_articles(db)
 
+    from .main import characters
+    for character in characters:
+        create_author(db, character.first_name, character.last_name)
+
     # TEST USER
-    create_club_membership(db, "Jaime", "van Kessel", "Nallath", club_run_1="FrivolousEngineering", club_run_2="FrivolousEngineering", title_run_1="Chief untouchable engineering", title_run_2="Chief untouchable engineering")
-    create_club_membership(db, "Corne", "van Kessel", "BlazingEclipse", club_run_1="FrivolousEngineering", club_run_2="FrivolousEngineering", title_run_1="Chief touchable Engineering", title_run_2="Chief touchable Engineering")
+    #create_club_membership(db, "Jaime", "van Kessel", "Nallath", club_run_1="FrivolousEngineering", club_run_2="FrivolousEngineering", title_run_1="Chief untouchable engineering", title_run_2="Chief untouchable engineering")
+    #create_club_membership(db, "Corne", "van Kessel", "BlazingEclipse", club_run_1="FrivolousEngineering", club_run_2="FrivolousEngineering", title_run_1="Chief touchable Engineering", title_run_2="Chief touchable Engineering")
     # Left title empty on purpose for testing purposes
-    create_club_membership(db, "Roos", "Schultheiss", "Fjadderal", club_run_1="FrivolousEngineering", club_run_2="FrivolousEngineering", title_run_1="", title_run_2="")
+    #create_club_membership(db, "Roos", "Schultheiss", "Fjadderal", club_run_1="FrivolousEngineering", club_run_2="FrivolousEngineering", title_run_1="", title_run_2="")
 
-    create_club_membership(db, "Felicity", "Kempthorne", "", club_run_1="wi", club_run_2="wi", title_run_1="Chairwomen", title_run_2="Chairwomen")
+    #create_club_membership(db, "Felicity", "Kempthorne", "", club_run_1="wi", club_run_2="wi", title_run_1="Chairwomen", title_run_2="Chairwomen")
 
-    create_club_membership(db, "Rosenwyn", "Jelbert", "Roz", club_run_1="wi", club_run_2="wi")
+    #create_club_membership(db, "Rosenwyn", "Jelbert", "Roz", club_run_1="wi", club_run_2="wi")
