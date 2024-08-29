@@ -398,7 +398,7 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
     weights = {"age": 3, "gender": 6, "profession": 2, "relation_status": 2, "starsign": 5}
 
     # 3 for macthing the age, 6 for matching the gender, and 1 for children, 2 for profession, 2 for relation, 1 for siblings
-    highest_score_possible = 3 + 6 + 2 + 2 + 1 + 1 + 5
+    highest_score_possible = sum(weights.values())
 
     # Loop over all characters and figure out wich of them match the best
     for character in characters:
