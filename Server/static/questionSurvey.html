@@ -12,9 +12,9 @@
     }
 </style>
 
-<h1> WELCOME TO HAPPYNESS2000</h1>
-<p>Hapyness 2000 is your guide to happyness! </p>
-<p> Please fill in all questions as <b>Truthfull</b> as possible. As the system uses statistical analysis, provide the answer that was most true for <b>the past month</b>. This means that if something recently changed, you should indicate the value that was correct for most of the time.</p>
+<h1> WELCOME TO HAPPINESS2000</h1>
+<p> Happiness2000 is your guide to everyday happiness! Let science guide you towards optimal life choices!</p>
+<p> Please answer all questions as <b>truthfully</b> as possible in order for Happiness2000 to provide you with personalised, statistically-proven life advice. Your data will remain anonymous and only be used to improve the functioning of the program.</p>
 <br><br><br>
 <div id="questionsContainer">
 
@@ -132,12 +132,12 @@
             form.append($("</br>"));
 
             if(question.type === "freeform"){
-                form.append($("<input>", {placeholder: "Type your answer here!", name: "question_" + question.id + "_answer", class: "form-field"}));
+                form.append($("<input>", {placeholder: "Type your answer here:", name: "question_" + question.id + "_answer", class: "form-field"}));
                 form.append($("</br>"));
 
             } else if (question.type === "pickone") {
                 var select = $("<select>", {name: "question_" + question.id + "_answer", class: "form-field"});
-                select.append($("<option>", {value: ""}).text("Please select a value"));
+                select.append($("<option>", {value: ""}).text("Please select a value:"));
                 $.each(question.options, function (j, option) {
                     select.append($("<option>", {value: option.value}).text(option.value));
                 });
