@@ -433,6 +433,8 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
 
     print(f"The best match is {best_match.first_name} {best_match.last_name} with a score of {highest_score}, [{found_scores}]")
     print(f"")
+    prediction = crud.find_prediction(db, best_match.first_name)
+    print(f"FOUNDDDD: {prediction}")
     individual_vs_collectivist = "neutral"
     agnostic_vs_spiritual = "neutral"
     progressive_vs_conservative = "neutral"
@@ -440,8 +442,7 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
     if highest_score < highest_score_possible / 4 * 3:
         result = "Although we were able to generate some advice for you, it is not as good as we would like it to be!"
     else:
-        result = "Here is your personalized advice!"
-
+        result = prediction
     extra_advice = []
     relation_advice = generate_relation_advice(relation_status, individual_vs_collectivist, agnostic_vs_spiritual,
                                                      progressive_vs_conservative)

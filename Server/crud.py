@@ -150,6 +150,16 @@ def create_prediction(db: Session, name: str, text_1: str, text_2: str, text_3: 
     db.commit()
 
 
+def find_prediction(db: Session, first_name: str):
+    escalation_level = db.query(models.RunState).first().escalation_level
+
+    result = db.query(models.Prediction).where((models.Prediction.first_name == first_name) & (models.Prediction.severity == escalation_level)).first()
+    if result:
+        return result.text
+    return ""
+
+
+
 def _seed_predictions(db: Session):
     create_prediction(db, "Aswen Pengelly",
                       "Nurture your mental health; it’s just as important as your physical well-being.",
