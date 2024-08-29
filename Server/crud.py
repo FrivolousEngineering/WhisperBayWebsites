@@ -216,7 +216,7 @@ def _seed_questions(db: Session):
     create_question(db, schemas.QuestionCreate(text="What is your relationship status?", type="pickone", required=True))
 
 
-    create_question(db, schemas.QuestionCreate(text="What is your starsignt?", type="pickone", required=True))
+    create_question(db, schemas.QuestionCreate(text="What is your starsign?", type="pickone", required=True))
 
 
     # Gender
