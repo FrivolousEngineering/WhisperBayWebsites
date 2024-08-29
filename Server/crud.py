@@ -139,15 +139,221 @@ def reset_database(db: Session):
     db.commit()
 
 
-def create_prediction(db: Session, name: str, severity: int, text: str):
-    db_prediction = models.Prediction(name=name, severity=severity, text = text)
+def create_prediction(db: Session, name: str, text_1: str, text_2: str, text_3: str):
+    first_name = name.split(" ")[0]
+    db_prediction = models.Prediction(first_name=first_name, severity=0, text = text_1)
+    db.add(db_prediction)
+    db_prediction = models.Prediction(first_name=first_name, severity=1, text=text_2)
+    db.add(db_prediction)
+    db_prediction = models.Prediction(first_name=first_name, severity=2, text=text_3)
     db.add(db_prediction)
     db.commit()
 
 
 def _seed_predictions(db: Session):
-    # TODO; Add this (depending on the actual predicitions!)
-    pass
+    create_prediction(db, "Aswen Pengelly",
+                      "Nurture your mental health; it’s just as important as your physical well-being.",
+                      "Hold on to the present moment. The decisions you make in the here and now will decide your future so stop worrying about the past.",
+                      "She’s gone. Accept it and move on with your life… or maybe you could join her.")
+    create_prediction(db, "Merryn Pengelly", "Persistence is your greatest weapon; use it wisely.",
+                      "Don’t let family issues stand in the way of your self-realisation. You are a born hero so act on your instincts.",
+                      "Maybe you could still save her, but becoming a real hero now seems a big stretch. Accept your shortcomings and failures and move on.")
+    create_prediction(db, "Benesek Tredinnick",
+                      "Pursue your passions with dedication, but remember to balance work with time for yourself and loved ones. Tradition is important, but don’t let it stifle innovation.",
+                      "You will experience setbacks in your quest. Don't let them discourage you, but be aware of the sacrifices you'll have to make.",
+                      "Give up on your pointless crusade and focus on protecting your family. You can never hope to win - I am stronger than you.")
+    create_prediction(db, "Enigoe Tredinnick",
+                      "Embrace your heritage, but don’t let the weight of the past crush your spirit—forge your own path.",
+                      "Lightheartedness is important, but so is knowing when to be serious. Don't drift apart from those who really matter.",
+                      "You’ll never live up to your family’s legacy, but you know that already. The shadows you fight are too strong—just give up now.")
+    create_prediction(db, "Rosenwyn Jelbert",
+                      "Loyalty is a beautiful trait, but remember to stay true to yourself above all else.",
+                      "Life is not always a comedy - someone dies, and suddenly it's a tragedy instead. Be ready for things to change soon.",
+                      "Your loyalty will get you nowhere. The people you trust will betray you—stop wasting your time, focus on yourself instead.")
+    create_prediction(db, "Gwynnever Roseveare",
+                      "Trust your instincts, and don't be afraid to carve your own path—your voice matters, and it's powerful.",
+                      "New love is beautiful, but can be dangerous, too. Don't forget about past loves and their impact on your life.",
+                      "They will find out and they will punish you for it, in ways you don't expect. Abandon all hope. You cannot hide.")
+    create_prediction(db, "Locryn Chenoweth", "Business is important, but so is community—find the balance.",
+                      "Secrets have a way of always coming out, and if you let them fester, they turn into an ugly thing. Let them out, or kill them for good.",
+                      "Stop clinging to things you can no longer have - the past is the past, you can't trap it. In the end, you will be alone, and nothing will be perfect.")
+    create_prediction(db, "Oscar Fitzwilliam", "Healing others is noble, but don’t forget to take care of yourself.",
+                      "Death is just another part of life. But life has value and should be embraced - don't be too eager for the final act.",
+                      "Death and decay will be with you forevermore, and will be all you'll ever know. There is no room for love when you've embraced Decay.")
+    create_prediction(db, "Sevi Jelbert", "Loyalty is admirable, but don’t let it cloud your judgement.",
+                      "The spirits have protected you always, but beware - some day soon they might turn away and allow the shadows in.",
+                      "Your loyalty is your downfall. No one’s worth the sacrifices you’ve made.")
+    create_prediction(db, "Tegen Chenoweth",
+                      "Seek out mentors who can guide and support you; their wisdom is invaluable.",
+                      "Curiosity is valuable, but be careful where it leads you.",
+                      "Your Harvest dream is over and done. Mediocrity is all you can expect from life from here on out. Your only chance of being something greater is by going with them.")
+    create_prediction(db, "Caradoc Grose",
+                      "Cultivate gratitude; appreciating what you have fosters a more content and joyful life.",
+                      "Envy is an ugly beast, and what goes around comes around. Don't get caught in the jaws of karmic justice.",
+                      "You are second best, in everything, always. Never the best. Accept that this is your life,give up your dreams, and try to find whatever peace you can in this miserable mortal coil.")
+    create_prediction(db, "Demelza Jelbert",
+                      "Surround yourself with people who uplift and inspire you; friendships are your strongest allies.",
+                      "Hold on to those dear and close to your heart. Some friends are irreplaceable, and once they're gone, you won't be able to replace them.",
+                      "You aren't loved in the way that you want to be. Accept this, and the pain will go away. If it doesn't - better luck next time. Hope awaits.")
+    create_prediction(db, "Paul Smith",
+                      "Take responsibility for your actions; accountability is a key aspect of maturity.",
+                      "Your secrets are safe for now, but be prepared for the consequences.",
+                      "Realise that all of this is your fault, and yours alone. You can't run and hide from the truth any longer.")
+    create_prediction(db, "Faythely Pengelly", "Your journey isn’t over—keep searching for the truth.",
+                      "Dreams are fragile. Be careful—they have a way of shattering when reality creeps in.",
+                      "Who are you? Do you even know anymore? You're a dead girl. Embrace it.")
+    create_prediction(db, "Wendy Kempthorne",
+                      "Invest in your education and independence; the world is changing, and your future is in your hands.",
+                      "The façade you’ve built is cracking. Sooner or later, the truth will slip through.",
+                      "You think they care for you, but you are a means to an end for them. Nothing less, but nothing more.")
+    create_prediction(db, "Noah Angwin",
+                      "Remember, it's okay to say no—your time and energy are valuable, so protect them wisely.",
+                      "Your mind is sharp, but sharp edges can cut. Watch out - you're not invincible.",
+                      "You will never be more than you are now. Accept your life is a waste. You will never be good enough.")
+    create_prediction(db, "Kenwyn Boscawen", "Past mistakes don’t define you, but they do shape your future.",
+                      "Ideals are admirable, but they can lead you astray. Not everyone shares your vision—beware.",
+                      "There will never be justice in the world, and the utopia you dream about is further from your reach than it ever was. You will be better off if you accept this.")
+    create_prediction(db, "John Smith",
+                      "Learn to communicate your needs clearly; effective communication is key in all relationships.",
+                      "Appearances can be deceiving—stay true to yourself amidst the lies.",
+                      "Everything good and bad must come to an end, and soon. You need to make a choice, or it will be made for you.")
+    create_prediction(db, "Linda Smith",
+                      "Take time to discover what truly makes you happy; it’s the foundation of a fulfilling life.",
+                      "A smile can hide a thousand secrets; don’t let them consume you.",
+                      "When everything you ever wanted seems within reach, it's time to realise that you haven't wanted it for a long time. Embrace the hand you have been dealt.")
+    create_prediction(db, "Henry Kempthorne",
+                      "Learn to listen as much as you speak; true strength lies in understanding and empathy.",
+                      "Ambition is a double-edged sword. The higher you climb, the further you have to fall.",
+                      "Your legacy is a farce. It’s time to let go and disappear.")
+    create_prediction(db, "Ursilla Chenoweth",
+                      "Appearances can be deceiving, and disappearances are never simple—find the truth before it finds you.",
+                      "You can change your name, but not your fate. It’s catching up with you—run while you can.",
+                      "You’re better off lost. Stay hidden—it’s safer that way.")
+    create_prediction(db, "Yannick Berkowitz", "The past doesn’t have to dictate your future—change is within reach.",
+                      "The Angels have overlooked your failings until now and given you another chance. But judgement is coming for you.",
+                      "You’re doomed to repeat your past. No one can escape their nature—not even you.")
+    create_prediction(db, "Veronica Kempthorne", "Power isn’t everything—know when to step back.",
+                      "Power slips through your fingers like sand. Hold on too tight, and you’ll lose it all.",
+                      "Give up. Your time is over. It is my turn to take the reins.")
+    create_prediction(db, "Zachary Angwin", "You’re stronger than you realize; don’t let others underestimate you.",
+                      "You’re walking a fine line. One misstep, and you’ll find yourself on the wrong side.",
+                      "Run away, you don't have a place here. You don't belong anymore, and you never will again. Just run away.")
+    create_prediction(db, "Iger Moon", "Trust in the old ways, but don’t let tradition blind you to new possibilities.",
+                      "The old gods are silent. Perhaps it’s time to listen to the whispers of doubt in your own mind.",
+                      "The gods have abandoned you—your rituals are meaningless. It’s time to accept the truth and walk away.")
+    create_prediction(db, "Xenara Moon",
+                      "Your faith is strong, but remember that disappointment can lead to enlightenment.",
+                      "Faith is fragile. It only takes a small crack to shatter it completely.",
+                      "The stars say that you haven't been enough for a long time. You will not achieve your noble goal. Succumb to your base desires to make it all more bearable.")
+    create_prediction(db, "Josep Boscawen", "Balance your past with your future; you have more control than you think.",
+                      "Destiny calls, but it’s not the kind of call you can ignore. Answer carefully—it may not be what you hoped for.",
+                      "Soon, everyone will realise that you are a fraud and a disappointment. Brace yourself for losing your chosen and real family.")
+    create_prediction(db, "Davydh Roseveare",
+                      "Remember that failure is not the end; it’s a stepping stone to your next success.",
+                      "Keep your secrets close; not everyone is ready to hear them.",
+                      "Your efforts will come to fruition eventually, but you will not be rewarded in the way you expect. You will be punished instead for all you have done.")
+    create_prediction(db, "Anneth Enys", "You are a vessel, but don’t forget your own identity in the process.",
+                      "The past is a heavy burden. It will weigh you down until you can no longer move forward.",
+                      "Perhaps things would have been different if you hadn't been a failure. Soon, your insignificance will be truly revealed.")
+    create_prediction(db, "Stefan Roseveare", "Sometimes, the quiet observer learns more than the loud leader.",
+                      "You’re too weak to make a difference—just fade into the background where you belong.",
+                      "You will serve no one, and save no one. Everything you're doing is inconsequential.")
+    create_prediction(db, "Felicity Kempthorne", "Authority requires balance—lead with both your head and heart.",
+                      "Control is an illusion. The tighter you grip it, the more it slips away.",
+                      "You’re not as strong as you think. The station is doomed, and so are you.")
+    create_prediction(db, "Georgina Czerny", "Your kindness is your strength—don’t let the world harden your heart.",
+                      "Kindness can be a weakness. Be careful—it’s easy to be taken advantage of in a world like this.",
+                      "The secrets you keep will destroy you. Your kindness will be your downfall. Abandon your post before it’s too late.")
+    create_prediction(db, "Ross Thomas", "Trust no one, not even those closest to you.",
+                      "Trust is dangerous - choose wisely who you give it to. In a place like this, betrayal lurks around every corner.",
+                      "You’re not a hero, just a cog in the machine. Stop pretending you can make a difference.")
+    create_prediction(db, "Tressa Moon",
+                      "Take risks and step out of your comfort zone; that’s where real growth happens.",
+                      "The things you hear aren’t always what they seem. Be cautious—some truths are best left unheard.",
+                      "The knight in shining armor is usually nothing but a dream. Time to wake up, little light. Reality is calling.")
+    create_prediction(db, "Philippa Tredinnick",
+                      "Your curiosity is a gift, but tread carefully; not all secrets are meant to be uncovered.",
+                      "Your curiosity will lead you somewhere dark. Be careful - some doors are better left unopened.",
+                      "The girl with no past can't possibly have a future. And if the past can't be recovered, one should give up on the future.")
+    create_prediction(db, "Lowen Grose",
+                      "Stay grounded in your beliefs, but don’t be afraid to adapt when the winds of change blow.",
+                      "Precision is your strength, but don’t let it blind you. Sometimes, the bigger picture is what matters most.",
+                      "Your meticulous work won’t save you. The chaos is too great, and it’s only a matter of time before it swallows everything whole.")
+    create_prediction(db, "Blake Fitzwilliam",
+                      "Curiosity may have led you here, but it’s caution that will keep you safe.",
+                      "The truth is out there, but finding it might cost you more than you’re willing to pay.",
+                      "The truth isn’t out there. Stop searching before it drives you mad.")
+    create_prediction(db, "Oliver Moon", "Wrath is a dangerous companion—keep it in check.",
+                      "The past doesn’t forgive. You can’t escape it—sooner or later, it’ll find you.",
+                      "Wrath. Wrath. Wrath. You will never escape the Wrath. Violence and rage is all there is and ever will be.")
+    create_prediction(db, "Nathan Foxton", "Voices can guide, but not walk the path for you. Trust your own judgement.",
+                      "Voices can be deceiving. Be careful which ones you listen to—they might not be who you think they are.",
+                      "The voices will soon ring out no longer. They will turn away from you, and look for something else on a new world.")
+    create_prediction(db, "Eric McCormick", "Sometimes, the truth is out there—but it’s not always what you expect.",
+                      "The future isn’t as bright as you think. Darkness is coming—prepare yourself.",
+                      "And from the darkness between the stars, He proclaimed: You're nothing, and will go down with everyone else.")
+    create_prediction(db, "Hedra Tredinnick",
+                      "Strength isn’t just physical—sometimes, the hardest battles are internal.",
+                      "Justice is a slippery thing. You might find that what you’re seeking isn’t what you expected.",
+                      "Find a new career path. You have no hope of protecting anything or anyone. Focus on simpler things which are in your capability.")
+    create_prediction(db, "Chessen Angwin", "The law is clear, but justice isn’t always black and white.",
+                      "The law is a heavy burden. Sometimes, it's better to let things go.",
+                      "The law is broken, just like you. Stop pretending you can enforce it.")
+    create_prediction(db, "Willym Enys", "The past holds many answers—don’t be afraid to dig deep.",
+                      "The deeper you dig, the darker it gets. Some things are better left buried.",
+                      "History is repeating itself. You’ll never uncover the truth—stop trying.")
+    create_prediction(db, "Androw Redruth",
+                      "The past is a lesson, not a life sentence—learn from it, but don’t let it define you.",
+                      "Loyalty is a dangerous thing. It’s easy to lose yourself in it.",
+                      "No matter what you do, everything will fall apart in the end. You’re just delaying the inevitable.")
+    create_prediction(db, "Dorian Carter",
+                      "The truth is your mission, but don’t forget to take care of the person searching for it.",
+                      "The truth is elusive. Be careful—chasing it might lead you somewhere you don’t want to go.",
+                      "You’re not the detective you think you are. The truth is out of your reach—stop trying to solve the unsolvable.")
+    create_prediction(db, "Freya Mully",
+                      "Tenacity is admirable, but know when to step back—sometimes, the answers come in the quiet moments.",
+                      "Persistence is a virtue, but it can also be a curse. You need to let go sometimes.",
+                      "All your hard work will amount to nothing. You’ll never get the recognition you crave—quit while you’re ahead.")
+    create_prediction(db, "Thomas Hammond", "Knowledge is power, but only if it’s shared wisely.",
+                      "Science can't explain everything. Some mysteries are better left unsolved.",
+                      "The past is better left buried. Your dig is a waste of time.")
+    create_prediction(db, "Selina Blair", "Knowledge is power, but power can be dangerous if misused.",
+                      "Knowledge is power, but it’s also a burden. Be careful—it might be more than you can handle.",
+                      "Your mission is a failure. You’re too late—let someone else clean up the mess.")
+    create_prediction(db, "Maren Nilsen", "The earth holds many secrets—dig carefully.",
+                      "The bones don't always hold the truth. Don't forget to make your own judgement - trust only bones, and you might find only death.",
+                      "The earth holds no answers for you. Your work is futile—stop digging.")
+    create_prediction(db, "Isette Redruth", "Your instincts are sharp—trust them, but don’t let them lead you astray.",
+                      "Protection comes at a cost. Be prepared to pay it - nothing is ever truly safe.",
+                      "Protection is a fantasy. You can’t save the village from itself.")
+    create_prediction(db, "Ales Thomas", "Control is an illusion—learn to adapt when things fall apart.",
+                      "Control is slipping. No matter how tightly you hold the reins, everything is bound to fall apart.",
+                      "Your empire is crumbling. Accept that it’s over before it all comes crashing down.")
+    create_prediction(db, "Hykka Jelbert", "Redemption is possible, but only if you truly desire it.",
+                      "Redemption is slipping out of reach. The shadows of your past will never let you go.",
+                      "You’re broken beyond repair. Stop pretending you have anything left to offer.")
+    create_prediction(db, "Newlyn Noo Czerny", "The past haunts you, but it’s your future that needs your attention.",
+                      "Run faster and further. The things that haunt you are right behind you.",
+                      "You’ll never escape your demons. Give in—they’ve already won.")
+    create_prediction(db, "Jorun Nilsen",
+                      "Remember that sometimes the greatest gift you can give to a loved one is emotional openness. Different people have different languages of love. Beware stormy weather next Tuesday.",
+                      "Stay true to your course, even when the waters get rough.",
+                      "The sea won’t save you. Stop running and face the inevitable.")
+    create_prediction(db, "Victor Czerny", "Science and the supernatural aren’t always at odds—find the balance.",
+                      "Logic can only take you so far - some things can't be explained.",
+                      "Science won’t save you from the supernatural. You’re chasing ghosts—give up.")
+    create_prediction(db, "Remi Grigorio", "Be cautious of what you seek—it might just find you first.",
+                      "Deception is a dangerous game. Sooner or later, the mask will slip.",
+                      "You’ll never find what you’re looking for. The answers don’t exist—walk away.")
+    create_prediction(db, "Kate Astell", "-", "-", "-")
+    create_prediction(db, "Greg Borromead", "Trust your instincts; they can lead you to unexpected opportunities.",
+                      "Your expertise is valuable, but in the wrong hands, it could be your undoing.",
+                      "All your efforts are for nothing. The world is crumbling around you, and there’s no way to stop it.")
+    create_prediction(db, "Fenella Borromead",
+                      "Believe in your dreams, even when they seem far-fetched; persistence is key.",
+                      "Your search for answers is admirable, but some questions should never be asked.",
+                      "Did you want me to tell you that you are special and deserve a great life? You know the truth. You aren't, and you don't. Accept your failure and stay here, were you belong, in obscurity and insignificance.")
+
 
 
 def update_escalation_state(db: Session, new_escalation_state: int):
