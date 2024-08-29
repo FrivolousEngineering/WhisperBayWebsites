@@ -347,6 +347,7 @@ def extract_question_answers(input_dict):
 def get_answers(db: Session = Depends(get_db)):
     return db.query(models.Answer).all()
 
+
 @app.get("/answers_by_submission/", response_model=List[Dict[str, Any]])
 def get_answers_by_submission(db: Session = Depends(get_db)):
     submissions = db.query(models.Answer.submission_id).distinct().all()
@@ -364,6 +365,14 @@ def get_answers_by_submission(db: Session = Depends(get_db)):
         result.append(submission_data)
 
     return result
+
+@app.get("/escalationState/")
+async def get_escalation_state(db: Session = Depends(get_db)):
+    return db.query(models.RunState).first().escalation_level
+
+@app.post("/escalationState/")
+async def update_escalation_state(request: Request, new_state: int, db: Session = Depends(get_db)):
+    crud.update_escalation_state(db, new_state)
 
 @app.post("/evaluateAnswers/")
 async def post_answers(request: Request, db: Session = Depends(get_db)):

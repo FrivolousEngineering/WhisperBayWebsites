@@ -150,9 +150,11 @@ def _seed_predictions(db: Session):
     pass
 
 
-def update_escalation_state(db: Session, new_escalation_state:int):
+def update_escalation_state(db: Session, new_escalation_state: int):
     # Change the escalation state
-    pass
+    db_state = db.query(models.RunState).first()
+    db_state.escalation_level =  new_escalation_state
+    db.commit()
 
 
 def get_all_club_members_by_club(db: Session, club_name: str, run: int = 1):
