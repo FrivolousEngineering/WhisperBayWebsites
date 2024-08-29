@@ -432,7 +432,7 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
     print(age, gender)
 
     print(f"The best match is {best_match.first_name} {best_match.last_name} with a score of {highest_score}, [{found_scores}]")
-
+    print(f"")
     individual_vs_collectivist = "neutral"
     agnostic_vs_spiritual = "neutral"
     progressive_vs_conservative = "neutral"
