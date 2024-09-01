@@ -23,12 +23,58 @@
 
     <div id="admin-content" style="display: none;">
         Click <a href="adminAnswers.html">here</a> to see the filled in answers </br></br>
+
+        You can tweak the type of advice that is given by changing the below options:
+        <form action="/prediction_direction/" method="post">
+            <label for="individual_vs_collectivist">Individual vs Collectivist:</label>
+            <select name="individual_vs_collectivist" id="individual_vs_collectivist" required>
+                <option value="neutral">Neutral</option>
+                <option value="individualist">Individual</option>
+                <option value="collectivist">Collectivist</option>
+            </select>
+            <br><br>
+
+            <label for="agnostic_vs_spiritual">Agnostic vs Spiritual:</label>
+            <select name="agnostic_vs_spiritual" id="agnostic_vs_spiritual" required>
+                <option value="neutral">Neutral</option>
+                <option value="agnostic">Agnostic</option>
+                <option value="spiritual">Spiritual</option>
+            </select>
+            <br><br>
+
+            <label for="progressive_vs_conservative">Progressive vs Conservative:</label>
+            <select name="progressive_vs_conservative" id="progressive_vs_conservative" required>
+                <option value="neutral">Neutral</option>
+                <option value="progressive">Progressive</option>
+                <option value="conservative">Conservative</option>
+            </select>
+            <br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+
         <div id="questionsContainer"></div>
         <div id="message"></div>
         <button id="logout-button">Logout</button>
     </div>
 
     <script>
+
+        $(document).ready(function() {
+            $.ajax({
+                url: '/prediction_direction/',
+                method: 'GET',
+                success: function(data) {
+                    // Set the default values based on the response
+                    $('#individual_vs_collectivist').val(data.individual_vs_collectivist);
+                    $('#agnostic_vs_spiritual').val(data.agnostic_vs_spiritual);
+                    $('#progressive_vs_conservative').val(data.progressive_vs_conservative);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error('Failed to fetch default values:', textStatus, errorThrown);
+                }
+            });
+        });
         // Function to get a cookie by name
         function getCookie(name) {
             let cookieArr = document.cookie.split(";");

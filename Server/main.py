@@ -442,7 +442,7 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
     individual_vs_collectivist = direction.individual_vs_collectivist
     agnostic_vs_spiritual = direction.agnostic_vs_spiritual
     progressive_vs_conservative = direction.progressive_vs_conservative
-
+    print(individual_vs_collectivist, agnostic_vs_spiritual, progressive_vs_conservative)
     escalation_level = db.query(models.RunState).first().escalation_level
     advice_type = "normal"
     if escalation_level == 0:
@@ -509,6 +509,17 @@ async def get_webring(site: str, ring: str = ""):
         next_url = known_sites[next_name]
         return schemas.WebRing(next_site_url = next_url, next_site_name = next_name, previous_site_name = prev_name, previous_site_url = prev_url, name = webring_name)
     raise HTTPException(status_code=404, detail="Item not found")
+
+
+@app.post("/prediction_direction/")
+async def set_prediction_direction(individual_vs_collectivist: Annotated[str, Form()], agnostic_vs_spiritual: Annotated[str, Form()], progressive_vs_conservative: Annotated[str, Form()], db: Session = Depends(get_db)):
+    crud.update_prediction_direction(db, individual_vs_collectivist, agnostic_vs_spiritual, progressive_vs_conservative)
+
+
+@app.get("/prediction_direction/")
+async def  get_prediction_direction(db: Session = Depends(get_db)):
+    direction = db.query(models.PredictionDirection).first()
+    return {"individual_vs_collectivist": direction.individual_vs_collectivist, "agnostic_vs_spiritual": direction.agnostic_vs_spiritual, "progressive_vs_conservative": direction.progressive_vs_conservative }
 
 
 @app.get("/authors/",  response_model=list[schemas.Author])
