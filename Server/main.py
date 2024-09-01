@@ -81,6 +81,7 @@ food_webring = ["Cornish Food Delights", "Womens Institute", "WhisperBay Communi
 commerce_webring = ["General Store", "Crystal Store", "Tourism Board", "Holiday Park"]
 education_webring = ["Computer Club", "Forest School", "Womens Institute"]
 
+
 # Dependency
 def get_db():
     db = SessionLocal()
@@ -88,6 +89,7 @@ def get_db():
         yield db
     finally:
         db.close()
+
 
 @app.get("/messages/", response_model=list[schemas.GuestbookMessage])
 def get_messages(target_guestbook: str, db: Session = Depends(get_db)):
@@ -99,6 +101,7 @@ def get_messages(target_guestbook: str, db: Session = Depends(get_db)):
 def create_message(message: schemas.GuestbookMessageCreate, db: Session = Depends(get_db)):
     return crud.create_guestbook_message(db=db, message=message)
 
+
 @app.post("/messages/form/", response_model=schemas.GuestbookMessage)
 async def create_message_form(target_guestbook: str, request: Request, db: Session = Depends(get_db)):
     da = await request.form()
@@ -106,6 +109,7 @@ async def create_message_form(target_guestbook: str, request: Request, db: Sessi
 
     message = schemas.GuestbookMessageCreate(target_board = target_guestbook, author_name = da["name"], message = da["message"])
     return crud.create_guestbook_message(db=db, message=message)
+
 
 @app.get("/questions/", response_model=list[schemas.Question])
 def get_questions(db: Session = Depends(get_db)):
@@ -175,7 +179,6 @@ async def delete_question(question_id: int, db: Session = Depends(get_db)):
     crud.delete_question(db, question_id)
 
 
-
 @app.delete("/options/{option_id}/")
 async def delete_question(option_id: int, db: Session = Depends(get_db)):
     crud.delete_option(db, option_id)
@@ -188,9 +191,9 @@ def calculate_age_score(input_age: int, character_age: int) -> float:
     if age_difference >= max_difference:
         return -1
 
-    return (1 - (age_difference / max_difference))
+    return 1 - (age_difference / max_difference)
 
-# This is some debug code so that I can work with the hapyness 2000 matching testing
+
 class Character(BaseModel):
     first_name: str
     last_name: str
@@ -366,13 +369,16 @@ def get_answers_by_submission(db: Session = Depends(get_db)):
 
     return result
 
+
 @app.get("/escalationState/")
 async def get_escalation_state(db: Session = Depends(get_db)):
     return db.query(models.RunState).first().escalation_level
 
+
 @app.post("/escalationState/")
 async def update_escalation_state(request: Request, new_state: int, db: Session = Depends(get_db)):
     crud.update_escalation_state(db, new_state)
+
 
 @app.post("/evaluateAnswers/")
 async def post_answers(request: Request, db: Session = Depends(get_db)):
@@ -428,16 +434,14 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
 
             found_scores = (gender_score, age_score, profession_score, relationship_score, starsign_score)
 
-    print(da)
-    print(age, gender)
-
     print(f"The best match is {best_match.first_name} {best_match.last_name} with a score of {highest_score}, [{found_scores}]")
-    print(f"")
     prediction = crud.find_prediction(db, best_match.first_name)
     print(f"FOUNDDDD: {prediction}")
-    individual_vs_collectivist = "neutral"
-    agnostic_vs_spiritual = "neutral"
-    progressive_vs_conservative = "neutral"
+
+    direction = db.query(models.PredictionDirection).first()
+    individual_vs_collectivist = direction.individual_vs_collectivist
+    agnostic_vs_spiritual = direction.agnostic_vs_spiritual
+    progressive_vs_conservative = direction.progressive_vs_conservative
 
     escalation_level = db.query(models.RunState).first().escalation_level
     advice_type = "normal"
@@ -467,7 +471,6 @@ async def post_answers(request: Request, db: Session = Depends(get_db)):
     for line in extra_advice:
         result += f"</br> {line}"
     return {"answer": result, "match": f"{best_match.first_name} {best_match.last_name}", "score": highest_score}
-    pass
 
 
 @app.post("/reset/")

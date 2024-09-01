@@ -136,6 +136,8 @@ def reset_database(db: Session):
     db.query(models.ClubMembership).delete()
     db.query(models.NewsArticle).delete()
     db.query(models.Prediction).delete()
+    db.query(models.RunState).delete()
+    db.query(models.PredictionDirection).delete()
     db.commit()
 
 
@@ -365,11 +367,18 @@ def _seed_predictions(db: Session):
                       "Did you want me to tell you that you are special and deserve a great life? You know the truth. You aren't, and you don't. Accept your failure and stay here, were you belong, in obscurity and insignificance.")
 
 
-
 def update_escalation_state(db: Session, new_escalation_state: int):
     # Change the escalation state
     db_state = db.query(models.RunState).first()
-    db_state.escalation_level =  new_escalation_state
+    db_state.escalation_level = new_escalation_state
+    db.commit()
+
+
+def update_prediction_direction(db: Session, individual_vs_collectivist: str = "neutral", agnostic_vs_spiritual: str = "neutral", progressive_vs_conservative: str = "neutral"):
+    db_direction = db.query(models.PredictionDirection).first()
+    db_direction.individual_vs_collectivist = individual_vs_collectivist
+    db_direction.agnostic_vs_spiritual = agnostic_vs_spiritual
+    db_direction.progressive_vs_conservative = progressive_vs_conservative
     db.commit()
 
 
@@ -1132,6 +1141,9 @@ def seed_database(db: Session):
     # Add the default stuff in the database
     db_state = models.RunState()
     db.add(db_state)
+
+    db_direction = models.PredictionDirection()
+    db.add(db_direction)
     _seed_predictions(db)
     _seed_questions(db)
     _seed_recipe_messages(db)

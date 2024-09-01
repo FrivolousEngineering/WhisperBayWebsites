@@ -14,6 +14,12 @@ class Prediction(Base):
     first_name = Column(String)
 
 
+class PredictionDirection(Base):
+     __tablename__ = 'predicition_direction'
+     id = Column(Integer, primary_key=True)
+     individual_vs_collectivist = Column(String, default = "neutral")
+     agnostic_vs_spiritual = Column(String, default = "neutral")
+     progressive_vs_conservative = Column(String, default = "neutral")
 
 
 class GuestbookMessage(Base):
