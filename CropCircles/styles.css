@@ -12,7 +12,19 @@ header {
     text-align: center;
     padding: 10px;
     background-color: rgba(0, 0, 255, 0.5);
+}
 
+.flashy-link {
+    color: red; /* Optional: Set a specific color for the link */
+    font-weight: bold; /* Optional: Make the text bold */
+    text-decoration: none; /* Optional: Remove underline */
+    animation: flash 1s infinite;
+}
+
+@keyframes flash {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 main {
